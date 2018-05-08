@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: cbe7e9802422fef409d36a14d78d0236
+timeCreated: 1523592559
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: extrudedSurface10
+    100002: extrudedSurface9
+    100004: pCube34
+    100006: pCube35
+    100008: pCube36
+    100010: pCube37
+    100012: pCube38
+    100014: pCube39
+    100016: pCylinder23
+    100018: pCylinder24
+    100020: pCylinder25
+    100022: pCylinder26
+    100024: pCylinder27
+    100026: pSphere4
+    100028: //RootNode
+    100030: transform22
+    100032: transform23
+    100034: transform24
+    100036: transform25
+    100038: transform26
+    100040: transform27
+    100042: transform28
+    100044: transform29
+    100046: transform30
+    100048: transform31
+    100050: transform32
+    100052: transform33
+    100054: transform34
+    100056: joint1
+    100058: joint2
+    100060: joint3
+    100062: pCube88
+    100064: pCube89
+    100066: polySurface112
+    100068: polySurface115
+    100070: transform40
+    100072: Cannon_Barrel
+    100074: Cannon_Body
+    100076: CannonArm_One
+    100078: CannonArm_Two
+    400000: extrudedSurface10
+    400002: extrudedSurface9
+    400004: pCube34
+    400006: pCube35
+    400008: pCube36
+    400010: pCube37
+    400012: pCube38
+    400014: pCube39
+    400016: pCylinder23
+    400018: pCylinder24
+    400020: pCylinder25
+    400022: pCylinder26
+    400024: pCylinder27
+    400026: pSphere4
+    400028: //RootNode
+    400030: transform22
+    400032: transform23
+    400034: transform24
+    400036: transform25
+    400038: transform26
+    400040: transform27
+    400042: transform28
+    400044: transform29
+    400046: transform30
+    400048: transform31
+    400050: transform32
+    400052: transform33
+    400054: transform34
+    400056: joint1
+    400058: joint2
+    400060: joint3
+    400062: pCube88
+    400064: pCube89
+    400066: polySurface112
+    400068: polySurface115
+    400070: transform40
+    400072: Cannon_Barrel
+    400074: Cannon_Body
+    400076: CannonArm_One
+    400078: CannonArm_Two
+    2100000: lambert1
+    2100002: Cannon_Main_gray
+    2100004: Cannon_light_gray
+    2100006: Cannon_Dark_Gray
+    2100008: Cannon_silver_blinn
+    2100010: Cannon_Antenna_Wire
+    2100012: Main_Gray
+    2100014: Cannon_green_lense
+    2100016: Cannon_BaseGray
+    2100018: Cannon_LightGray
+    2300000: pCube39
+    2300002: //RootNode
+    2300004: pCube88
+    2300006: pCube89
+    2300008: polySurface112
+    2300010: polySurface115
+    2300012: Cannon_Barrel
+    2300014: Cannon_Body
+    2300016: CannonArm_One
+    2300018: CannonArm_Two
+    3300000: pCube39
+    3300002: //RootNode
+    3300004: pCube88
+    3300006: pCube89
+    3300008: polySurface112
+    3300010: polySurface115
+    3300012: Cannon_Barrel
+    3300014: Cannon_Body
+    3300016: CannonArm_One
+    3300018: CannonArm_Two
+    4300000: pCube39
+    4300002: pCube76
+    4300004: pCube89
+    4300006: pCube88
+    4300008: polySurface115
+    4300010: polySurface112
+    4300012: CannonTop
+    4300014: CannonArm_One
+    4300016: CannonArm_Two
+    4300018: Cannon_Body
+    4300020: Cannon_Barrel
+    7400000: Take 001
+    7400002: Cannon_Up
+    7400004: Cannon_Fire
+    7400006: Cannon_Aimed
+    7400008: Cannon_Down
+    9500000: //RootNode
+    11100000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 763
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cannon_Up
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cannon_Fire
+      takeName: Take 001
+      firstFrame: 500
+      lastFrame: 700
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cannon_Down
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Cannon_Aimed
+      takeName: Take 001
+      firstFrame: 750
+      lastFrame: 800
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
