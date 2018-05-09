@@ -1,0 +1,324 @@
+fileFormatVersion: 2
+guid: ccb6ea21c480e974da8797b2ec819a90
+timeCreated: 1523592139
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface547
+    100004: pPipe3
+    100006: extrudedSurface1
+    100008: extrudedSurface2
+    100010: Minigun_Barrel1
+    100012: Minigun_Barrel2
+    100014: Minigun_body
+    100016: pCube114
+    100018: pCube115
+    100020: pCube116
+    100022: pCube117
+    100024: pCube118
+    100026: pCube119
+    100028: pCube120
+    100030: pCube121
+    100032: pCube122
+    100034: pCube123
+    100036: pCube124
+    100038: pCube125
+    100040: pCube126
+    100042: pCube127
+    100044: pCube128
+    100046: pCube129
+    100048: pCube130
+    100050: pCube131
+    100052: pCube132
+    100054: pCube133
+    100056: pCube134
+    100058: pCube135
+    100060: pCube136
+    100062: pCube137
+    100064: pCube144
+    100066: pCylinder16
+    100068: pCylinder17
+    100070: pPipe7
+    100072: pPipe8
+    100074: pSphere3
+    100076: pSphere4
+    100078: pSphere5
+    100080: transform10
+    100082: transform11
+    100084: transform12
+    100086: transform13
+    100088: transform14
+    100090: transform15
+    100092: transform16
+    100094: transform17
+    100096: transform18
+    100098: transform19
+    100100: transform2
+    100102: transform20
+    100104: transform21
+    100106: transform22
+    100108: transform23
+    100110: transform24
+    100112: transform25
+    100114: transform26
+    100116: transform27
+    100118: transform28
+    100120: transform29
+    100122: transform3
+    100124: transform30
+    100126: transform31
+    100128: transform32
+    100130: transform33
+    100132: transform34
+    100134: transform35
+    100136: transform4
+    100138: transform5
+    100140: transform6
+    100142: transform7
+    100144: transform8
+    100146: transform9
+    400000: //RootNode
+    400002: polySurface547
+    400004: pPipe3
+    400006: extrudedSurface1
+    400008: extrudedSurface2
+    400010: Minigun_Barrel1
+    400012: Minigun_Barrel2
+    400014: Minigun_body
+    400016: pCube114
+    400018: pCube115
+    400020: pCube116
+    400022: pCube117
+    400024: pCube118
+    400026: pCube119
+    400028: pCube120
+    400030: pCube121
+    400032: pCube122
+    400034: pCube123
+    400036: pCube124
+    400038: pCube125
+    400040: pCube126
+    400042: pCube127
+    400044: pCube128
+    400046: pCube129
+    400048: pCube130
+    400050: pCube131
+    400052: pCube132
+    400054: pCube133
+    400056: pCube134
+    400058: pCube135
+    400060: pCube136
+    400062: pCube137
+    400064: pCube144
+    400066: pCylinder16
+    400068: pCylinder17
+    400070: pPipe7
+    400072: pPipe8
+    400074: pSphere3
+    400076: pSphere4
+    400078: pSphere5
+    400080: transform10
+    400082: transform11
+    400084: transform12
+    400086: transform13
+    400088: transform14
+    400090: transform15
+    400092: transform16
+    400094: transform17
+    400096: transform18
+    400098: transform19
+    400100: transform2
+    400102: transform20
+    400104: transform21
+    400106: transform22
+    400108: transform23
+    400110: transform24
+    400112: transform25
+    400114: transform26
+    400116: transform27
+    400118: transform28
+    400120: transform29
+    400122: transform3
+    400124: transform30
+    400126: transform31
+    400128: transform32
+    400130: transform33
+    400132: transform34
+    400134: transform35
+    400136: transform4
+    400138: transform5
+    400140: transform6
+    400142: transform7
+    400144: transform8
+    400146: transform9
+    2100000: lambert1
+    2100002: Minigun_Lense
+    2100004: Minigun_DarkGray
+    2100006: Minigun_LightGray
+    2100008: Minigun_BaseGray
+    2100010: Minigun_AntennaWires
+    2100012: Minigun_Barrel
+    2100014: MR_Barrel
+    2100016: Mid_Dark_Gray
+    2100018: DarkGray
+    2100020: Light_Gray
+    2300000: //RootNode
+    2300002: polySurface547
+    2300004: pPipe3
+    2300006: Minigun_Barrel1
+    2300008: Minigun_Barrel2
+    2300010: Minigun_body
+    3300000: //RootNode
+    3300002: polySurface547
+    3300004: pPipe3
+    3300006: Minigun_Barrel1
+    3300008: Minigun_Barrel2
+    3300010: Minigun_body
+    4300000: pPipe6
+    4300002: pSphere3
+    4300004: pPipe3
+    4300006: polySurface547
+    4300008: Minigun_body
+    4300010: Minigun_Barrel2
+    4300012: Minigun_Barrel1
+    7400000: Take 001
+    7400002: BarrelSpin
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BarrelSpin
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
