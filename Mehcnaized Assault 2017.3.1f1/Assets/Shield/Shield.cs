@@ -17,7 +17,7 @@ public class Shield : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "EnemyBullet") {
+		if (this.gameObject.name == "ShieldTest" && other.tag == "EnemyBullet") {
 			if (player.Shields > 0) {
 				player.Shields -= 3;
 			}

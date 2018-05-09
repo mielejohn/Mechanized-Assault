@@ -7,16 +7,17 @@ public class Enemy : MonoBehaviour {
 
 	public int Health = 100;
 	public Slider HealthBar;
+    public PlayerController PC;
 	// Use this for initialization
 	void Start () {
-		
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		HealthBar.value = Health;
 		if (Health <= 0) {
-			Destroy (this.gameObject);
+            Dead();
 		}
 	}
 
@@ -30,4 +31,14 @@ public class Enemy : MonoBehaviour {
 			Destroy (other.gameObject);
 		}
 	}
+
+    private void Dead()
+    {
+        if (this.gameObject == PC.targetedLeftEnemy)
+        {
+            PC.targetedLeftEnemy = null;
+            PC.targetedRightEnemy = null;
+            Destroy(this.gameObject);
+        }
+    }
 }

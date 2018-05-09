@@ -13,10 +13,12 @@ public enum ShieldStatus{Up, Down};
 public class PlayerController : MonoBehaviour {
 
 	[Header("Camera")]
+    [Required]
 	public GameObject Camera;
 	float cameraRotationLimitX;
 
 	[Header("Rigidbody")]
+    [Required]
 	public Rigidbody RB;
 
 	[Header("Speed Variables")]
@@ -47,7 +49,9 @@ public class PlayerController : MonoBehaviour {
 	[Header("Upper Body")]
 	public GameObject upperBody;
 
-	[Header("Targeted Enemy")]
+    [Header("Targeted Enemy")]
+    public bool Targeting;
+    public GameObject PossibleEnemy;
 	public GameObject targetedRightEnemy;
 	public GameObject targetedLeftEnemy;
 
@@ -79,34 +83,38 @@ public class PlayerController : MonoBehaviour {
 	public string leftWeapon;
 	public string rightWeapon;
 
-    [BoxGroup("Left Weapons")]
+    #region Left Weapon Variables
+    [TabGroup("Left Weapons")]
     public GameObject leftShotgun;
-    [BoxGroup("Left Weapons")]
+    [TabGroup("Left Weapons")]
     public GameObject leftAssaultRifle;
-    [BoxGroup("Left Weapons")]
+    [TabGroup("Left Weapons")]
     public GameObject leftSubMachinegun;
-    [BoxGroup("Left Weapons")]
+    [TabGroup("Left Weapons")]
     public GameObject leftSniperRifle;
-    [BoxGroup("Left Weapons")]
+    [TabGroup("Left Weapons")]
     public GameObject leftMinigun;
-    [BoxGroup("Left Weapons")]
+    [TabGroup("Left Weapons")]
     public GameObject leftMarksmanRifle;
+    #endregion
 
-    [BoxGroup("Right Weapons")]
+    #region Right Weapon Variables
+    [TabGroup("Right Weapons")]
     public GameObject rightShotgun;
-    [BoxGroup("Right Weapons")]
+    [TabGroup("Right Weapons")]
     public GameObject rightAssaultRifle;
-    [BoxGroup("Right Weapons")]
+    [TabGroup("Right Weapons")]
     public GameObject rightSubMachinegun;
-    [BoxGroup("Right Weapons")]
+    [TabGroup("Right Weapons")]
     public GameObject rightSniperRifle;
-    [BoxGroup("Right Weapons")]
+    [TabGroup("Right Weapons")]
     public GameObject rightMinigun;
-    [BoxGroup("Right Weapons")]
+    [TabGroup("Right Weapons")]
     public GameObject rightMarksmanRifle;
+    #endregion
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		#region Weapon Select
 		switch (rightWeapon) {
@@ -205,9 +213,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		Anim.SetFloat ("X_Axis", animX);
 		Anim.SetFloat ("Z_Axis", animZ);
-		#endregion
-
-		/*if (Input.GetButtonDown ("Jump") == false) {
+        #endregion
+        #region Dead Code
+        /*if (Input.GetButtonDown ("Jump") == false) {
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, -Vector3.up, out hit)) {
 				if (hit.distance < 15.0f && hit.collider.tag == "Ground") {
@@ -216,7 +224,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}*/
 
-		/*if(Input.GetButtonUp ("Horizontal")){
+        /*if(Input.GetButtonUp ("Horizontal")){
 			RB.velocity = new Vector3 (Mathf.Lerp (RB.velocity.x, 0, 0.3f),Mathf.Lerp (RB.velocity.y, 0, 0.3f),Mathf.Lerp (RB.velocity.z, 0, 0.3f));
 		}
 
@@ -228,16 +236,16 @@ public class PlayerController : MonoBehaviour {
 			RB.velocity = new Vector3 (0,Mathf.Lerp (RB.velocity.y, 0, 1.0f),0);
 		}*/
 
-		/*if (Input.GetKeyDown(KeyCode.R)) {
+        /*if (Input.GetKeyDown(KeyCode.R)) {
 			StartCoroutine (Right_Reload ());
 		}
 
 		if (Input.GetKeyDown(KeyCode.E)) {
 			StartCoroutine (Left_Reload ());
 		}*/
-		
-		#region Controller Movement
-		if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0) {
+
+        #region Controller Movement
+        if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0) {
 			float moveX = GM.state.ThumbSticks.Left.X * Time.deltaTime * groundSpeed;
 			float moveZ = GM.state.ThumbSticks.Left.Y * Time.deltaTime * groundSpeed;
 			animX = GM.state.ThumbSticks.Left.X;
@@ -252,15 +260,16 @@ public class PlayerController : MonoBehaviour {
 		cameraRotationLimitX -= Input.GetAxis ("Mouse Y") * 2.5f;
 		cameraRotationLimitX = Mathf.Clamp (cameraRotationLimitX, -35, 30);
 		Camera.transform.localEulerAngles = new Vector3 (cameraRotationLimitX, 0f, 0f);
-		#endregion
-		//LeftArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,LeftArm.transform.rotation.z);
-		//RightArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,RightArm.transform.rotation.z);
+        #endregion
+        //LeftArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,LeftArm.transform.rotation.z);
+        //RightArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,RightArm.transform.rotation.z);
 
-		//Spine.transform.localEulerAngles = new Vector3 (Spine.transform.rotation.x, Spine.transform.rotation.y, -cameraRotationLimitX);
-	}
+        //Spine.transform.localEulerAngles = new Vector3 (Spine.transform.rotation.x, Spine.transform.rotation.y, -cameraRotationLimitX);
+        #endregion
+    }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
 	{
 
 		ShieldSlider.value = Shields;
@@ -303,8 +312,25 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Pressed dash backwards");
 			//StartCoroutine(Dash("Backwards"));
 		}
-		//RightArm.transform.LookAt (Enemy.transform, new Vector3(0,0,1));
-		/*
+
+        if (Input.GetMouseButtonUp(2) && PossibleEnemy != null && Targeting == false)
+        {
+            targetedLeftEnemy = PossibleEnemy;
+            targetedRightEnemy = PossibleEnemy;
+            Targeting = true;
+            PossibleEnemy = null;
+        }
+
+        if (Input.GetMouseButtonDown(2) && Targeting == true)
+        {
+            targetedLeftEnemy = null;
+            targetedRightEnemy = null;
+            Targeting = false;
+        }
+
+        #region Dead Code
+        //RightArm.transform.LookAt (Enemy.transform, new Vector3(0,0,1));
+        /*
 		Vector3 targetDir = Enemy.transform.position - RightArm.transform.position;
 		float step = 10 * Time.deltaTime;
 		Vector3 newDir = Vector3.RotateTowards (RightArm.transform.forward, targetDir, step, 0.0f);
@@ -312,13 +338,14 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("New direction is " + newDir);
 		RightArm.transform.rotation = Quaternion.LookRotation (newDir);
 		*/
-		//RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
-		/*if (Enemy != null) {
+        //RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
+        /*if (Enemy != null) {
 			Vector3 relativePos = Enemy.transform.position - RightArm.transform.position;
 			Quaternion rotation = Quaternion.LookRotation (relativePos);
 			RightArm.transform.localEulerAngles = new Vector3 (rotation.x * 40, 90f, rotation.z);
 		}*/
-		RaycastHit hit;
+        #endregion
+        RaycastHit hit;
 		if(Physics.Raycast(transform.position, -Vector3.up, out hit)){
 			if (hit.distance < 15.0f && hit.collider.tag == "Ground") {
 				Debug.Log ("on the ground");
@@ -343,13 +370,14 @@ public class PlayerController : MonoBehaviour {
 		//targetedLeftEnemy = targetedEnemy;
 		if (targetedLeftEnemy != null && targetedRightEnemy != null)
 		{
-			//Debug.Log("Tracking enemy");
-			//Vector3 forward = RightArm.transform.TransformDirection(Vector3.forward) * 10;
-			//Debug.DrawRay(LeftArm.transform.position, -LeftArm.transform.forward, Color.green);
-			//LeftArm.transform.LookAt(targetedEnemy.transform);
-			//RightArm.transform.LookAt(targetedEnemy.transform);
-			//RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
-			/*Vector3 targetDir = Enemy.transform.position - RightArm.transform.position;
+            #region Dead Code
+            //Debug.Log("Tracking enemy");
+            //Vector3 forward = RightArm.transform.TransformDirection(Vector3.forward) * 10;
+            //Debug.DrawRay(LeftArm.transform.position, -LeftArm.transform.forward, Color.green);
+            //LeftArm.transform.LookAt(targetedEnemy.transform);
+            //RightArm.transform.LookAt(targetedEnemy.transform);
+            //RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
+            /*Vector3 targetDir = Enemy.transform.position - RightArm.transform.position;
 			float step = 5 * Time.deltaTime;
 			//Vector3 relativePos = RightArm.transform.position - Enemy.transform.position;
 			Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
@@ -357,8 +385,9 @@ public class PlayerController : MonoBehaviour {
 			//Quaternion rotation = Quaternion.LookRotation (relativePos,Vector3.forward);
 			//RightArm.transform.rotation = rotation;
 			//RightArm.transform.LookAt (Enemy.transform.position * 2f - RightArm.transform.position, transform.right);*/
-		}
-		else
+            #endregion
+        }
+        else
 		{
 			upperBody.transform.localEulerAngles = new Vector3(cameraRotationLimitX, upperBody.transform.rotation.y, upperBody.transform.rotation.z);
 		}
@@ -479,16 +508,16 @@ public class PlayerController : MonoBehaviour {
 	#endregion
 	
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "EnemyBullet") {
+        /*if (other.tag == "EnemyBullet") {
 			if (Shields > 0) {
 				Shields -= 3;
 			} else {
 				Health -= 3;
 			}
-		}
-	}
+		}*/
+    }
 
-	private IEnumerator ShieldDown(){
+    private IEnumerator ShieldDown(){
 		ShieldStatus = ShieldStatus.Down;
 		Anim.SetBool ("ShieldUp", false);
 		Anim.SetBool ("ShieldRecharging", false);
@@ -554,4 +583,16 @@ public class PlayerController : MonoBehaviour {
             enemyHold = null;
         }
 	}
+
+    public void Hit(int Damage)
+    {
+        if (Shields > 0)
+        {
+            Shields -= Damage;
+        }
+        else if(Shields <= 0)
+        {
+            Health -= Damage;
+        }
+    }
 }
