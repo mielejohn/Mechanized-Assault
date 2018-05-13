@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour {
         {
             PC.targetedLeftEnemy = null;
             PC.targetedRightEnemy = null;
-            Destroy(this.gameObject);
         }
+        Destroy(this.gameObject);
     }
 }

@@ -47,11 +47,11 @@ public class MissleLauncher : MonoBehaviour {
 	}
 
 	void Tracking(){
-		/*Vector3 targetDirection = PC.targetedEnemy.transform.position - missleLauncher_Y.transform.position;
+		/*Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
 		float angle = Mathf.Atan2 (-targetDirection.x, -targetDirection.y) * Mathf.Rad2Deg;
 		Vector3 q = Quaternion.AngleAxis (angle, -Vector3.forward).eulerAngles;
-		missleLauncher_Y.transform.rotation = Quaternion.Slerp(missleLauncher_Y.transform.rotation, Quaternion.Euler(new Vector3(0f, q.y, 0f)) ,Time.deltaTime * 2);
-		missleLauncher_X.transform.rotation = Quaternion.Slerp(missleLauncher_X.transform.rotation, Quaternion.Euler(new Vector3(q.z + 124f, 0f, 0f)) ,Time.deltaTime * 2);
+		missleLauncher_Y.transform.rotation = Quaternion.Slerp(missleLauncher_Y.transform.rotation, Quaternion.Euler(new Vector3(0f, q.y+10f, 0f)) ,Time.deltaTime * 2);
+		missleLauncher_X.transform.rotation = Quaternion.Slerp(missleLauncher_X.transform.rotation, Quaternion.Euler(new Vector3(q.x, 0f, 0f)) ,Time.deltaTime * 2);
 
 		/*Vector3 target = PC.Enemy.transform.position - PC.gameObject.transform.position;
 		target.x = 0.0f;
@@ -59,10 +59,10 @@ public class MissleLauncher : MonoBehaviour {
 		missleLauncher_Y.transform.LookAt(target);*/
 
 		//missleLauncher_Y.transform.LookAt(PC.targetedEnemy.transform);
-		/*Vector3 Rotation_targetDir = PC.Enemy.transform.position - missleLauncherRotationPoint.transform.position;
+		/*Vector3 Rotation_targetDir = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
 		float Rotation_step = 5 * Time.deltaTime;
-		Vector3 Rotation_newDir = Vector3.RotateTowards(transform.forward, Rotation_targetDir, Swivel_step, 0.0f);
-		missleLauncherRotationPoint.transform.rotation = Quaternion.LookRotation(new Vector3(Rotation_targetDir.x, 0.0f, 0.0f));*/
+		Vector3 Rotation_newDir = Vector3.RotateTowards(transform.forward, Rotation_targetDir, Rotation_step, 0.0f);
+        missleLauncher_Y.transform.rotation = Quaternion.LookRotation(new Vector3(Rotation_targetDir.x, 0.0f, 0.0f));*/
 	}
 
 	void Shoot ()

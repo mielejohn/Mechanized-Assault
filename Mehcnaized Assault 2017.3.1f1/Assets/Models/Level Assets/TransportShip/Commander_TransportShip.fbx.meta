@@ -1,0 +1,534 @@
+fileFormatVersion: 2
+guid: 388196ab3945a2343b821bfe70ee9760
+timeCreated: 1526052923
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: FrontLanding_Gear
+    100004: FrontLanding_Gear1
+    100006: Hanger_Ramp
+    100008: Left_Bay_Door
+    100010: Left_Hanger_Door
+    100012: LeftLanding_Gear
+    100014: pCube115
+    100016: pCube115 1
+    100018: pCube115 2
+    100020: pCube115 3
+    100022: pCube115 4
+    100024: pCube115 5
+    100026: pCube116
+    100028: pCube116 1
+    100030: pCube116 2
+    100032: pCube116 3
+    100034: pCube116 4
+    100036: pCube116 5
+    100038: pCube117
+    100040: pCube117 1
+    100042: pCube117 2
+    100044: pCube117 3
+    100046: pCube119
+    100048: pCube119 1
+    100050: RearLeftLanding_Gear
+    100052: RearRightLanding_Gear
+    100054: Right_Bay_Door
+    100056: Right_Hanger_Door
+    100058: RightLanding_Gear
+    100060: group2
+    100062: pCube201
+    100064: pCube202
+    100066: pCube203
+    100068: pCube204
+    100070: pCube205
+    100072: pCube206
+    100074: pCube207
+    100076: pCube210
+    100078: pCube212
+    100080: pCube213
+    100082: pCube215
+    100084: pCube217
+    100086: pCube218
+    100088: pCube219
+    100090: pCube220
+    100092: pCube221
+    100094: pCube222
+    100096: pCube223
+    100098: pCube235
+    100100: pCube238
+    100102: pCube239
+    100104: pCube245
+    100106: pCube246
+    100108: pCube247
+    100110: pCube248
+    100112: pCube249
+    100114: pCube251
+    100116: pCube252
+    100118: pCube253
+    100120: pCube254
+    100122: pCube255
+    100124: pCube256
+    100126: pCylinder110
+    100128: pCylinder111
+    100130: pCylinder112
+    100132: pCylinder113
+    100134: pCylinder114
+    100136: pCylinder115
+    100138: pCylinder116
+    100140: pCylinder117
+    100142: pCylinder118
+    100144: pCylinder119
+    100146: pCylinder128
+    100148: pCylinder130
+    100150: pCylinder131
+    100152: pCylinder132
+    100154: polySurface338
+    100156: polySurface339
+    100158: polySurface340
+    100160: polySurface341
+    100162: polySurface342
+    100164: polySurface343
+    100166: polySurface344
+    100168: polySurface345
+    100170: polySurface346
+    100172: polySurface347
+    100174: polySurface348
+    100176: pSphere6
+    100178: transform1
+    100180: transform2
+    100182: transform3
+    100184: transform4
+    100186: transform5
+    100188: transform6
+    100190: transform7
+    400000: //RootNode
+    400002: FrontLanding_Gear
+    400004: FrontLanding_Gear1
+    400006: Hanger_Ramp
+    400008: Left_Bay_Door
+    400010: Left_Hanger_Door
+    400012: LeftLanding_Gear
+    400014: pCube115
+    400016: pCube115 1
+    400018: pCube115 2
+    400020: pCube115 3
+    400022: pCube115 4
+    400024: pCube115 5
+    400026: pCube116
+    400028: pCube116 1
+    400030: pCube116 2
+    400032: pCube116 3
+    400034: pCube116 4
+    400036: pCube116 5
+    400038: pCube117
+    400040: pCube117 1
+    400042: pCube117 2
+    400044: pCube117 3
+    400046: pCube119
+    400048: pCube119 1
+    400050: RearLeftLanding_Gear
+    400052: RearRightLanding_Gear
+    400054: Right_Bay_Door
+    400056: Right_Hanger_Door
+    400058: RightLanding_Gear
+    400060: group2
+    400062: pCube201
+    400064: pCube202
+    400066: pCube203
+    400068: pCube204
+    400070: pCube205
+    400072: pCube206
+    400074: pCube207
+    400076: pCube210
+    400078: pCube212
+    400080: pCube213
+    400082: pCube215
+    400084: pCube217
+    400086: pCube218
+    400088: pCube219
+    400090: pCube220
+    400092: pCube221
+    400094: pCube222
+    400096: pCube223
+    400098: pCube235
+    400100: pCube238
+    400102: pCube239
+    400104: pCube245
+    400106: pCube246
+    400108: pCube247
+    400110: pCube248
+    400112: pCube249
+    400114: pCube251
+    400116: pCube252
+    400118: pCube253
+    400120: pCube254
+    400122: pCube255
+    400124: pCube256
+    400126: pCylinder110
+    400128: pCylinder111
+    400130: pCylinder112
+    400132: pCylinder113
+    400134: pCylinder114
+    400136: pCylinder115
+    400138: pCylinder116
+    400140: pCylinder117
+    400142: pCylinder118
+    400144: pCylinder119
+    400146: pCylinder128
+    400148: pCylinder130
+    400150: pCylinder131
+    400152: pCylinder132
+    400154: polySurface338
+    400156: polySurface339
+    400158: polySurface340
+    400160: polySurface341
+    400162: polySurface342
+    400164: polySurface343
+    400166: polySurface344
+    400168: polySurface345
+    400170: polySurface346
+    400172: polySurface347
+    400174: polySurface348
+    400176: pSphere6
+    400178: transform1
+    400180: transform2
+    400182: transform3
+    400184: transform4
+    400186: transform5
+    400188: transform6
+    400190: transform7
+    2100000: lambert1
+    2100002: Ship_BombRed
+    2100004: Ship_Gray_Non_UV_Lambert
+    2100006: Ship_DarkGray
+    2100008: Ship_Silver
+    2100010: ShipSilver
+    2100012: Ship_Orange_Thrusters
+    2100014: Black_Antenna
+    2100016: Ship_LightGray
+    2100018: Ship_Light_Gray_Non_UV_Lambert
+    2100020: Ship_Blue_Lambert
+    2300000: //RootNode
+    2300002: FrontLanding_Gear
+    2300004: FrontLanding_Gear1
+    2300006: Hanger_Ramp
+    2300008: Left_Bay_Door
+    2300010: Left_Hanger_Door
+    2300012: LeftLanding_Gear
+    2300014: pCube115
+    2300016: pCube115 1
+    2300018: pCube115 2
+    2300020: pCube115 3
+    2300022: pCube115 4
+    2300024: pCube115 5
+    2300026: pCube116
+    2300028: pCube116 1
+    2300030: pCube116 2
+    2300032: pCube116 3
+    2300034: pCube116 4
+    2300036: pCube116 5
+    2300038: pCube117
+    2300040: pCube117 1
+    2300042: pCube117 2
+    2300044: pCube117 3
+    2300046: pCube119
+    2300048: pCube119 1
+    2300050: RearLeftLanding_Gear
+    2300052: RearRightLanding_Gear
+    2300054: Right_Bay_Door
+    2300056: Right_Hanger_Door
+    2300058: RightLanding_Gear
+    2300060: pCube201
+    2300062: pCube202
+    2300064: pCube203
+    2300066: pCube204
+    2300068: pCube205
+    2300070: pCube206
+    2300072: pCube207
+    2300074: pCube210
+    2300076: pCube212
+    2300078: pCube213
+    2300080: pCube215
+    2300082: pCube217
+    2300084: pCube218
+    2300086: pCube219
+    2300088: pCube220
+    2300090: pCube221
+    2300092: pCube222
+    2300094: pCube223
+    2300096: pCube235
+    2300098: pCube238
+    2300100: pCube239
+    2300102: pCube245
+    2300104: pCube246
+    2300106: pCube247
+    2300108: pCube248
+    2300110: pCube249
+    2300112: pCube251
+    2300114: pCube252
+    2300116: pCube253
+    2300118: pCube255
+    2300120: pCube256
+    2300122: pCylinder110
+    2300124: pCylinder111
+    2300126: pCylinder112
+    2300128: pCylinder113
+    2300130: pCylinder114
+    2300132: pCylinder115
+    2300134: pCylinder118
+    2300136: pCylinder119
+    2300138: pCylinder128
+    2300140: pCylinder130
+    2300142: pCylinder131
+    2300144: pCylinder132
+    2300146: polySurface338
+    2300148: polySurface339
+    2300150: polySurface340
+    2300152: polySurface341
+    2300154: polySurface342
+    2300156: polySurface345
+    2300158: polySurface346
+    2300160: pSphere6
+    3300000: //RootNode
+    3300002: FrontLanding_Gear
+    3300004: FrontLanding_Gear1
+    3300006: Hanger_Ramp
+    3300008: Left_Bay_Door
+    3300010: Left_Hanger_Door
+    3300012: LeftLanding_Gear
+    3300014: pCube115
+    3300016: pCube115 1
+    3300018: pCube115 2
+    3300020: pCube115 3
+    3300022: pCube115 4
+    3300024: pCube115 5
+    3300026: pCube116
+    3300028: pCube116 1
+    3300030: pCube116 2
+    3300032: pCube116 3
+    3300034: pCube116 4
+    3300036: pCube116 5
+    3300038: pCube117
+    3300040: pCube117 1
+    3300042: pCube117 2
+    3300044: pCube117 3
+    3300046: pCube119
+    3300048: pCube119 1
+    3300050: RearLeftLanding_Gear
+    3300052: RearRightLanding_Gear
+    3300054: Right_Bay_Door
+    3300056: Right_Hanger_Door
+    3300058: RightLanding_Gear
+    3300060: pCube201
+    3300062: pCube202
+    3300064: pCube203
+    3300066: pCube204
+    3300068: pCube205
+    3300070: pCube206
+    3300072: pCube207
+    3300074: pCube210
+    3300076: pCube212
+    3300078: pCube213
+    3300080: pCube215
+    3300082: pCube217
+    3300084: pCube218
+    3300086: pCube219
+    3300088: pCube220
+    3300090: pCube221
+    3300092: pCube222
+    3300094: pCube223
+    3300096: pCube235
+    3300098: pCube238
+    3300100: pCube239
+    3300102: pCube245
+    3300104: pCube246
+    3300106: pCube247
+    3300108: pCube248
+    3300110: pCube249
+    3300112: pCube251
+    3300114: pCube252
+    3300116: pCube253
+    3300118: pCube255
+    3300120: pCube256
+    3300122: pCylinder110
+    3300124: pCylinder111
+    3300126: pCylinder112
+    3300128: pCylinder113
+    3300130: pCylinder114
+    3300132: pCylinder115
+    3300134: pCylinder118
+    3300136: pCylinder119
+    3300138: pCylinder128
+    3300140: pCylinder130
+    3300142: pCylinder131
+    3300144: pCylinder132
+    3300146: polySurface338
+    3300148: polySurface339
+    3300150: polySurface340
+    3300152: polySurface341
+    3300154: polySurface342
+    3300156: polySurface345
+    3300158: polySurface346
+    3300160: pSphere6
+    4300000: Commander_Ship1
+    4300002: Left_Hanger_Door
+    4300004: Right_Hanger_Door
+    4300006: Left_Bay_Door
+    4300008: Right_Bay_Door
+    4300010: Hanger_Ramp
+    4300012: FrontLanding_Gear1
+    4300014: pCube117
+    4300016: pCube116
+    4300018: pCube115
+    4300020: LeftLanding_Gear
+    4300022: pCube117
+    4300024: pCube116
+    4300026: pCube115
+    4300028: FrontLanding_Gear
+    4300030: pCube119
+    4300032: pCube116
+    4300034: pCube115
+    4300036: RightLanding_Gear
+    4300038: pCube117
+    4300040: pCube116
+    4300042: pCube115
+    4300044: RearLeftLanding_Gear
+    4300046: pCube117
+    4300048: pCube116
+    4300050: pCube115
+    4300052: RearRightLanding_Gear
+    4300054: pCube119
+    4300056: pCube116
+    4300058: pCube115
+    4300060: pCube252
+    4300062: pCube253
+    4300064: pCylinder110
+    4300066: pCube201
+    4300068: pCube202
+    4300070: polySurface338
+    4300072: pCylinder111
+    4300074: pCylinder112
+    4300076: pCylinder113
+    4300078: pCube203
+    4300080: pCube204
+    4300082: pCube205
+    4300084: pCube206
+    4300086: pCube207
+    4300088: pCube210
+    4300090: pCube212
+    4300092: pCube213
+    4300094: pCube215
+    4300096: polySurface339
+    4300098: pCube217
+    4300100: pCube218
+    4300102: pCube219
+    4300104: pCube220
+    4300106: pCube221
+    4300108: pCube222
+    4300110: polySurface340
+    4300112: pCylinder114
+    4300114: pCylinder115
+    4300116: pCube223
+    4300118: polySurface341
+    4300120: pCube235
+    4300122: pCube238
+    4300124: pCube239
+    4300126: pCylinder118
+    4300128: pCube245
+    4300130: pCube246
+    4300132: pCube247
+    4300134: pCube248
+    4300136: pCube249
+    4300138: pCylinder119
+    4300140: pCube251
+    4300142: pSphere6
+    4300144: pCylinder128
+    4300146: pCylinder130
+    4300148: polySurface342
+    4300150: polySurface345
+    4300152: polySurface346
+    4300154: pCube255
+    4300156: pCube256
+    4300158: pCylinder131
+    4300160: pCylinder132
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

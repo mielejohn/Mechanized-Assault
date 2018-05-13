@@ -49,31 +49,42 @@ public class PlayerController : MonoBehaviour {
 	[Header("Upper Body")]
 	public GameObject upperBody;
 
-    [Header("Targeted Enemy")]
+    [Header("Targeted Enemy amd UI")]
     public bool Targeting;
     public GameObject PossibleEnemy;
 	public GameObject targetedRightEnemy;
 	public GameObject targetedLeftEnemy;
+    public GameObject possibleTargetReticle;
+    public GameObject targetedReticle;
 
-	[Header("Boolean Conditions")]
+    [Header("Boolean Conditions")]
 	public bool OnGround;
 	public bool Flying;
 
 	[Header("Shield and Health")]
 	public ShieldStatus ShieldStatus = ShieldStatus.Up;
 	public GameObject Shield;
-	public Slider ShieldSlider;
-	public Slider HealthSlider;
-	public int Health = 30;
+    public Image healthBarImage;
+    public Image shieldBarImage;
+    public int Health = 30;
 	public int Shields = 30;
+    public Text healthText;
+    public Text shieldText;
 
-	[Header("Weapon Spawns")]
+    [Header("Weapons UI")]
+    public Text leftWeaponName;
+    public Text rightWeaponName;
+    public Text shoulderWeaponName;
+
+    [Header("Weapon Spawns")]
 	public GameObject leftWeaponSpawn;
 	public GameObject rightWeaponSpawn;
 
-	[Header("Stationary Pistols")]
+    [Header("Stationary Pistols")]
+    public bool leftPistolSwapped;
 	public GameObject leftStationaryPistol;
-	public GameObject rightstationaryPistol;
+    public bool rightPistolSwapped;
+    public GameObject rightstationaryPistol;
 
 	[Header("Pistol Prefabs")]
 	public GameObject rightPistol;
@@ -123,37 +134,43 @@ public class PlayerController : MonoBehaviour {
 				GameObject RightAssaultRifle_I = Instantiate (rightAssaultRifle);
 				RightAssaultRifle_I.transform.position = rightWeaponSpawn.transform.position;
 				RightAssaultRifle_I.transform.parent = RightHand.transform;
+                rightWeaponName.text = "HC-67";
 			break;
 
 		case "Shotgun":
 				GameObject RightShotgun_I =  Instantiate (rightShotgun);
 				RightShotgun_I.transform.position = rightWeaponSpawn.transform.position;
 				RightShotgun_I.transform.parent = RightHand.transform;
-			break;
+                rightWeaponName.text = "CCS-50";
+                break;
 
 		case "Marksman Rifle":
 				GameObject RightMR_I =  Instantiate (rightMarksmanRifle);
 				RightMR_I.transform.position = rightWeaponSpawn.transform.position;
 				RightMR_I.transform.parent = RightHand.transform;
-			break;
+                rightWeaponName.text = "DMR-203";
+                break;
 
 		case "Minigun":
 				GameObject RightMinigun_I =  Instantiate (rightMinigun);
 				RightMinigun_I.transform.position = rightWeaponSpawn.transform.position;
 				RightMinigun_I.transform.parent = RightHand.transform;
-			break;
+                rightWeaponName.text = "LCMG-150";
+                break;
 
 		case "Sniper Rifle":
 				GameObject RightSniperRifle_I =  Instantiate (rightSniperRifle);
 				RightSniperRifle_I.transform.position = rightWeaponSpawn.transform.position;
 				RightSniperRifle_I.transform.parent = RightHand.transform;
-			break;
+                rightWeaponName.text = "LRS-500";
+                break;
 
 		case "Submachine Gun":
 				GameObject RightSMG_I =  Instantiate (rightSubMachinegun);
 				RightSMG_I.transform.position = rightWeaponSpawn.transform.position;
 				RightSMG_I.transform.parent = RightHand.transform;
-			break;
+                rightWeaponName.text = "SC-67";
+                break;
 		}
 
 		switch (leftWeapon) {
@@ -162,37 +179,43 @@ public class PlayerController : MonoBehaviour {
 				GameObject LeftAssaultRifle_I =  Instantiate (leftAssaultRifle);
 				LeftAssaultRifle_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftAssaultRifle_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "HC-67";
+                break;
 
 			case "Shotgun":
 				GameObject LeftShotgun_I = (GameObject) Instantiate (leftShotgun);
 				LeftShotgun_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftShotgun_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "CCS-50";
+                break;
 
 		case "Marksman Rifle":
 				GameObject LeftMR_I =  Instantiate (leftMarksmanRifle);
 				LeftMR_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftMR_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "DMR-203";
+                break;
 
 		case "Minigun":
 				GameObject LeftMinigun_I =  Instantiate (leftMinigun);
 				LeftMinigun_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftMinigun_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "LCMG-150";
+                break;
 
 		case "Sniper Rifle":
 				GameObject LeftSniperRifle_I =  Instantiate (leftSniperRifle);
 				LeftSniperRifle_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftSniperRifle_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "LRS-500";
+                break;
 
 		case "Submachine Gun":
 				GameObject LeftSMG_I =  Instantiate (leftSubMachinegun);
 				LeftSMG_I.transform.position = leftWeaponSpawn.transform.position;
 				LeftSMG_I.transform.parent = LeftHand.transform;
-			break;
+                leftWeaponName.text = "SC-67";
+                break;
 		}
 		#endregion
 	}
@@ -271,9 +294,26 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
 	{
+        HealthBar();
+        //healthText.text = Health.ToString();
+        if (Health < 0)
+        {
+            healthText.text = "" + 0;
+        }
+        else
+        {
+            healthText.text = Health.ToString();
+        }
+        shieldBar();
+        if (Shields < 0)
+        {
+            shieldText.text = "" + 0;
+        }
+        else
+        {
+            shieldText.text = Shields.ToString();
+        }
 
-		ShieldSlider.value = Shields;
-		HealthSlider.value = Health;
 		if (Shields <= 0) {
 			if (ShieldStatus != ShieldStatus.Down) {
 				StartCoroutine (ShieldDown ());
@@ -292,10 +332,10 @@ public class PlayerController : MonoBehaviour {
 			targetedLeftEnemy = null;
 			targetedRightEnemy = null;
 		}
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (KeyCode.L) && rightPistolSwapped == false) {
 			StartCoroutine (RightPistolSwap ());
 		}
-		if (Input.GetKeyDown (KeyCode.K)) {
+		if (Input.GetKeyDown (KeyCode.K) && leftPistolSwapped == false) {
 			StartCoroutine (LeftPistolSwap ());
 		}
 
@@ -361,6 +401,20 @@ public class PlayerController : MonoBehaviour {
 				Anim.SetBool ("OnGround", OnGround);
 			}
 		}
+
+        if (PossibleEnemy != null)
+        {
+            possibleTargetReticle.SetActive(true);
+        }
+        else if (targetedLeftEnemy != null || targetedRightEnemy != null)
+        {
+            targetedReticle.SetActive(true);
+        }
+        else
+        {
+            targetedReticle.SetActive(false);
+            possibleTargetReticle.SetActive(false);
+        }
 	}
 
 	void LateUpdate()
@@ -560,7 +614,8 @@ public class PlayerController : MonoBehaviour {
             targetedRightEnemy = enemyHold;
             enemyHold = null;
         }
-	}
+        rightPistolSwapped = true;
+    }
 
 	private IEnumerator LeftPistolSwap()
 	{
@@ -582,17 +637,50 @@ public class PlayerController : MonoBehaviour {
             targetedLeftEnemy = enemyHold;
             enemyHold = null;
         }
+        leftPistolSwapped = true;
 	}
 
     public void Hit(int Damage)
     {
         if (Shields > 0)
         {
-            Shields -= Damage;
+            if(Shields - Damage < 0)
+            {
+                int carryOverDamage = Damage - Shields;
+                Shields -= Damage;
+                Health -= carryOverDamage;
+            }
+            else
+            {
+                Shields -= Damage;
+            }
+
         }
         else if(Shields <= 0)
         {
             Health -= Damage;
         }
     }
+
+    #region UI Elements
+    public void HealthBar()
+    {
+        healthBarImage.fillAmount = HealthBarMap(Health, 0, 30, 0, 1);
+    }
+
+    private float HealthBarMap(float Value, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (Value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    public void shieldBar()
+    {
+        shieldBarImage.fillAmount = ShieldBarMap(Shields, 0, 30, 0, 1);
+    }
+
+    private float ShieldBarMap(float Value, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (Value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+    #endregion
 }

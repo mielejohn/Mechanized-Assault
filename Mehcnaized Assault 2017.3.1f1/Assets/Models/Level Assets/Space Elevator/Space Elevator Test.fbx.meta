@@ -1,0 +1,2504 @@
+fileFormatVersion: 2
+guid: c5d4a5eca77159d4b8162cc9dc866b7f
+timeCreated: 1526161302
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: AA_Gun_Base
+    100002: AA_Gun_Base1
+    100004: AA_Gun_Base10
+    100006: AA_Gun_Base11
+    100008: AA_Gun_Base2
+    100010: AA_Gun_Base3
+    100012: AA_Gun_Base4
+    100014: AA_Gun_Base5
+    100016: AA_Gun_Base6
+    100018: AA_Gun_Base7
+    100020: AA_Gun_Base8
+    100022: AA_Gun_Base9
+    100024: AA_Gun_Body
+    100026: AA_Gun_Body 1
+    100028: AA_Gun_Body 10
+    100030: AA_Gun_Body 11
+    100032: AA_Gun_Body 2
+    100034: AA_Gun_Body 3
+    100036: AA_Gun_Body 4
+    100038: AA_Gun_Body 5
+    100040: AA_Gun_Body 6
+    100042: AA_Gun_Body 7
+    100044: AA_Gun_Body 8
+    100046: AA_Gun_Body 9
+    100048: AA_Gun_CameraXAxis
+    100050: AA_Gun_CameraXAxis 1
+    100052: AA_Gun_CameraXAxis 10
+    100054: AA_Gun_CameraXAxis 11
+    100056: AA_Gun_CameraXAxis 2
+    100058: AA_Gun_CameraXAxis 3
+    100060: AA_Gun_CameraXAxis 4
+    100062: AA_Gun_CameraXAxis 5
+    100064: AA_Gun_CameraXAxis 6
+    100066: AA_Gun_CameraXAxis 7
+    100068: AA_Gun_CameraXAxis 8
+    100070: AA_Gun_CameraXAxis 9
+    100072: AA_Gun_CameraYAxis
+    100074: AA_Gun_CameraYAxis 1
+    100076: AA_Gun_CameraYAxis 10
+    100078: AA_Gun_CameraYAxis 11
+    100080: AA_Gun_CameraYAxis 2
+    100082: AA_Gun_CameraYAxis 3
+    100084: AA_Gun_CameraYAxis 4
+    100086: AA_Gun_CameraYAxis 5
+    100088: AA_Gun_CameraYAxis 6
+    100090: AA_Gun_CameraYAxis 7
+    100092: AA_Gun_CameraYAxis 8
+    100094: AA_Gun_CameraYAxis 9
+    100096: AA_Gun_LeftBarrel
+    100098: AA_Gun_LeftBarrel 1
+    100100: AA_Gun_LeftBarrel 10
+    100102: AA_Gun_LeftBarrel 11
+    100104: AA_Gun_LeftBarrel 2
+    100106: AA_Gun_LeftBarrel 3
+    100108: AA_Gun_LeftBarrel 4
+    100110: AA_Gun_LeftBarrel 5
+    100112: AA_Gun_LeftBarrel 6
+    100114: AA_Gun_LeftBarrel 7
+    100116: AA_Gun_LeftBarrel 8
+    100118: AA_Gun_LeftBarrel 9
+    100120: AA_Gun_LeftGun
+    100122: AA_Gun_LeftGun 1
+    100124: AA_Gun_LeftGun 10
+    100126: AA_Gun_LeftGun 11
+    100128: AA_Gun_LeftGun 2
+    100130: AA_Gun_LeftGun 3
+    100132: AA_Gun_LeftGun 4
+    100134: AA_Gun_LeftGun 5
+    100136: AA_Gun_LeftGun 6
+    100138: AA_Gun_LeftGun 7
+    100140: AA_Gun_LeftGun 8
+    100142: AA_Gun_LeftGun 9
+    100144: AA_Gun_RightBarrel
+    100146: AA_Gun_RightBarrel 1
+    100148: AA_Gun_RightBarrel 10
+    100150: AA_Gun_RightBarrel 11
+    100152: AA_Gun_RightBarrel 2
+    100154: AA_Gun_RightBarrel 3
+    100156: AA_Gun_RightBarrel 4
+    100158: AA_Gun_RightBarrel 5
+    100160: AA_Gun_RightBarrel 6
+    100162: AA_Gun_RightBarrel 7
+    100164: AA_Gun_RightBarrel 8
+    100166: AA_Gun_RightBarrel 9
+    100168: AA_Gun_RightGun
+    100170: AA_Gun_RightGun 1
+    100172: AA_Gun_RightGun 10
+    100174: AA_Gun_RightGun 11
+    100176: AA_Gun_RightGun 2
+    100178: AA_Gun_RightGun 3
+    100180: AA_Gun_RightGun 4
+    100182: AA_Gun_RightGun 5
+    100184: AA_Gun_RightGun 6
+    100186: AA_Gun_RightGun 7
+    100188: AA_Gun_RightGun 8
+    100190: AA_Gun_RightGun 9
+    100192: pCube1
+    100194: pCube10
+    100196: pCube11
+    100198: pCube12
+    100200: pCube120
+    100202: pCube121
+    100204: pCube122
+    100206: pCube123
+    100208: pCube124
+    100210: pCube125
+    100212: pCube126
+    100214: pCube127
+    100216: pCube128
+    100218: pCube129
+    100220: pCube13
+    100222: pCube130
+    100224: pCube131
+    100226: pCube133
+    100228: pCube137
+    100230: pCube138
+    100232: pCube139
+    100234: pCube14
+    100236: pCube140
+    100238: pCube141
+    100240: pCube142
+    100242: pCube143
+    100244: pCube144
+    100246: pCube145
+    100248: pCube146
+    100250: pCube147
+    100252: pCube148
+    100254: pCube149
+    100256: pCube15
+    100258: pCube150
+    100260: pCube151
+    100262: pCube152
+    100264: pCube153
+    100266: pCube154
+    100268: pCube155
+    100270: pCube156
+    100272: pCube157
+    100274: pCube158
+    100276: pCube16
+    100278: pCube17
+    100280: pCube18
+    100282: pCube19
+    100284: pCube2
+    100286: pCube20
+    100288: pCube21
+    100290: pCube22
+    100292: pCube23
+    100294: pCube24
+    100296: pCube25
+    100298: pCube26
+    100300: pCube27
+    100302: pCube28
+    100304: pCube29
+    100306: pCube3
+    100308: pCube30
+    100310: pCube4
+    100312: pCube5
+    100314: pCube6
+    100316: pCube7
+    100318: pCube8
+    100320: pCube9
+    100322: pCylinder10
+    100324: pCylinder11
+    100326: pCylinder12
+    100328: pCylinder13
+    100330: pCylinder14
+    100332: pCylinder15
+    100334: pCylinder16
+    100336: pCylinder17
+    100338: pCylinder18
+    100340: pCylinder19
+    100342: pCylinder20
+    100344: pCylinder21
+    100346: pCylinder22
+    100348: pCylinder23
+    100350: pCylinder24
+    100352: pCylinder25
+    100354: pCylinder26
+    100356: pCylinder27
+    100358: pCylinder28
+    100360: pCylinder29
+    100362: pCylinder30
+    100364: pCylinder31
+    100366: pCylinder32
+    100368: pCylinder33
+    100370: pCylinder34
+    100372: pCylinder35
+    100374: pCylinder36
+    100376: pCylinder37
+    100378: pCylinder38
+    100380: pCylinder39
+    100382: pCylinder40
+    100384: pCylinder41
+    100386: pCylinder8
+    100388: pCylinder9
+    100390: pPipe34
+    100392: pPipe35
+    100394: pPipe36
+    100396: pPipe37
+    100398: pPipe38
+    100400: pPipe39
+    100402: pPipe40
+    100404: pPipe41
+    100406: pPipe42
+    100408: pPipe43
+    100410: pPipe44
+    100412: pPipe45
+    100414: pPipe46
+    100416: pPipe47
+    100418: pPipe48
+    100420: pPipe49
+    100422: pPipe50
+    100424: pPipe51
+    100426: pPipe52
+    100428: pPipe53
+    100430: pPipe54
+    100432: pPipe55
+    100434: pPipe56
+    100436: pPipe57
+    100438: pPipe58
+    100440: pPipe59
+    100442: pPipe60
+    100444: pPipe61
+    100446: pPipe62
+    100448: pPipe63
+    100450: pPipe64
+    100452: pPipe65
+    100454: pPipe66
+    100456: pPipe67
+    100458: pPipe68
+    100460: pPipe69
+    100462: pPipe70
+    100464: pPipe71
+    100466: pPipe72
+    100468: pPipe73
+    100470: pPipe74
+    100472: S_AA_Gun_Body
+    100474: S_AA_Gun_Body 1
+    100476: S_AA_Gun_Body 10
+    100478: S_AA_Gun_Body 11
+    100480: S_AA_Gun_Body 12
+    100482: S_AA_Gun_Body 13
+    100484: S_AA_Gun_Body 14
+    100486: S_AA_Gun_Body 15
+    100488: S_AA_Gun_Body 16
+    100490: S_AA_Gun_Body 17
+    100492: S_AA_Gun_Body 18
+    100494: S_AA_Gun_Body 19
+    100496: S_AA_Gun_Body 2
+    100498: S_AA_Gun_Body 3
+    100500: S_AA_Gun_Body 4
+    100502: S_AA_Gun_Body 5
+    100504: S_AA_Gun_Body 6
+    100506: S_AA_Gun_Body 7
+    100508: S_AA_Gun_Body 8
+    100510: S_AA_Gun_Body 9
+    100512: S_AA_Gun_CameraXAxis
+    100514: S_AA_Gun_CameraXAxis 1
+    100516: S_AA_Gun_CameraXAxis 10
+    100518: S_AA_Gun_CameraXAxis 11
+    100520: S_AA_Gun_CameraXAxis 12
+    100522: S_AA_Gun_CameraXAxis 13
+    100524: S_AA_Gun_CameraXAxis 14
+    100526: S_AA_Gun_CameraXAxis 15
+    100528: S_AA_Gun_CameraXAxis 16
+    100530: S_AA_Gun_CameraXAxis 17
+    100532: S_AA_Gun_CameraXAxis 18
+    100534: S_AA_Gun_CameraXAxis 19
+    100536: S_AA_Gun_CameraXAxis 2
+    100538: S_AA_Gun_CameraXAxis 3
+    100540: S_AA_Gun_CameraXAxis 4
+    100542: S_AA_Gun_CameraXAxis 5
+    100544: S_AA_Gun_CameraXAxis 6
+    100546: S_AA_Gun_CameraXAxis 7
+    100548: S_AA_Gun_CameraXAxis 8
+    100550: S_AA_Gun_CameraXAxis 9
+    100552: S_AA_Gun_CameraYAxis
+    100554: S_AA_Gun_CameraYAxis 1
+    100556: S_AA_Gun_CameraYAxis 10
+    100558: S_AA_Gun_CameraYAxis 11
+    100560: S_AA_Gun_CameraYAxis 12
+    100562: S_AA_Gun_CameraYAxis 13
+    100564: S_AA_Gun_CameraYAxis 14
+    100566: S_AA_Gun_CameraYAxis 15
+    100568: S_AA_Gun_CameraYAxis 16
+    100570: S_AA_Gun_CameraYAxis 17
+    100572: S_AA_Gun_CameraYAxis 18
+    100574: S_AA_Gun_CameraYAxis 19
+    100576: S_AA_Gun_CameraYAxis 2
+    100578: S_AA_Gun_CameraYAxis 3
+    100580: S_AA_Gun_CameraYAxis 4
+    100582: S_AA_Gun_CameraYAxis 5
+    100584: S_AA_Gun_CameraYAxis 6
+    100586: S_AA_Gun_CameraYAxis 7
+    100588: S_AA_Gun_CameraYAxis 8
+    100590: S_AA_Gun_CameraYAxis 9
+    100592: S_AA_Gun_LeftBarrel
+    100594: S_AA_Gun_LeftBarrel 1
+    100596: S_AA_Gun_LeftBarrel 10
+    100598: S_AA_Gun_LeftBarrel 11
+    100600: S_AA_Gun_LeftBarrel 12
+    100602: S_AA_Gun_LeftBarrel 13
+    100604: S_AA_Gun_LeftBarrel 14
+    100606: S_AA_Gun_LeftBarrel 15
+    100608: S_AA_Gun_LeftBarrel 16
+    100610: S_AA_Gun_LeftBarrel 17
+    100612: S_AA_Gun_LeftBarrel 18
+    100614: S_AA_Gun_LeftBarrel 19
+    100616: S_AA_Gun_LeftBarrel 2
+    100618: S_AA_Gun_LeftBarrel 3
+    100620: S_AA_Gun_LeftBarrel 4
+    100622: S_AA_Gun_LeftBarrel 5
+    100624: S_AA_Gun_LeftBarrel 6
+    100626: S_AA_Gun_LeftBarrel 7
+    100628: S_AA_Gun_LeftBarrel 8
+    100630: S_AA_Gun_LeftBarrel 9
+    100632: S_AA_Gun_LeftGun
+    100634: S_AA_Gun_LeftGun 1
+    100636: S_AA_Gun_LeftGun 10
+    100638: S_AA_Gun_LeftGun 11
+    100640: S_AA_Gun_LeftGun 12
+    100642: S_AA_Gun_LeftGun 13
+    100644: S_AA_Gun_LeftGun 14
+    100646: S_AA_Gun_LeftGun 15
+    100648: S_AA_Gun_LeftGun 16
+    100650: S_AA_Gun_LeftGun 17
+    100652: S_AA_Gun_LeftGun 18
+    100654: S_AA_Gun_LeftGun 19
+    100656: S_AA_Gun_LeftGun 2
+    100658: S_AA_Gun_LeftGun 3
+    100660: S_AA_Gun_LeftGun 4
+    100662: S_AA_Gun_LeftGun 5
+    100664: S_AA_Gun_LeftGun 6
+    100666: S_AA_Gun_LeftGun 7
+    100668: S_AA_Gun_LeftGun 8
+    100670: S_AA_Gun_LeftGun 9
+    100672: S_AA_Gun_RightBarrel
+    100674: S_AA_Gun_RightBarrel 1
+    100676: S_AA_Gun_RightBarrel 10
+    100678: S_AA_Gun_RightBarrel 11
+    100680: S_AA_Gun_RightBarrel 12
+    100682: S_AA_Gun_RightBarrel 13
+    100684: S_AA_Gun_RightBarrel 14
+    100686: S_AA_Gun_RightBarrel 15
+    100688: S_AA_Gun_RightBarrel 16
+    100690: S_AA_Gun_RightBarrel 17
+    100692: S_AA_Gun_RightBarrel 18
+    100694: S_AA_Gun_RightBarrel 19
+    100696: S_AA_Gun_RightBarrel 2
+    100698: S_AA_Gun_RightBarrel 3
+    100700: S_AA_Gun_RightBarrel 4
+    100702: S_AA_Gun_RightBarrel 5
+    100704: S_AA_Gun_RightBarrel 6
+    100706: S_AA_Gun_RightBarrel 7
+    100708: S_AA_Gun_RightBarrel 8
+    100710: S_AA_Gun_RightBarrel 9
+    100712: S_AA_Gun_RightGun
+    100714: S_AA_Gun_RightGun 1
+    100716: S_AA_Gun_RightGun 10
+    100718: S_AA_Gun_RightGun 11
+    100720: S_AA_Gun_RightGun 12
+    100722: S_AA_Gun_RightGun 13
+    100724: S_AA_Gun_RightGun 14
+    100726: S_AA_Gun_RightGun 15
+    100728: S_AA_Gun_RightGun 16
+    100730: S_AA_Gun_RightGun 17
+    100732: S_AA_Gun_RightGun 18
+    100734: S_AA_Gun_RightGun 19
+    100736: S_AA_Gun_RightGun 2
+    100738: S_AA_Gun_RightGun 3
+    100740: S_AA_Gun_RightGun 4
+    100742: S_AA_Gun_RightGun 5
+    100744: S_AA_Gun_RightGun 6
+    100746: S_AA_Gun_RightGun 7
+    100748: S_AA_Gun_RightGun 8
+    100750: S_AA_Gun_RightGun 9
+    100752: SideAA_Gun_Base
+    100754: SideAA_Gun_Base1
+    100756: SideAA_Gun_Base10
+    100758: SideAA_Gun_Base11
+    100760: SideAA_Gun_Base12
+    100762: SideAA_Gun_Base13
+    100764: SideAA_Gun_Base14
+    100766: SideAA_Gun_Base15
+    100768: SideAA_Gun_Base16
+    100770: SideAA_Gun_Base17
+    100772: SideAA_Gun_Base18
+    100774: SideAA_Gun_Base19
+    100776: SideAA_Gun_Base2
+    100778: SideAA_Gun_Base3
+    100780: SideAA_Gun_Base4
+    100782: SideAA_Gun_Base5
+    100784: SideAA_Gun_Base6
+    100786: SideAA_Gun_Base7
+    100788: SideAA_Gun_Base8
+    100790: SideAA_Gun_Base9
+    100792: //RootNode
+    100794: transform1
+    100796: transform14
+    100798: transform15
+    100800: transform16
+    100802: transform17
+    100804: transform18
+    100806: transform19
+    100808: transform2
+    100810: transform20
+    100812: transform21
+    100814: transform22
+    100816: transform23
+    100818: transform24
+    100820: transform25
+    100822: transform26
+    100824: transform27
+    100826: transform28
+    100828: transform29
+    100830: transform3
+    100832: transform30
+    100834: transform31
+    100836: transform32
+    100838: transform33
+    100840: transform34
+    100842: transform35
+    100844: transform36
+    100846: transform37
+    100848: transform38
+    100850: transform39
+    100852: transform4
+    100854: transform40
+    100856: transform41
+    100858: transform42
+    100860: transform43
+    100862: transform44
+    100864: transform5
+    100866: AA_Gun_Base12
+    100868: AA_Gun_Base13
+    100870: AA_Gun_Body 12
+    100872: AA_Gun_Body 13
+    100874: AA_Gun_CameraXAxis 12
+    100876: AA_Gun_CameraXAxis 13
+    100878: AA_Gun_CameraYAxis 12
+    100880: AA_Gun_CameraYAxis 13
+    100882: AA_Gun_LeftBarrel 12
+    100884: AA_Gun_LeftBarrel 13
+    100886: AA_Gun_LeftGun 12
+    100888: AA_Gun_LeftGun 13
+    100890: AA_Gun_RightBarrel 12
+    100892: AA_Gun_RightBarrel 13
+    100894: AA_Gun_RightGun 12
+    100896: AA_Gun_RightGun 13
+    100898: extrudedSurface1
+    100900: extrudedSurface2
+    100902: extrudedSurface3
+    100904: extrudedSurface4
+    100906: pCube132
+    100908: pCube134
+    100910: pCube135
+    100912: pCube136
+    100914: pCube159
+    100916: pCube160
+    100918: pCube161
+    100920: pCube162
+    100922: pCube163
+    100924: pCube164
+    100926: pCube165
+    100928: pCube166
+    100930: pCube167
+    100932: pCube168
+    100934: pCube169
+    100936: pCube170
+    100938: pCube171
+    100940: pCube172
+    100942: pCube173
+    100944: pCube174
+    100946: pCube175
+    100948: pCube176
+    100950: pCube177
+    100952: pCube178
+    100954: pCube179
+    100956: pCube180
+    100958: pCube181
+    100960: pCube182
+    100962: pCylinder42
+    100964: pCylinder43
+    100966: pCylinder44
+    100968: pCylinder45
+    100970: pCylinder46
+    100972: pCylinder47
+    100974: pCylinder48
+    100976: pCylinder49
+    100978: pCylinder50
+    100980: pCylinder51
+    100982: pCylinder52
+    100984: pCylinder53
+    100986: polySurface1
+    100988: polySurface6
+    100990: polySurface7
+    100992: polySurface8
+    100994: pPipe75
+    100996: S_AA_Gun_Body 20
+    100998: S_AA_Gun_Body 21
+    101000: S_AA_Gun_Body 22
+    101002: S_AA_Gun_Body 23
+    101004: S_AA_Gun_CameraXAxis 20
+    101006: S_AA_Gun_CameraXAxis 21
+    101008: S_AA_Gun_CameraXAxis 22
+    101010: S_AA_Gun_CameraXAxis 23
+    101012: S_AA_Gun_CameraYAxis 20
+    101014: S_AA_Gun_CameraYAxis 21
+    101016: S_AA_Gun_CameraYAxis 22
+    101018: S_AA_Gun_CameraYAxis 23
+    101020: S_AA_Gun_LeftBarrel 20
+    101022: S_AA_Gun_LeftBarrel 21
+    101024: S_AA_Gun_LeftBarrel 22
+    101026: S_AA_Gun_LeftBarrel 23
+    101028: S_AA_Gun_LeftGun 20
+    101030: S_AA_Gun_LeftGun 21
+    101032: S_AA_Gun_LeftGun 22
+    101034: S_AA_Gun_LeftGun 23
+    101036: S_AA_Gun_RightBarrel 20
+    101038: S_AA_Gun_RightBarrel 21
+    101040: S_AA_Gun_RightBarrel 22
+    101042: S_AA_Gun_RightBarrel 23
+    101044: S_AA_Gun_RightGun 20
+    101046: S_AA_Gun_RightGun 21
+    101048: S_AA_Gun_RightGun 22
+    101050: S_AA_Gun_RightGun 23
+    101052: SideAA_Gun_Base20
+    101054: SideAA_Gun_Base21
+    101056: SideAA_Gun_Base22
+    101058: SideAA_Gun_Base23
+    101060: transform10
+    101062: transform11
+    101064: transform12
+    101066: transform13
+    101068: transform45
+    101070: transform46
+    101072: transform47
+    101074: transform48
+    101076: transform49
+    101078: transform50
+    101080: transform51
+    101082: transform52
+    101084: transform53
+    101086: transform54
+    101088: transform55
+    101090: transform56
+    101092: transform57
+    101094: transform58
+    101096: transform59
+    101098: transform6
+    101100: transform60
+    101102: transform61
+    101104: transform62
+    101106: transform63
+    101108: transform64
+    101110: transform65
+    101112: transform66
+    101114: transform67
+    101116: transform68
+    101118: transform69
+    101120: transform7
+    101122: transform70
+    101124: transform71
+    101126: transform72
+    101128: transform73
+    101130: transform74
+    101132: transform75
+    101134: transform8
+    101136: transform9
+    400000: AA_Gun_Base
+    400002: AA_Gun_Base1
+    400004: AA_Gun_Base10
+    400006: AA_Gun_Base11
+    400008: AA_Gun_Base2
+    400010: AA_Gun_Base3
+    400012: AA_Gun_Base4
+    400014: AA_Gun_Base5
+    400016: AA_Gun_Base6
+    400018: AA_Gun_Base7
+    400020: AA_Gun_Base8
+    400022: AA_Gun_Base9
+    400024: AA_Gun_Body
+    400026: AA_Gun_Body 1
+    400028: AA_Gun_Body 10
+    400030: AA_Gun_Body 11
+    400032: AA_Gun_Body 2
+    400034: AA_Gun_Body 3
+    400036: AA_Gun_Body 4
+    400038: AA_Gun_Body 5
+    400040: AA_Gun_Body 6
+    400042: AA_Gun_Body 7
+    400044: AA_Gun_Body 8
+    400046: AA_Gun_Body 9
+    400048: AA_Gun_CameraXAxis
+    400050: AA_Gun_CameraXAxis 1
+    400052: AA_Gun_CameraXAxis 10
+    400054: AA_Gun_CameraXAxis 11
+    400056: AA_Gun_CameraXAxis 2
+    400058: AA_Gun_CameraXAxis 3
+    400060: AA_Gun_CameraXAxis 4
+    400062: AA_Gun_CameraXAxis 5
+    400064: AA_Gun_CameraXAxis 6
+    400066: AA_Gun_CameraXAxis 7
+    400068: AA_Gun_CameraXAxis 8
+    400070: AA_Gun_CameraXAxis 9
+    400072: AA_Gun_CameraYAxis
+    400074: AA_Gun_CameraYAxis 1
+    400076: AA_Gun_CameraYAxis 10
+    400078: AA_Gun_CameraYAxis 11
+    400080: AA_Gun_CameraYAxis 2
+    400082: AA_Gun_CameraYAxis 3
+    400084: AA_Gun_CameraYAxis 4
+    400086: AA_Gun_CameraYAxis 5
+    400088: AA_Gun_CameraYAxis 6
+    400090: AA_Gun_CameraYAxis 7
+    400092: AA_Gun_CameraYAxis 8
+    400094: AA_Gun_CameraYAxis 9
+    400096: AA_Gun_LeftBarrel
+    400098: AA_Gun_LeftBarrel 1
+    400100: AA_Gun_LeftBarrel 10
+    400102: AA_Gun_LeftBarrel 11
+    400104: AA_Gun_LeftBarrel 2
+    400106: AA_Gun_LeftBarrel 3
+    400108: AA_Gun_LeftBarrel 4
+    400110: AA_Gun_LeftBarrel 5
+    400112: AA_Gun_LeftBarrel 6
+    400114: AA_Gun_LeftBarrel 7
+    400116: AA_Gun_LeftBarrel 8
+    400118: AA_Gun_LeftBarrel 9
+    400120: AA_Gun_LeftGun
+    400122: AA_Gun_LeftGun 1
+    400124: AA_Gun_LeftGun 10
+    400126: AA_Gun_LeftGun 11
+    400128: AA_Gun_LeftGun 2
+    400130: AA_Gun_LeftGun 3
+    400132: AA_Gun_LeftGun 4
+    400134: AA_Gun_LeftGun 5
+    400136: AA_Gun_LeftGun 6
+    400138: AA_Gun_LeftGun 7
+    400140: AA_Gun_LeftGun 8
+    400142: AA_Gun_LeftGun 9
+    400144: AA_Gun_RightBarrel
+    400146: AA_Gun_RightBarrel 1
+    400148: AA_Gun_RightBarrel 10
+    400150: AA_Gun_RightBarrel 11
+    400152: AA_Gun_RightBarrel 2
+    400154: AA_Gun_RightBarrel 3
+    400156: AA_Gun_RightBarrel 4
+    400158: AA_Gun_RightBarrel 5
+    400160: AA_Gun_RightBarrel 6
+    400162: AA_Gun_RightBarrel 7
+    400164: AA_Gun_RightBarrel 8
+    400166: AA_Gun_RightBarrel 9
+    400168: AA_Gun_RightGun
+    400170: AA_Gun_RightGun 1
+    400172: AA_Gun_RightGun 10
+    400174: AA_Gun_RightGun 11
+    400176: AA_Gun_RightGun 2
+    400178: AA_Gun_RightGun 3
+    400180: AA_Gun_RightGun 4
+    400182: AA_Gun_RightGun 5
+    400184: AA_Gun_RightGun 6
+    400186: AA_Gun_RightGun 7
+    400188: AA_Gun_RightGun 8
+    400190: AA_Gun_RightGun 9
+    400192: pCube1
+    400194: pCube10
+    400196: pCube11
+    400198: pCube12
+    400200: pCube120
+    400202: pCube121
+    400204: pCube122
+    400206: pCube123
+    400208: pCube124
+    400210: pCube125
+    400212: pCube126
+    400214: pCube127
+    400216: pCube128
+    400218: pCube129
+    400220: pCube13
+    400222: pCube130
+    400224: pCube131
+    400226: pCube133
+    400228: pCube137
+    400230: pCube138
+    400232: pCube139
+    400234: pCube14
+    400236: pCube140
+    400238: pCube141
+    400240: pCube142
+    400242: pCube143
+    400244: pCube144
+    400246: pCube145
+    400248: pCube146
+    400250: pCube147
+    400252: pCube148
+    400254: pCube149
+    400256: pCube15
+    400258: pCube150
+    400260: pCube151
+    400262: pCube152
+    400264: pCube153
+    400266: pCube154
+    400268: pCube155
+    400270: pCube156
+    400272: pCube157
+    400274: pCube158
+    400276: pCube16
+    400278: pCube17
+    400280: pCube18
+    400282: pCube19
+    400284: pCube2
+    400286: pCube20
+    400288: pCube21
+    400290: pCube22
+    400292: pCube23
+    400294: pCube24
+    400296: pCube25
+    400298: pCube26
+    400300: pCube27
+    400302: pCube28
+    400304: pCube29
+    400306: pCube3
+    400308: pCube30
+    400310: pCube4
+    400312: pCube5
+    400314: pCube6
+    400316: pCube7
+    400318: pCube8
+    400320: pCube9
+    400322: pCylinder10
+    400324: pCylinder11
+    400326: pCylinder12
+    400328: pCylinder13
+    400330: pCylinder14
+    400332: pCylinder15
+    400334: pCylinder16
+    400336: pCylinder17
+    400338: pCylinder18
+    400340: pCylinder19
+    400342: pCylinder20
+    400344: pCylinder21
+    400346: pCylinder22
+    400348: pCylinder23
+    400350: pCylinder24
+    400352: pCylinder25
+    400354: pCylinder26
+    400356: pCylinder27
+    400358: pCylinder28
+    400360: pCylinder29
+    400362: pCylinder30
+    400364: pCylinder31
+    400366: pCylinder32
+    400368: pCylinder33
+    400370: pCylinder34
+    400372: pCylinder35
+    400374: pCylinder36
+    400376: pCylinder37
+    400378: pCylinder38
+    400380: pCylinder39
+    400382: pCylinder40
+    400384: pCylinder41
+    400386: pCylinder8
+    400388: pCylinder9
+    400390: pPipe34
+    400392: pPipe35
+    400394: pPipe36
+    400396: pPipe37
+    400398: pPipe38
+    400400: pPipe39
+    400402: pPipe40
+    400404: pPipe41
+    400406: pPipe42
+    400408: pPipe43
+    400410: pPipe44
+    400412: pPipe45
+    400414: pPipe46
+    400416: pPipe47
+    400418: pPipe48
+    400420: pPipe49
+    400422: pPipe50
+    400424: pPipe51
+    400426: pPipe52
+    400428: pPipe53
+    400430: pPipe54
+    400432: pPipe55
+    400434: pPipe56
+    400436: pPipe57
+    400438: pPipe58
+    400440: pPipe59
+    400442: pPipe60
+    400444: pPipe61
+    400446: pPipe62
+    400448: pPipe63
+    400450: pPipe64
+    400452: pPipe65
+    400454: pPipe66
+    400456: pPipe67
+    400458: pPipe68
+    400460: pPipe69
+    400462: pPipe70
+    400464: pPipe71
+    400466: pPipe72
+    400468: pPipe73
+    400470: pPipe74
+    400472: S_AA_Gun_Body
+    400474: S_AA_Gun_Body 1
+    400476: S_AA_Gun_Body 10
+    400478: S_AA_Gun_Body 11
+    400480: S_AA_Gun_Body 12
+    400482: S_AA_Gun_Body 13
+    400484: S_AA_Gun_Body 14
+    400486: S_AA_Gun_Body 15
+    400488: S_AA_Gun_Body 16
+    400490: S_AA_Gun_Body 17
+    400492: S_AA_Gun_Body 18
+    400494: S_AA_Gun_Body 19
+    400496: S_AA_Gun_Body 2
+    400498: S_AA_Gun_Body 3
+    400500: S_AA_Gun_Body 4
+    400502: S_AA_Gun_Body 5
+    400504: S_AA_Gun_Body 6
+    400506: S_AA_Gun_Body 7
+    400508: S_AA_Gun_Body 8
+    400510: S_AA_Gun_Body 9
+    400512: S_AA_Gun_CameraXAxis
+    400514: S_AA_Gun_CameraXAxis 1
+    400516: S_AA_Gun_CameraXAxis 10
+    400518: S_AA_Gun_CameraXAxis 11
+    400520: S_AA_Gun_CameraXAxis 12
+    400522: S_AA_Gun_CameraXAxis 13
+    400524: S_AA_Gun_CameraXAxis 14
+    400526: S_AA_Gun_CameraXAxis 15
+    400528: S_AA_Gun_CameraXAxis 16
+    400530: S_AA_Gun_CameraXAxis 17
+    400532: S_AA_Gun_CameraXAxis 18
+    400534: S_AA_Gun_CameraXAxis 19
+    400536: S_AA_Gun_CameraXAxis 2
+    400538: S_AA_Gun_CameraXAxis 3
+    400540: S_AA_Gun_CameraXAxis 4
+    400542: S_AA_Gun_CameraXAxis 5
+    400544: S_AA_Gun_CameraXAxis 6
+    400546: S_AA_Gun_CameraXAxis 7
+    400548: S_AA_Gun_CameraXAxis 8
+    400550: S_AA_Gun_CameraXAxis 9
+    400552: S_AA_Gun_CameraYAxis
+    400554: S_AA_Gun_CameraYAxis 1
+    400556: S_AA_Gun_CameraYAxis 10
+    400558: S_AA_Gun_CameraYAxis 11
+    400560: S_AA_Gun_CameraYAxis 12
+    400562: S_AA_Gun_CameraYAxis 13
+    400564: S_AA_Gun_CameraYAxis 14
+    400566: S_AA_Gun_CameraYAxis 15
+    400568: S_AA_Gun_CameraYAxis 16
+    400570: S_AA_Gun_CameraYAxis 17
+    400572: S_AA_Gun_CameraYAxis 18
+    400574: S_AA_Gun_CameraYAxis 19
+    400576: S_AA_Gun_CameraYAxis 2
+    400578: S_AA_Gun_CameraYAxis 3
+    400580: S_AA_Gun_CameraYAxis 4
+    400582: S_AA_Gun_CameraYAxis 5
+    400584: S_AA_Gun_CameraYAxis 6
+    400586: S_AA_Gun_CameraYAxis 7
+    400588: S_AA_Gun_CameraYAxis 8
+    400590: S_AA_Gun_CameraYAxis 9
+    400592: S_AA_Gun_LeftBarrel
+    400594: S_AA_Gun_LeftBarrel 1
+    400596: S_AA_Gun_LeftBarrel 10
+    400598: S_AA_Gun_LeftBarrel 11
+    400600: S_AA_Gun_LeftBarrel 12
+    400602: S_AA_Gun_LeftBarrel 13
+    400604: S_AA_Gun_LeftBarrel 14
+    400606: S_AA_Gun_LeftBarrel 15
+    400608: S_AA_Gun_LeftBarrel 16
+    400610: S_AA_Gun_LeftBarrel 17
+    400612: S_AA_Gun_LeftBarrel 18
+    400614: S_AA_Gun_LeftBarrel 19
+    400616: S_AA_Gun_LeftBarrel 2
+    400618: S_AA_Gun_LeftBarrel 3
+    400620: S_AA_Gun_LeftBarrel 4
+    400622: S_AA_Gun_LeftBarrel 5
+    400624: S_AA_Gun_LeftBarrel 6
+    400626: S_AA_Gun_LeftBarrel 7
+    400628: S_AA_Gun_LeftBarrel 8
+    400630: S_AA_Gun_LeftBarrel 9
+    400632: S_AA_Gun_LeftGun
+    400634: S_AA_Gun_LeftGun 1
+    400636: S_AA_Gun_LeftGun 10
+    400638: S_AA_Gun_LeftGun 11
+    400640: S_AA_Gun_LeftGun 12
+    400642: S_AA_Gun_LeftGun 13
+    400644: S_AA_Gun_LeftGun 14
+    400646: S_AA_Gun_LeftGun 15
+    400648: S_AA_Gun_LeftGun 16
+    400650: S_AA_Gun_LeftGun 17
+    400652: S_AA_Gun_LeftGun 18
+    400654: S_AA_Gun_LeftGun 19
+    400656: S_AA_Gun_LeftGun 2
+    400658: S_AA_Gun_LeftGun 3
+    400660: S_AA_Gun_LeftGun 4
+    400662: S_AA_Gun_LeftGun 5
+    400664: S_AA_Gun_LeftGun 6
+    400666: S_AA_Gun_LeftGun 7
+    400668: S_AA_Gun_LeftGun 8
+    400670: S_AA_Gun_LeftGun 9
+    400672: S_AA_Gun_RightBarrel
+    400674: S_AA_Gun_RightBarrel 1
+    400676: S_AA_Gun_RightBarrel 10
+    400678: S_AA_Gun_RightBarrel 11
+    400680: S_AA_Gun_RightBarrel 12
+    400682: S_AA_Gun_RightBarrel 13
+    400684: S_AA_Gun_RightBarrel 14
+    400686: S_AA_Gun_RightBarrel 15
+    400688: S_AA_Gun_RightBarrel 16
+    400690: S_AA_Gun_RightBarrel 17
+    400692: S_AA_Gun_RightBarrel 18
+    400694: S_AA_Gun_RightBarrel 19
+    400696: S_AA_Gun_RightBarrel 2
+    400698: S_AA_Gun_RightBarrel 3
+    400700: S_AA_Gun_RightBarrel 4
+    400702: S_AA_Gun_RightBarrel 5
+    400704: S_AA_Gun_RightBarrel 6
+    400706: S_AA_Gun_RightBarrel 7
+    400708: S_AA_Gun_RightBarrel 8
+    400710: S_AA_Gun_RightBarrel 9
+    400712: S_AA_Gun_RightGun
+    400714: S_AA_Gun_RightGun 1
+    400716: S_AA_Gun_RightGun 10
+    400718: S_AA_Gun_RightGun 11
+    400720: S_AA_Gun_RightGun 12
+    400722: S_AA_Gun_RightGun 13
+    400724: S_AA_Gun_RightGun 14
+    400726: S_AA_Gun_RightGun 15
+    400728: S_AA_Gun_RightGun 16
+    400730: S_AA_Gun_RightGun 17
+    400732: S_AA_Gun_RightGun 18
+    400734: S_AA_Gun_RightGun 19
+    400736: S_AA_Gun_RightGun 2
+    400738: S_AA_Gun_RightGun 3
+    400740: S_AA_Gun_RightGun 4
+    400742: S_AA_Gun_RightGun 5
+    400744: S_AA_Gun_RightGun 6
+    400746: S_AA_Gun_RightGun 7
+    400748: S_AA_Gun_RightGun 8
+    400750: S_AA_Gun_RightGun 9
+    400752: SideAA_Gun_Base
+    400754: SideAA_Gun_Base1
+    400756: SideAA_Gun_Base10
+    400758: SideAA_Gun_Base11
+    400760: SideAA_Gun_Base12
+    400762: SideAA_Gun_Base13
+    400764: SideAA_Gun_Base14
+    400766: SideAA_Gun_Base15
+    400768: SideAA_Gun_Base16
+    400770: SideAA_Gun_Base17
+    400772: SideAA_Gun_Base18
+    400774: SideAA_Gun_Base19
+    400776: SideAA_Gun_Base2
+    400778: SideAA_Gun_Base3
+    400780: SideAA_Gun_Base4
+    400782: SideAA_Gun_Base5
+    400784: SideAA_Gun_Base6
+    400786: SideAA_Gun_Base7
+    400788: SideAA_Gun_Base8
+    400790: SideAA_Gun_Base9
+    400792: //RootNode
+    400794: transform1
+    400796: transform14
+    400798: transform15
+    400800: transform16
+    400802: transform17
+    400804: transform18
+    400806: transform19
+    400808: transform2
+    400810: transform20
+    400812: transform21
+    400814: transform22
+    400816: transform23
+    400818: transform24
+    400820: transform25
+    400822: transform26
+    400824: transform27
+    400826: transform28
+    400828: transform29
+    400830: transform3
+    400832: transform30
+    400834: transform31
+    400836: transform32
+    400838: transform33
+    400840: transform34
+    400842: transform35
+    400844: transform36
+    400846: transform37
+    400848: transform38
+    400850: transform39
+    400852: transform4
+    400854: transform40
+    400856: transform41
+    400858: transform42
+    400860: transform43
+    400862: transform44
+    400864: transform5
+    400866: AA_Gun_Base12
+    400868: AA_Gun_Base13
+    400870: AA_Gun_Body 12
+    400872: AA_Gun_Body 13
+    400874: AA_Gun_CameraXAxis 12
+    400876: AA_Gun_CameraXAxis 13
+    400878: AA_Gun_CameraYAxis 12
+    400880: AA_Gun_CameraYAxis 13
+    400882: AA_Gun_LeftBarrel 12
+    400884: AA_Gun_LeftBarrel 13
+    400886: AA_Gun_LeftGun 12
+    400888: AA_Gun_LeftGun 13
+    400890: AA_Gun_RightBarrel 12
+    400892: AA_Gun_RightBarrel 13
+    400894: AA_Gun_RightGun 12
+    400896: AA_Gun_RightGun 13
+    400898: extrudedSurface1
+    400900: extrudedSurface2
+    400902: extrudedSurface3
+    400904: extrudedSurface4
+    400906: pCube132
+    400908: pCube134
+    400910: pCube135
+    400912: pCube136
+    400914: pCube159
+    400916: pCube160
+    400918: pCube161
+    400920: pCube162
+    400922: pCube163
+    400924: pCube164
+    400926: pCube165
+    400928: pCube166
+    400930: pCube167
+    400932: pCube168
+    400934: pCube169
+    400936: pCube170
+    400938: pCube171
+    400940: pCube172
+    400942: pCube173
+    400944: pCube174
+    400946: pCube175
+    400948: pCube176
+    400950: pCube177
+    400952: pCube178
+    400954: pCube179
+    400956: pCube180
+    400958: pCube181
+    400960: pCube182
+    400962: pCylinder42
+    400964: pCylinder43
+    400966: pCylinder44
+    400968: pCylinder45
+    400970: pCylinder46
+    400972: pCylinder47
+    400974: pCylinder48
+    400976: pCylinder49
+    400978: pCylinder50
+    400980: pCylinder51
+    400982: pCylinder52
+    400984: pCylinder53
+    400986: polySurface1
+    400988: polySurface6
+    400990: polySurface7
+    400992: polySurface8
+    400994: pPipe75
+    400996: S_AA_Gun_Body 20
+    400998: S_AA_Gun_Body 21
+    401000: S_AA_Gun_Body 22
+    401002: S_AA_Gun_Body 23
+    401004: S_AA_Gun_CameraXAxis 20
+    401006: S_AA_Gun_CameraXAxis 21
+    401008: S_AA_Gun_CameraXAxis 22
+    401010: S_AA_Gun_CameraXAxis 23
+    401012: S_AA_Gun_CameraYAxis 20
+    401014: S_AA_Gun_CameraYAxis 21
+    401016: S_AA_Gun_CameraYAxis 22
+    401018: S_AA_Gun_CameraYAxis 23
+    401020: S_AA_Gun_LeftBarrel 20
+    401022: S_AA_Gun_LeftBarrel 21
+    401024: S_AA_Gun_LeftBarrel 22
+    401026: S_AA_Gun_LeftBarrel 23
+    401028: S_AA_Gun_LeftGun 20
+    401030: S_AA_Gun_LeftGun 21
+    401032: S_AA_Gun_LeftGun 22
+    401034: S_AA_Gun_LeftGun 23
+    401036: S_AA_Gun_RightBarrel 20
+    401038: S_AA_Gun_RightBarrel 21
+    401040: S_AA_Gun_RightBarrel 22
+    401042: S_AA_Gun_RightBarrel 23
+    401044: S_AA_Gun_RightGun 20
+    401046: S_AA_Gun_RightGun 21
+    401048: S_AA_Gun_RightGun 22
+    401050: S_AA_Gun_RightGun 23
+    401052: SideAA_Gun_Base20
+    401054: SideAA_Gun_Base21
+    401056: SideAA_Gun_Base22
+    401058: SideAA_Gun_Base23
+    401060: transform10
+    401062: transform11
+    401064: transform12
+    401066: transform13
+    401068: transform45
+    401070: transform46
+    401072: transform47
+    401074: transform48
+    401076: transform49
+    401078: transform50
+    401080: transform51
+    401082: transform52
+    401084: transform53
+    401086: transform54
+    401088: transform55
+    401090: transform56
+    401092: transform57
+    401094: transform58
+    401096: transform59
+    401098: transform6
+    401100: transform60
+    401102: transform61
+    401104: transform62
+    401106: transform63
+    401108: transform64
+    401110: transform65
+    401112: transform66
+    401114: transform67
+    401116: transform68
+    401118: transform69
+    401120: transform7
+    401122: transform70
+    401124: transform71
+    401126: transform72
+    401128: transform73
+    401130: transform74
+    401132: transform75
+    401134: transform8
+    401136: transform9
+    2100000: lambert1
+    2100002: AAGun_Silver2
+    2100004: AAGun_Gray2
+    2100006: AAGun_LightGray1
+    2100008: AAGun_DarkGray1
+    2100010: AAGun_Black1
+    2100012: lambert7
+    2100014: AAGun_Green1
+    2100016: AAGun_Lenses1
+    2100018: AAGun_Silver
+    2100020: AAGun_Gray
+    2100022: AAGun_LightGray
+    2100024: AAGun_DarkGray
+    2100026: AAGun_Black
+    2100028: lambert6
+    2100030: AAGun_Green
+    2100032: AAGun_Lenses
+    2100034: SpaceElevator_LightGray
+    2100036: SpaceElevator_DarkGray
+    2100038: SpaceElevator_Gray
+    2100040: Gray
+    2100042: SpaceElevator_Silver
+    2100044: SpaceElevator_BlueSolarPanel
+    2100046: SpaceElevator_BlackAntenna
+    2300000: AA_Gun_Base
+    2300002: AA_Gun_Base1
+    2300004: AA_Gun_Base10
+    2300006: AA_Gun_Base11
+    2300008: AA_Gun_Base2
+    2300010: AA_Gun_Base3
+    2300012: AA_Gun_Base4
+    2300014: AA_Gun_Base5
+    2300016: AA_Gun_Base6
+    2300018: AA_Gun_Base7
+    2300020: AA_Gun_Base8
+    2300022: AA_Gun_Base9
+    2300024: AA_Gun_Body
+    2300026: AA_Gun_Body 1
+    2300028: AA_Gun_Body 10
+    2300030: AA_Gun_Body 11
+    2300032: AA_Gun_Body 2
+    2300034: AA_Gun_Body 3
+    2300036: AA_Gun_Body 4
+    2300038: AA_Gun_Body 5
+    2300040: AA_Gun_Body 6
+    2300042: AA_Gun_Body 7
+    2300044: AA_Gun_Body 8
+    2300046: AA_Gun_Body 9
+    2300048: AA_Gun_CameraXAxis
+    2300050: AA_Gun_CameraXAxis 1
+    2300052: AA_Gun_CameraXAxis 10
+    2300054: AA_Gun_CameraXAxis 11
+    2300056: AA_Gun_CameraXAxis 2
+    2300058: AA_Gun_CameraXAxis 3
+    2300060: AA_Gun_CameraXAxis 4
+    2300062: AA_Gun_CameraXAxis 5
+    2300064: AA_Gun_CameraXAxis 6
+    2300066: AA_Gun_CameraXAxis 7
+    2300068: AA_Gun_CameraXAxis 8
+    2300070: AA_Gun_CameraXAxis 9
+    2300072: AA_Gun_CameraYAxis
+    2300074: AA_Gun_CameraYAxis 1
+    2300076: AA_Gun_CameraYAxis 10
+    2300078: AA_Gun_CameraYAxis 11
+    2300080: AA_Gun_CameraYAxis 2
+    2300082: AA_Gun_CameraYAxis 3
+    2300084: AA_Gun_CameraYAxis 4
+    2300086: AA_Gun_CameraYAxis 5
+    2300088: AA_Gun_CameraYAxis 6
+    2300090: AA_Gun_CameraYAxis 7
+    2300092: AA_Gun_CameraYAxis 8
+    2300094: AA_Gun_CameraYAxis 9
+    2300096: AA_Gun_LeftBarrel
+    2300098: AA_Gun_LeftBarrel 1
+    2300100: AA_Gun_LeftBarrel 10
+    2300102: AA_Gun_LeftBarrel 11
+    2300104: AA_Gun_LeftBarrel 2
+    2300106: AA_Gun_LeftBarrel 3
+    2300108: AA_Gun_LeftBarrel 4
+    2300110: AA_Gun_LeftBarrel 5
+    2300112: AA_Gun_LeftBarrel 6
+    2300114: AA_Gun_LeftBarrel 7
+    2300116: AA_Gun_LeftBarrel 8
+    2300118: AA_Gun_LeftBarrel 9
+    2300120: AA_Gun_LeftGun
+    2300122: AA_Gun_LeftGun 1
+    2300124: AA_Gun_LeftGun 10
+    2300126: AA_Gun_LeftGun 11
+    2300128: AA_Gun_LeftGun 2
+    2300130: AA_Gun_LeftGun 3
+    2300132: AA_Gun_LeftGun 4
+    2300134: AA_Gun_LeftGun 5
+    2300136: AA_Gun_LeftGun 6
+    2300138: AA_Gun_LeftGun 7
+    2300140: AA_Gun_LeftGun 8
+    2300142: AA_Gun_LeftGun 9
+    2300144: AA_Gun_RightBarrel
+    2300146: AA_Gun_RightBarrel 1
+    2300148: AA_Gun_RightBarrel 10
+    2300150: AA_Gun_RightBarrel 11
+    2300152: AA_Gun_RightBarrel 2
+    2300154: AA_Gun_RightBarrel 3
+    2300156: AA_Gun_RightBarrel 4
+    2300158: AA_Gun_RightBarrel 5
+    2300160: AA_Gun_RightBarrel 6
+    2300162: AA_Gun_RightBarrel 7
+    2300164: AA_Gun_RightBarrel 8
+    2300166: AA_Gun_RightBarrel 9
+    2300168: AA_Gun_RightGun
+    2300170: AA_Gun_RightGun 1
+    2300172: AA_Gun_RightGun 10
+    2300174: AA_Gun_RightGun 11
+    2300176: AA_Gun_RightGun 2
+    2300178: AA_Gun_RightGun 3
+    2300180: AA_Gun_RightGun 4
+    2300182: AA_Gun_RightGun 5
+    2300184: AA_Gun_RightGun 6
+    2300186: AA_Gun_RightGun 7
+    2300188: AA_Gun_RightGun 8
+    2300190: AA_Gun_RightGun 9
+    2300192: pCube1
+    2300194: pCube10
+    2300196: pCube11
+    2300198: pCube12
+    2300200: pCube120
+    2300202: pCube121
+    2300204: pCube122
+    2300206: pCube123
+    2300208: pCube124
+    2300210: pCube13
+    2300212: pCube130
+    2300214: pCube131
+    2300216: pCube133
+    2300218: pCube137
+    2300220: pCube138
+    2300222: pCube14
+    2300224: pCube15
+    2300226: pCube157
+    2300228: pCube158
+    2300230: pCube16
+    2300232: pCube17
+    2300234: pCube18
+    2300236: pCube19
+    2300238: pCube2
+    2300240: pCube20
+    2300242: pCube21
+    2300244: pCube22
+    2300246: pCube23
+    2300248: pCube24
+    2300250: pCube25
+    2300252: pCube26
+    2300254: pCube27
+    2300256: pCube28
+    2300258: pCube29
+    2300260: pCube3
+    2300262: pCube30
+    2300264: pCube4
+    2300266: pCube5
+    2300268: pCube6
+    2300270: pCube7
+    2300272: pCube8
+    2300274: pCube9
+    2300276: pCylinder10
+    2300278: pCylinder11
+    2300280: pCylinder12
+    2300282: pCylinder13
+    2300284: pCylinder14
+    2300286: pCylinder15
+    2300288: pCylinder16
+    2300290: pCylinder17
+    2300292: pCylinder18
+    2300294: pCylinder19
+    2300296: pCylinder20
+    2300298: pCylinder21
+    2300300: pCylinder22
+    2300302: pCylinder23
+    2300304: pCylinder24
+    2300306: pCylinder25
+    2300308: pCylinder26
+    2300310: pCylinder27
+    2300312: pCylinder28
+    2300314: pCylinder29
+    2300316: pCylinder8
+    2300318: pCylinder9
+    2300320: pPipe34
+    2300322: pPipe35
+    2300324: pPipe36
+    2300326: pPipe37
+    2300328: pPipe38
+    2300330: pPipe39
+    2300332: pPipe40
+    2300334: pPipe41
+    2300336: pPipe43
+    2300338: pPipe44
+    2300340: pPipe45
+    2300342: pPipe46
+    2300344: pPipe47
+    2300346: pPipe48
+    2300348: pPipe49
+    2300350: pPipe50
+    2300352: pPipe51
+    2300354: pPipe52
+    2300356: pPipe53
+    2300358: pPipe54
+    2300360: pPipe55
+    2300362: pPipe56
+    2300364: pPipe57
+    2300366: pPipe58
+    2300368: pPipe59
+    2300370: pPipe60
+    2300372: pPipe61
+    2300374: pPipe62
+    2300376: pPipe63
+    2300378: pPipe64
+    2300380: pPipe65
+    2300382: pPipe66
+    2300384: pPipe67
+    2300386: pPipe68
+    2300388: pPipe69
+    2300390: pPipe70
+    2300392: pPipe71
+    2300394: pPipe72
+    2300396: pPipe73
+    2300398: pPipe74
+    2300400: S_AA_Gun_Body
+    2300402: S_AA_Gun_Body 1
+    2300404: S_AA_Gun_Body 10
+    2300406: S_AA_Gun_Body 11
+    2300408: S_AA_Gun_Body 12
+    2300410: S_AA_Gun_Body 13
+    2300412: S_AA_Gun_Body 14
+    2300414: S_AA_Gun_Body 15
+    2300416: S_AA_Gun_Body 16
+    2300418: S_AA_Gun_Body 17
+    2300420: S_AA_Gun_Body 18
+    2300422: S_AA_Gun_Body 19
+    2300424: S_AA_Gun_Body 2
+    2300426: S_AA_Gun_Body 3
+    2300428: S_AA_Gun_Body 4
+    2300430: S_AA_Gun_Body 5
+    2300432: S_AA_Gun_Body 6
+    2300434: S_AA_Gun_Body 7
+    2300436: S_AA_Gun_Body 8
+    2300438: S_AA_Gun_Body 9
+    2300440: S_AA_Gun_CameraXAxis
+    2300442: S_AA_Gun_CameraXAxis 1
+    2300444: S_AA_Gun_CameraXAxis 10
+    2300446: S_AA_Gun_CameraXAxis 11
+    2300448: S_AA_Gun_CameraXAxis 12
+    2300450: S_AA_Gun_CameraXAxis 13
+    2300452: S_AA_Gun_CameraXAxis 14
+    2300454: S_AA_Gun_CameraXAxis 15
+    2300456: S_AA_Gun_CameraXAxis 16
+    2300458: S_AA_Gun_CameraXAxis 17
+    2300460: S_AA_Gun_CameraXAxis 18
+    2300462: S_AA_Gun_CameraXAxis 19
+    2300464: S_AA_Gun_CameraXAxis 2
+    2300466: S_AA_Gun_CameraXAxis 3
+    2300468: S_AA_Gun_CameraXAxis 4
+    2300470: S_AA_Gun_CameraXAxis 5
+    2300472: S_AA_Gun_CameraXAxis 6
+    2300474: S_AA_Gun_CameraXAxis 7
+    2300476: S_AA_Gun_CameraXAxis 8
+    2300478: S_AA_Gun_CameraXAxis 9
+    2300480: S_AA_Gun_CameraYAxis
+    2300482: S_AA_Gun_CameraYAxis 1
+    2300484: S_AA_Gun_CameraYAxis 10
+    2300486: S_AA_Gun_CameraYAxis 11
+    2300488: S_AA_Gun_CameraYAxis 12
+    2300490: S_AA_Gun_CameraYAxis 13
+    2300492: S_AA_Gun_CameraYAxis 14
+    2300494: S_AA_Gun_CameraYAxis 15
+    2300496: S_AA_Gun_CameraYAxis 16
+    2300498: S_AA_Gun_CameraYAxis 17
+    2300500: S_AA_Gun_CameraYAxis 18
+    2300502: S_AA_Gun_CameraYAxis 19
+    2300504: S_AA_Gun_CameraYAxis 2
+    2300506: S_AA_Gun_CameraYAxis 3
+    2300508: S_AA_Gun_CameraYAxis 4
+    2300510: S_AA_Gun_CameraYAxis 5
+    2300512: S_AA_Gun_CameraYAxis 6
+    2300514: S_AA_Gun_CameraYAxis 7
+    2300516: S_AA_Gun_CameraYAxis 8
+    2300518: S_AA_Gun_CameraYAxis 9
+    2300520: S_AA_Gun_LeftBarrel
+    2300522: S_AA_Gun_LeftBarrel 1
+    2300524: S_AA_Gun_LeftBarrel 10
+    2300526: S_AA_Gun_LeftBarrel 11
+    2300528: S_AA_Gun_LeftBarrel 12
+    2300530: S_AA_Gun_LeftBarrel 13
+    2300532: S_AA_Gun_LeftBarrel 14
+    2300534: S_AA_Gun_LeftBarrel 15
+    2300536: S_AA_Gun_LeftBarrel 16
+    2300538: S_AA_Gun_LeftBarrel 17
+    2300540: S_AA_Gun_LeftBarrel 18
+    2300542: S_AA_Gun_LeftBarrel 19
+    2300544: S_AA_Gun_LeftBarrel 2
+    2300546: S_AA_Gun_LeftBarrel 3
+    2300548: S_AA_Gun_LeftBarrel 4
+    2300550: S_AA_Gun_LeftBarrel 5
+    2300552: S_AA_Gun_LeftBarrel 6
+    2300554: S_AA_Gun_LeftBarrel 7
+    2300556: S_AA_Gun_LeftBarrel 8
+    2300558: S_AA_Gun_LeftBarrel 9
+    2300560: S_AA_Gun_LeftGun
+    2300562: S_AA_Gun_LeftGun 1
+    2300564: S_AA_Gun_LeftGun 10
+    2300566: S_AA_Gun_LeftGun 11
+    2300568: S_AA_Gun_LeftGun 12
+    2300570: S_AA_Gun_LeftGun 13
+    2300572: S_AA_Gun_LeftGun 14
+    2300574: S_AA_Gun_LeftGun 15
+    2300576: S_AA_Gun_LeftGun 16
+    2300578: S_AA_Gun_LeftGun 17
+    2300580: S_AA_Gun_LeftGun 18
+    2300582: S_AA_Gun_LeftGun 19
+    2300584: S_AA_Gun_LeftGun 2
+    2300586: S_AA_Gun_LeftGun 3
+    2300588: S_AA_Gun_LeftGun 4
+    2300590: S_AA_Gun_LeftGun 5
+    2300592: S_AA_Gun_LeftGun 6
+    2300594: S_AA_Gun_LeftGun 7
+    2300596: S_AA_Gun_LeftGun 8
+    2300598: S_AA_Gun_LeftGun 9
+    2300600: S_AA_Gun_RightBarrel
+    2300602: S_AA_Gun_RightBarrel 1
+    2300604: S_AA_Gun_RightBarrel 10
+    2300606: S_AA_Gun_RightBarrel 11
+    2300608: S_AA_Gun_RightBarrel 12
+    2300610: S_AA_Gun_RightBarrel 13
+    2300612: S_AA_Gun_RightBarrel 14
+    2300614: S_AA_Gun_RightBarrel 15
+    2300616: S_AA_Gun_RightBarrel 16
+    2300618: S_AA_Gun_RightBarrel 17
+    2300620: S_AA_Gun_RightBarrel 18
+    2300622: S_AA_Gun_RightBarrel 19
+    2300624: S_AA_Gun_RightBarrel 2
+    2300626: S_AA_Gun_RightBarrel 3
+    2300628: S_AA_Gun_RightBarrel 4
+    2300630: S_AA_Gun_RightBarrel 5
+    2300632: S_AA_Gun_RightBarrel 6
+    2300634: S_AA_Gun_RightBarrel 7
+    2300636: S_AA_Gun_RightBarrel 8
+    2300638: S_AA_Gun_RightBarrel 9
+    2300640: S_AA_Gun_RightGun
+    2300642: S_AA_Gun_RightGun 1
+    2300644: S_AA_Gun_RightGun 10
+    2300646: S_AA_Gun_RightGun 11
+    2300648: S_AA_Gun_RightGun 12
+    2300650: S_AA_Gun_RightGun 13
+    2300652: S_AA_Gun_RightGun 14
+    2300654: S_AA_Gun_RightGun 15
+    2300656: S_AA_Gun_RightGun 16
+    2300658: S_AA_Gun_RightGun 17
+    2300660: S_AA_Gun_RightGun 18
+    2300662: S_AA_Gun_RightGun 19
+    2300664: S_AA_Gun_RightGun 2
+    2300666: S_AA_Gun_RightGun 3
+    2300668: S_AA_Gun_RightGun 4
+    2300670: S_AA_Gun_RightGun 5
+    2300672: S_AA_Gun_RightGun 6
+    2300674: S_AA_Gun_RightGun 7
+    2300676: S_AA_Gun_RightGun 8
+    2300678: S_AA_Gun_RightGun 9
+    2300680: SideAA_Gun_Base
+    2300682: SideAA_Gun_Base1
+    2300684: SideAA_Gun_Base10
+    2300686: SideAA_Gun_Base11
+    2300688: SideAA_Gun_Base12
+    2300690: SideAA_Gun_Base13
+    2300692: SideAA_Gun_Base14
+    2300694: SideAA_Gun_Base15
+    2300696: SideAA_Gun_Base16
+    2300698: SideAA_Gun_Base17
+    2300700: SideAA_Gun_Base18
+    2300702: SideAA_Gun_Base19
+    2300704: SideAA_Gun_Base2
+    2300706: SideAA_Gun_Base3
+    2300708: SideAA_Gun_Base4
+    2300710: SideAA_Gun_Base5
+    2300712: SideAA_Gun_Base6
+    2300714: SideAA_Gun_Base7
+    2300716: SideAA_Gun_Base8
+    2300718: SideAA_Gun_Base9
+    2300720: AA_Gun_Base12
+    2300722: AA_Gun_Base13
+    2300724: AA_Gun_Body 12
+    2300726: AA_Gun_Body 13
+    2300728: AA_Gun_CameraXAxis 12
+    2300730: AA_Gun_CameraXAxis 13
+    2300732: AA_Gun_CameraYAxis 12
+    2300734: AA_Gun_CameraYAxis 13
+    2300736: AA_Gun_LeftBarrel 12
+    2300738: AA_Gun_LeftBarrel 13
+    2300740: AA_Gun_LeftGun 12
+    2300742: AA_Gun_LeftGun 13
+    2300744: AA_Gun_RightBarrel 12
+    2300746: AA_Gun_RightBarrel 13
+    2300748: AA_Gun_RightGun 12
+    2300750: AA_Gun_RightGun 13
+    2300752: pCube177
+    2300754: pCube178
+    2300756: pCube179
+    2300758: pCube180
+    2300760: pCube181
+    2300762: pCube182
+    2300764: polySurface1
+    2300766: polySurface6
+    2300768: polySurface7
+    2300770: polySurface8
+    2300772: S_AA_Gun_Body 20
+    2300774: S_AA_Gun_Body 21
+    2300776: S_AA_Gun_Body 22
+    2300778: S_AA_Gun_Body 23
+    2300780: S_AA_Gun_CameraXAxis 20
+    2300782: S_AA_Gun_CameraXAxis 21
+    2300784: S_AA_Gun_CameraXAxis 22
+    2300786: S_AA_Gun_CameraXAxis 23
+    2300788: S_AA_Gun_CameraYAxis 20
+    2300790: S_AA_Gun_CameraYAxis 21
+    2300792: S_AA_Gun_CameraYAxis 22
+    2300794: S_AA_Gun_CameraYAxis 23
+    2300796: S_AA_Gun_LeftBarrel 20
+    2300798: S_AA_Gun_LeftBarrel 21
+    2300800: S_AA_Gun_LeftBarrel 22
+    2300802: S_AA_Gun_LeftBarrel 23
+    2300804: S_AA_Gun_LeftGun 20
+    2300806: S_AA_Gun_LeftGun 21
+    2300808: S_AA_Gun_LeftGun 22
+    2300810: S_AA_Gun_LeftGun 23
+    2300812: S_AA_Gun_RightBarrel 20
+    2300814: S_AA_Gun_RightBarrel 21
+    2300816: S_AA_Gun_RightBarrel 22
+    2300818: S_AA_Gun_RightBarrel 23
+    2300820: S_AA_Gun_RightGun 20
+    2300822: S_AA_Gun_RightGun 21
+    2300824: S_AA_Gun_RightGun 22
+    2300826: S_AA_Gun_RightGun 23
+    2300828: SideAA_Gun_Base20
+    2300830: SideAA_Gun_Base21
+    2300832: SideAA_Gun_Base22
+    2300834: SideAA_Gun_Base23
+    3300000: AA_Gun_Base
+    3300002: AA_Gun_Base1
+    3300004: AA_Gun_Base10
+    3300006: AA_Gun_Base11
+    3300008: AA_Gun_Base2
+    3300010: AA_Gun_Base3
+    3300012: AA_Gun_Base4
+    3300014: AA_Gun_Base5
+    3300016: AA_Gun_Base6
+    3300018: AA_Gun_Base7
+    3300020: AA_Gun_Base8
+    3300022: AA_Gun_Base9
+    3300024: AA_Gun_Body
+    3300026: AA_Gun_Body 1
+    3300028: AA_Gun_Body 10
+    3300030: AA_Gun_Body 11
+    3300032: AA_Gun_Body 2
+    3300034: AA_Gun_Body 3
+    3300036: AA_Gun_Body 4
+    3300038: AA_Gun_Body 5
+    3300040: AA_Gun_Body 6
+    3300042: AA_Gun_Body 7
+    3300044: AA_Gun_Body 8
+    3300046: AA_Gun_Body 9
+    3300048: AA_Gun_CameraXAxis
+    3300050: AA_Gun_CameraXAxis 1
+    3300052: AA_Gun_CameraXAxis 10
+    3300054: AA_Gun_CameraXAxis 11
+    3300056: AA_Gun_CameraXAxis 2
+    3300058: AA_Gun_CameraXAxis 3
+    3300060: AA_Gun_CameraXAxis 4
+    3300062: AA_Gun_CameraXAxis 5
+    3300064: AA_Gun_CameraXAxis 6
+    3300066: AA_Gun_CameraXAxis 7
+    3300068: AA_Gun_CameraXAxis 8
+    3300070: AA_Gun_CameraXAxis 9
+    3300072: AA_Gun_CameraYAxis
+    3300074: AA_Gun_CameraYAxis 1
+    3300076: AA_Gun_CameraYAxis 10
+    3300078: AA_Gun_CameraYAxis 11
+    3300080: AA_Gun_CameraYAxis 2
+    3300082: AA_Gun_CameraYAxis 3
+    3300084: AA_Gun_CameraYAxis 4
+    3300086: AA_Gun_CameraYAxis 5
+    3300088: AA_Gun_CameraYAxis 6
+    3300090: AA_Gun_CameraYAxis 7
+    3300092: AA_Gun_CameraYAxis 8
+    3300094: AA_Gun_CameraYAxis 9
+    3300096: AA_Gun_LeftBarrel
+    3300098: AA_Gun_LeftBarrel 1
+    3300100: AA_Gun_LeftBarrel 10
+    3300102: AA_Gun_LeftBarrel 11
+    3300104: AA_Gun_LeftBarrel 2
+    3300106: AA_Gun_LeftBarrel 3
+    3300108: AA_Gun_LeftBarrel 4
+    3300110: AA_Gun_LeftBarrel 5
+    3300112: AA_Gun_LeftBarrel 6
+    3300114: AA_Gun_LeftBarrel 7
+    3300116: AA_Gun_LeftBarrel 8
+    3300118: AA_Gun_LeftBarrel 9
+    3300120: AA_Gun_LeftGun
+    3300122: AA_Gun_LeftGun 1
+    3300124: AA_Gun_LeftGun 10
+    3300126: AA_Gun_LeftGun 11
+    3300128: AA_Gun_LeftGun 2
+    3300130: AA_Gun_LeftGun 3
+    3300132: AA_Gun_LeftGun 4
+    3300134: AA_Gun_LeftGun 5
+    3300136: AA_Gun_LeftGun 6
+    3300138: AA_Gun_LeftGun 7
+    3300140: AA_Gun_LeftGun 8
+    3300142: AA_Gun_LeftGun 9
+    3300144: AA_Gun_RightBarrel
+    3300146: AA_Gun_RightBarrel 1
+    3300148: AA_Gun_RightBarrel 10
+    3300150: AA_Gun_RightBarrel 11
+    3300152: AA_Gun_RightBarrel 2
+    3300154: AA_Gun_RightBarrel 3
+    3300156: AA_Gun_RightBarrel 4
+    3300158: AA_Gun_RightBarrel 5
+    3300160: AA_Gun_RightBarrel 6
+    3300162: AA_Gun_RightBarrel 7
+    3300164: AA_Gun_RightBarrel 8
+    3300166: AA_Gun_RightBarrel 9
+    3300168: AA_Gun_RightGun
+    3300170: AA_Gun_RightGun 1
+    3300172: AA_Gun_RightGun 10
+    3300174: AA_Gun_RightGun 11
+    3300176: AA_Gun_RightGun 2
+    3300178: AA_Gun_RightGun 3
+    3300180: AA_Gun_RightGun 4
+    3300182: AA_Gun_RightGun 5
+    3300184: AA_Gun_RightGun 6
+    3300186: AA_Gun_RightGun 7
+    3300188: AA_Gun_RightGun 8
+    3300190: AA_Gun_RightGun 9
+    3300192: pCube1
+    3300194: pCube10
+    3300196: pCube11
+    3300198: pCube12
+    3300200: pCube120
+    3300202: pCube121
+    3300204: pCube122
+    3300206: pCube123
+    3300208: pCube124
+    3300210: pCube13
+    3300212: pCube130
+    3300214: pCube131
+    3300216: pCube133
+    3300218: pCube137
+    3300220: pCube138
+    3300222: pCube14
+    3300224: pCube15
+    3300226: pCube157
+    3300228: pCube158
+    3300230: pCube16
+    3300232: pCube17
+    3300234: pCube18
+    3300236: pCube19
+    3300238: pCube2
+    3300240: pCube20
+    3300242: pCube21
+    3300244: pCube22
+    3300246: pCube23
+    3300248: pCube24
+    3300250: pCube25
+    3300252: pCube26
+    3300254: pCube27
+    3300256: pCube28
+    3300258: pCube29
+    3300260: pCube3
+    3300262: pCube30
+    3300264: pCube4
+    3300266: pCube5
+    3300268: pCube6
+    3300270: pCube7
+    3300272: pCube8
+    3300274: pCube9
+    3300276: pCylinder10
+    3300278: pCylinder11
+    3300280: pCylinder12
+    3300282: pCylinder13
+    3300284: pCylinder14
+    3300286: pCylinder15
+    3300288: pCylinder16
+    3300290: pCylinder17
+    3300292: pCylinder18
+    3300294: pCylinder19
+    3300296: pCylinder20
+    3300298: pCylinder21
+    3300300: pCylinder22
+    3300302: pCylinder23
+    3300304: pCylinder24
+    3300306: pCylinder25
+    3300308: pCylinder26
+    3300310: pCylinder27
+    3300312: pCylinder28
+    3300314: pCylinder29
+    3300316: pCylinder8
+    3300318: pCylinder9
+    3300320: pPipe34
+    3300322: pPipe35
+    3300324: pPipe36
+    3300326: pPipe37
+    3300328: pPipe38
+    3300330: pPipe39
+    3300332: pPipe40
+    3300334: pPipe41
+    3300336: pPipe43
+    3300338: pPipe44
+    3300340: pPipe45
+    3300342: pPipe46
+    3300344: pPipe47
+    3300346: pPipe48
+    3300348: pPipe49
+    3300350: pPipe50
+    3300352: pPipe51
+    3300354: pPipe52
+    3300356: pPipe53
+    3300358: pPipe54
+    3300360: pPipe55
+    3300362: pPipe56
+    3300364: pPipe57
+    3300366: pPipe58
+    3300368: pPipe59
+    3300370: pPipe60
+    3300372: pPipe61
+    3300374: pPipe62
+    3300376: pPipe63
+    3300378: pPipe64
+    3300380: pPipe65
+    3300382: pPipe66
+    3300384: pPipe67
+    3300386: pPipe68
+    3300388: pPipe69
+    3300390: pPipe70
+    3300392: pPipe71
+    3300394: pPipe72
+    3300396: pPipe73
+    3300398: pPipe74
+    3300400: S_AA_Gun_Body
+    3300402: S_AA_Gun_Body 1
+    3300404: S_AA_Gun_Body 10
+    3300406: S_AA_Gun_Body 11
+    3300408: S_AA_Gun_Body 12
+    3300410: S_AA_Gun_Body 13
+    3300412: S_AA_Gun_Body 14
+    3300414: S_AA_Gun_Body 15
+    3300416: S_AA_Gun_Body 16
+    3300418: S_AA_Gun_Body 17
+    3300420: S_AA_Gun_Body 18
+    3300422: S_AA_Gun_Body 19
+    3300424: S_AA_Gun_Body 2
+    3300426: S_AA_Gun_Body 3
+    3300428: S_AA_Gun_Body 4
+    3300430: S_AA_Gun_Body 5
+    3300432: S_AA_Gun_Body 6
+    3300434: S_AA_Gun_Body 7
+    3300436: S_AA_Gun_Body 8
+    3300438: S_AA_Gun_Body 9
+    3300440: S_AA_Gun_CameraXAxis
+    3300442: S_AA_Gun_CameraXAxis 1
+    3300444: S_AA_Gun_CameraXAxis 10
+    3300446: S_AA_Gun_CameraXAxis 11
+    3300448: S_AA_Gun_CameraXAxis 12
+    3300450: S_AA_Gun_CameraXAxis 13
+    3300452: S_AA_Gun_CameraXAxis 14
+    3300454: S_AA_Gun_CameraXAxis 15
+    3300456: S_AA_Gun_CameraXAxis 16
+    3300458: S_AA_Gun_CameraXAxis 17
+    3300460: S_AA_Gun_CameraXAxis 18
+    3300462: S_AA_Gun_CameraXAxis 19
+    3300464: S_AA_Gun_CameraXAxis 2
+    3300466: S_AA_Gun_CameraXAxis 3
+    3300468: S_AA_Gun_CameraXAxis 4
+    3300470: S_AA_Gun_CameraXAxis 5
+    3300472: S_AA_Gun_CameraXAxis 6
+    3300474: S_AA_Gun_CameraXAxis 7
+    3300476: S_AA_Gun_CameraXAxis 8
+    3300478: S_AA_Gun_CameraXAxis 9
+    3300480: S_AA_Gun_CameraYAxis
+    3300482: S_AA_Gun_CameraYAxis 1
+    3300484: S_AA_Gun_CameraYAxis 10
+    3300486: S_AA_Gun_CameraYAxis 11
+    3300488: S_AA_Gun_CameraYAxis 12
+    3300490: S_AA_Gun_CameraYAxis 13
+    3300492: S_AA_Gun_CameraYAxis 14
+    3300494: S_AA_Gun_CameraYAxis 15
+    3300496: S_AA_Gun_CameraYAxis 16
+    3300498: S_AA_Gun_CameraYAxis 17
+    3300500: S_AA_Gun_CameraYAxis 18
+    3300502: S_AA_Gun_CameraYAxis 19
+    3300504: S_AA_Gun_CameraYAxis 2
+    3300506: S_AA_Gun_CameraYAxis 3
+    3300508: S_AA_Gun_CameraYAxis 4
+    3300510: S_AA_Gun_CameraYAxis 5
+    3300512: S_AA_Gun_CameraYAxis 6
+    3300514: S_AA_Gun_CameraYAxis 7
+    3300516: S_AA_Gun_CameraYAxis 8
+    3300518: S_AA_Gun_CameraYAxis 9
+    3300520: S_AA_Gun_LeftBarrel
+    3300522: S_AA_Gun_LeftBarrel 1
+    3300524: S_AA_Gun_LeftBarrel 10
+    3300526: S_AA_Gun_LeftBarrel 11
+    3300528: S_AA_Gun_LeftBarrel 12
+    3300530: S_AA_Gun_LeftBarrel 13
+    3300532: S_AA_Gun_LeftBarrel 14
+    3300534: S_AA_Gun_LeftBarrel 15
+    3300536: S_AA_Gun_LeftBarrel 16
+    3300538: S_AA_Gun_LeftBarrel 17
+    3300540: S_AA_Gun_LeftBarrel 18
+    3300542: S_AA_Gun_LeftBarrel 19
+    3300544: S_AA_Gun_LeftBarrel 2
+    3300546: S_AA_Gun_LeftBarrel 3
+    3300548: S_AA_Gun_LeftBarrel 4
+    3300550: S_AA_Gun_LeftBarrel 5
+    3300552: S_AA_Gun_LeftBarrel 6
+    3300554: S_AA_Gun_LeftBarrel 7
+    3300556: S_AA_Gun_LeftBarrel 8
+    3300558: S_AA_Gun_LeftBarrel 9
+    3300560: S_AA_Gun_LeftGun
+    3300562: S_AA_Gun_LeftGun 1
+    3300564: S_AA_Gun_LeftGun 10
+    3300566: S_AA_Gun_LeftGun 11
+    3300568: S_AA_Gun_LeftGun 12
+    3300570: S_AA_Gun_LeftGun 13
+    3300572: S_AA_Gun_LeftGun 14
+    3300574: S_AA_Gun_LeftGun 15
+    3300576: S_AA_Gun_LeftGun 16
+    3300578: S_AA_Gun_LeftGun 17
+    3300580: S_AA_Gun_LeftGun 18
+    3300582: S_AA_Gun_LeftGun 19
+    3300584: S_AA_Gun_LeftGun 2
+    3300586: S_AA_Gun_LeftGun 3
+    3300588: S_AA_Gun_LeftGun 4
+    3300590: S_AA_Gun_LeftGun 5
+    3300592: S_AA_Gun_LeftGun 6
+    3300594: S_AA_Gun_LeftGun 7
+    3300596: S_AA_Gun_LeftGun 8
+    3300598: S_AA_Gun_LeftGun 9
+    3300600: S_AA_Gun_RightBarrel
+    3300602: S_AA_Gun_RightBarrel 1
+    3300604: S_AA_Gun_RightBarrel 10
+    3300606: S_AA_Gun_RightBarrel 11
+    3300608: S_AA_Gun_RightBarrel 12
+    3300610: S_AA_Gun_RightBarrel 13
+    3300612: S_AA_Gun_RightBarrel 14
+    3300614: S_AA_Gun_RightBarrel 15
+    3300616: S_AA_Gun_RightBarrel 16
+    3300618: S_AA_Gun_RightBarrel 17
+    3300620: S_AA_Gun_RightBarrel 18
+    3300622: S_AA_Gun_RightBarrel 19
+    3300624: S_AA_Gun_RightBarrel 2
+    3300626: S_AA_Gun_RightBarrel 3
+    3300628: S_AA_Gun_RightBarrel 4
+    3300630: S_AA_Gun_RightBarrel 5
+    3300632: S_AA_Gun_RightBarrel 6
+    3300634: S_AA_Gun_RightBarrel 7
+    3300636: S_AA_Gun_RightBarrel 8
+    3300638: S_AA_Gun_RightBarrel 9
+    3300640: S_AA_Gun_RightGun
+    3300642: S_AA_Gun_RightGun 1
+    3300644: S_AA_Gun_RightGun 10
+    3300646: S_AA_Gun_RightGun 11
+    3300648: S_AA_Gun_RightGun 12
+    3300650: S_AA_Gun_RightGun 13
+    3300652: S_AA_Gun_RightGun 14
+    3300654: S_AA_Gun_RightGun 15
+    3300656: S_AA_Gun_RightGun 16
+    3300658: S_AA_Gun_RightGun 17
+    3300660: S_AA_Gun_RightGun 18
+    3300662: S_AA_Gun_RightGun 19
+    3300664: S_AA_Gun_RightGun 2
+    3300666: S_AA_Gun_RightGun 3
+    3300668: S_AA_Gun_RightGun 4
+    3300670: S_AA_Gun_RightGun 5
+    3300672: S_AA_Gun_RightGun 6
+    3300674: S_AA_Gun_RightGun 7
+    3300676: S_AA_Gun_RightGun 8
+    3300678: S_AA_Gun_RightGun 9
+    3300680: SideAA_Gun_Base
+    3300682: SideAA_Gun_Base1
+    3300684: SideAA_Gun_Base10
+    3300686: SideAA_Gun_Base11
+    3300688: SideAA_Gun_Base12
+    3300690: SideAA_Gun_Base13
+    3300692: SideAA_Gun_Base14
+    3300694: SideAA_Gun_Base15
+    3300696: SideAA_Gun_Base16
+    3300698: SideAA_Gun_Base17
+    3300700: SideAA_Gun_Base18
+    3300702: SideAA_Gun_Base19
+    3300704: SideAA_Gun_Base2
+    3300706: SideAA_Gun_Base3
+    3300708: SideAA_Gun_Base4
+    3300710: SideAA_Gun_Base5
+    3300712: SideAA_Gun_Base6
+    3300714: SideAA_Gun_Base7
+    3300716: SideAA_Gun_Base8
+    3300718: SideAA_Gun_Base9
+    3300720: AA_Gun_Base12
+    3300722: AA_Gun_Base13
+    3300724: AA_Gun_Body 12
+    3300726: AA_Gun_Body 13
+    3300728: AA_Gun_CameraXAxis 12
+    3300730: AA_Gun_CameraXAxis 13
+    3300732: AA_Gun_CameraYAxis 12
+    3300734: AA_Gun_CameraYAxis 13
+    3300736: AA_Gun_LeftBarrel 12
+    3300738: AA_Gun_LeftBarrel 13
+    3300740: AA_Gun_LeftGun 12
+    3300742: AA_Gun_LeftGun 13
+    3300744: AA_Gun_RightBarrel 12
+    3300746: AA_Gun_RightBarrel 13
+    3300748: AA_Gun_RightGun 12
+    3300750: AA_Gun_RightGun 13
+    3300752: pCube177
+    3300754: pCube178
+    3300756: pCube179
+    3300758: pCube180
+    3300760: pCube181
+    3300762: pCube182
+    3300764: polySurface1
+    3300766: polySurface6
+    3300768: polySurface7
+    3300770: polySurface8
+    3300772: S_AA_Gun_Body 20
+    3300774: S_AA_Gun_Body 21
+    3300776: S_AA_Gun_Body 22
+    3300778: S_AA_Gun_Body 23
+    3300780: S_AA_Gun_CameraXAxis 20
+    3300782: S_AA_Gun_CameraXAxis 21
+    3300784: S_AA_Gun_CameraXAxis 22
+    3300786: S_AA_Gun_CameraXAxis 23
+    3300788: S_AA_Gun_CameraYAxis 20
+    3300790: S_AA_Gun_CameraYAxis 21
+    3300792: S_AA_Gun_CameraYAxis 22
+    3300794: S_AA_Gun_CameraYAxis 23
+    3300796: S_AA_Gun_LeftBarrel 20
+    3300798: S_AA_Gun_LeftBarrel 21
+    3300800: S_AA_Gun_LeftBarrel 22
+    3300802: S_AA_Gun_LeftBarrel 23
+    3300804: S_AA_Gun_LeftGun 20
+    3300806: S_AA_Gun_LeftGun 21
+    3300808: S_AA_Gun_LeftGun 22
+    3300810: S_AA_Gun_LeftGun 23
+    3300812: S_AA_Gun_RightBarrel 20
+    3300814: S_AA_Gun_RightBarrel 21
+    3300816: S_AA_Gun_RightBarrel 22
+    3300818: S_AA_Gun_RightBarrel 23
+    3300820: S_AA_Gun_RightGun 20
+    3300822: S_AA_Gun_RightGun 21
+    3300824: S_AA_Gun_RightGun 22
+    3300826: S_AA_Gun_RightGun 23
+    3300828: SideAA_Gun_Base20
+    3300830: SideAA_Gun_Base21
+    3300832: SideAA_Gun_Base22
+    3300834: SideAA_Gun_Base23
+    4300000: pCube1
+    4300002: pCylinder8
+    4300004: pCube2
+    4300006: pCube3
+    4300008: pCube4
+    4300010: pCube5
+    4300012: pCylinder9
+    4300014: pCube6
+    4300016: pCube7
+    4300018: pCube8
+    4300020: pCube9
+    4300022: pCylinder10
+    4300024: pCube10
+    4300026: pCube11
+    4300028: pCube12
+    4300030: pCube13
+    4300032: pCube14
+    4300034: pCube15
+    4300036: pCube16
+    4300038: pCylinder11
+    4300040: pCube17
+    4300042: pCube18
+    4300044: pCube19
+    4300046: pPipe34
+    4300048: pPipe35
+    4300050: pPipe36
+    4300052: pPipe37
+    4300054: pPipe38
+    4300056: pPipe39
+    4300058: pPipe40
+    4300060: pCylinder12
+    4300062: pPipe41
+    4300064: pCube20
+    4300066: pCube21
+    4300068: pCube22
+    4300070: pCube23
+    4300072: pCube24
+    4300074: pCube25
+    4300076: pCube26
+    4300078: pCube27
+    4300080: pCube28
+    4300082: pCube29
+    4300084: pCube30
+    4300086: pCube120
+    4300088: pCube121
+    4300090: pCube122
+    4300092: pCube123
+    4300094: pCube124
+    4300096: pCube130
+    4300098: pCube131
+    4300100: pCylinder13
+    4300102: pCylinder14
+    4300104: pCylinder15
+    4300106: pCylinder16
+    4300108: pCylinder17
+    4300110: pCylinder18
+    4300112: pCylinder19
+    4300114: pCylinder20
+    4300116: pCylinder21
+    4300118: pCylinder22
+    4300120: pCylinder23
+    4300122: pCylinder24
+    4300124: pCube133
+    4300126: pCube137
+    4300128: pCube138
+    4300130: pCylinder25
+    4300132: pCylinder26
+    4300134: pCylinder27
+    4300136: pCylinder28
+    4300138: pCylinder29
+    4300140: pCube157
+    4300142: pCube158
+    4300144: pPipe43
+    4300146: pPipe44
+    4300148: pPipe45
+    4300150: pPipe46
+    4300152: pPipe47
+    4300154: pPipe48
+    4300156: pPipe49
+    4300158: pPipe50
+    4300160: pPipe51
+    4300162: pPipe52
+    4300164: pPipe53
+    4300166: pPipe54
+    4300168: pPipe55
+    4300170: pPipe56
+    4300172: pPipe57
+    4300174: pPipe58
+    4300176: pPipe59
+    4300178: pPipe60
+    4300180: pPipe61
+    4300182: pPipe62
+    4300184: pPipe63
+    4300186: pPipe64
+    4300188: pPipe65
+    4300190: pPipe66
+    4300192: pPipe67
+    4300194: pPipe68
+    4300196: pPipe69
+    4300198: pPipe70
+    4300200: pPipe71
+    4300202: pPipe72
+    4300204: pPipe73
+    4300206: pPipe74
+    4300208: AA_Gun_Base
+    4300210: AA_Gun_Body
+    4300212: AA_Gun_LeftGun
+    4300214: AA_Gun_LeftBarrel
+    4300216: AA_Gun_RightGun
+    4300218: AA_Gun_RightBarrel
+    4300220: AA_Gun_CameraYAxis
+    4300222: AA_Gun_CameraXAxis
+    4300224: AA_Gun_Base1
+    4300226: AA_Gun_Body
+    4300228: AA_Gun_LeftGun
+    4300230: AA_Gun_LeftBarrel
+    4300232: AA_Gun_RightGun
+    4300234: AA_Gun_RightBarrel
+    4300236: AA_Gun_CameraYAxis
+    4300238: AA_Gun_CameraXAxis
+    4300240: AA_Gun_Base2
+    4300242: AA_Gun_Body
+    4300244: AA_Gun_LeftGun
+    4300246: AA_Gun_LeftBarrel
+    4300248: AA_Gun_RightGun
+    4300250: AA_Gun_RightBarrel
+    4300252: AA_Gun_CameraYAxis
+    4300254: AA_Gun_CameraXAxis
+    4300256: AA_Gun_Base3
+    4300258: AA_Gun_Body
+    4300260: AA_Gun_LeftGun
+    4300262: AA_Gun_LeftBarrel
+    4300264: AA_Gun_RightGun
+    4300266: AA_Gun_RightBarrel
+    4300268: AA_Gun_CameraYAxis
+    4300270: AA_Gun_CameraXAxis
+    4300272: AA_Gun_Base4
+    4300274: AA_Gun_Body
+    4300276: AA_Gun_LeftGun
+    4300278: AA_Gun_LeftBarrel
+    4300280: AA_Gun_RightGun
+    4300282: AA_Gun_RightBarrel
+    4300284: AA_Gun_CameraYAxis
+    4300286: AA_Gun_CameraXAxis
+    4300288: AA_Gun_Base5
+    4300290: AA_Gun_Body
+    4300292: AA_Gun_LeftGun
+    4300294: AA_Gun_LeftBarrel
+    4300296: AA_Gun_RightGun
+    4300298: AA_Gun_RightBarrel
+    4300300: AA_Gun_CameraYAxis
+    4300302: AA_Gun_CameraXAxis
+    4300304: AA_Gun_Base6
+    4300306: AA_Gun_Body
+    4300308: AA_Gun_LeftGun
+    4300310: AA_Gun_LeftBarrel
+    4300312: AA_Gun_RightGun
+    4300314: AA_Gun_RightBarrel
+    4300316: AA_Gun_CameraYAxis
+    4300318: AA_Gun_CameraXAxis
+    4300320: AA_Gun_Base7
+    4300322: AA_Gun_Body
+    4300324: AA_Gun_LeftGun
+    4300326: AA_Gun_LeftBarrel
+    4300328: AA_Gun_RightGun
+    4300330: AA_Gun_RightBarrel
+    4300332: AA_Gun_CameraYAxis
+    4300334: AA_Gun_CameraXAxis
+    4300336: AA_Gun_Base8
+    4300338: AA_Gun_Body
+    4300340: AA_Gun_LeftGun
+    4300342: AA_Gun_LeftBarrel
+    4300344: AA_Gun_RightGun
+    4300346: AA_Gun_RightBarrel
+    4300348: AA_Gun_CameraYAxis
+    4300350: AA_Gun_CameraXAxis
+    4300352: AA_Gun_Base9
+    4300354: AA_Gun_Body
+    4300356: AA_Gun_LeftGun
+    4300358: AA_Gun_LeftBarrel
+    4300360: AA_Gun_RightGun
+    4300362: AA_Gun_RightBarrel
+    4300364: AA_Gun_CameraYAxis
+    4300366: AA_Gun_CameraXAxis
+    4300368: AA_Gun_Base10
+    4300370: AA_Gun_Body
+    4300372: AA_Gun_LeftGun
+    4300374: AA_Gun_LeftBarrel
+    4300376: AA_Gun_RightGun
+    4300378: AA_Gun_RightBarrel
+    4300380: AA_Gun_CameraYAxis
+    4300382: AA_Gun_CameraXAxis
+    4300384: AA_Gun_Base11
+    4300386: AA_Gun_Body
+    4300388: AA_Gun_LeftGun
+    4300390: AA_Gun_LeftBarrel
+    4300392: AA_Gun_RightGun
+    4300394: AA_Gun_RightBarrel
+    4300396: AA_Gun_CameraYAxis
+    4300398: AA_Gun_CameraXAxis
+    4300400: SideAA_Gun_Base
+    4300402: S_AA_Gun_Body
+    4300404: S_AA_Gun_LeftGun
+    4300406: S_AA_Gun_LeftBarrel
+    4300408: S_AA_Gun_RightGun
+    4300410: S_AA_Gun_RightBarrel
+    4300412: S_AA_Gun_CameraYAxis
+    4300414: S_AA_Gun_CameraXAxis
+    4300416: SideAA_Gun_Base3
+    4300418: S_AA_Gun_Body
+    4300420: S_AA_Gun_LeftGun
+    4300422: S_AA_Gun_LeftBarrel
+    4300424: S_AA_Gun_RightGun
+    4300426: S_AA_Gun_RightBarrel
+    4300428: S_AA_Gun_CameraYAxis
+    4300430: S_AA_Gun_CameraXAxis
+    4300432: SideAA_Gun_Base1
+    4300434: S_AA_Gun_Body
+    4300436: S_AA_Gun_LeftGun
+    4300438: S_AA_Gun_LeftBarrel
+    4300440: S_AA_Gun_RightGun
+    4300442: S_AA_Gun_RightBarrel
+    4300444: S_AA_Gun_CameraYAxis
+    4300446: S_AA_Gun_CameraXAxis
+    4300448: SideAA_Gun_Base2
+    4300450: S_AA_Gun_Body
+    4300452: S_AA_Gun_LeftGun
+    4300454: S_AA_Gun_LeftBarrel
+    4300456: S_AA_Gun_RightGun
+    4300458: S_AA_Gun_RightBarrel
+    4300460: S_AA_Gun_CameraYAxis
+    4300462: S_AA_Gun_CameraXAxis
+    4300464: SideAA_Gun_Base4
+    4300466: S_AA_Gun_Body
+    4300468: S_AA_Gun_LeftGun
+    4300470: S_AA_Gun_LeftBarrel
+    4300472: S_AA_Gun_RightGun
+    4300474: S_AA_Gun_RightBarrel
+    4300476: S_AA_Gun_CameraYAxis
+    4300478: S_AA_Gun_CameraXAxis
+    4300480: SideAA_Gun_Base5
+    4300482: S_AA_Gun_Body
+    4300484: S_AA_Gun_LeftGun
+    4300486: S_AA_Gun_LeftBarrel
+    4300488: S_AA_Gun_RightGun
+    4300490: S_AA_Gun_RightBarrel
+    4300492: S_AA_Gun_CameraYAxis
+    4300494: S_AA_Gun_CameraXAxis
+    4300496: SideAA_Gun_Base6
+    4300498: S_AA_Gun_Body
+    4300500: S_AA_Gun_LeftGun
+    4300502: S_AA_Gun_LeftBarrel
+    4300504: S_AA_Gun_RightGun
+    4300506: S_AA_Gun_RightBarrel
+    4300508: S_AA_Gun_CameraYAxis
+    4300510: S_AA_Gun_CameraXAxis
+    4300512: SideAA_Gun_Base7
+    4300514: S_AA_Gun_Body
+    4300516: S_AA_Gun_LeftGun
+    4300518: S_AA_Gun_LeftBarrel
+    4300520: S_AA_Gun_RightGun
+    4300522: S_AA_Gun_RightBarrel
+    4300524: S_AA_Gun_CameraYAxis
+    4300526: S_AA_Gun_CameraXAxis
+    4300528: SideAA_Gun_Base8
+    4300530: S_AA_Gun_Body
+    4300532: S_AA_Gun_LeftGun
+    4300534: S_AA_Gun_LeftBarrel
+    4300536: S_AA_Gun_RightGun
+    4300538: S_AA_Gun_RightBarrel
+    4300540: S_AA_Gun_CameraYAxis
+    4300542: S_AA_Gun_CameraXAxis
+    4300544: SideAA_Gun_Base9
+    4300546: S_AA_Gun_Body
+    4300548: S_AA_Gun_LeftGun
+    4300550: S_AA_Gun_LeftBarrel
+    4300552: S_AA_Gun_RightGun
+    4300554: S_AA_Gun_RightBarrel
+    4300556: S_AA_Gun_CameraYAxis
+    4300558: S_AA_Gun_CameraXAxis
+    4300560: SideAA_Gun_Base10
+    4300562: S_AA_Gun_Body
+    4300564: S_AA_Gun_LeftGun
+    4300566: S_AA_Gun_LeftBarrel
+    4300568: S_AA_Gun_RightGun
+    4300570: S_AA_Gun_RightBarrel
+    4300572: S_AA_Gun_CameraYAxis
+    4300574: S_AA_Gun_CameraXAxis
+    4300576: SideAA_Gun_Base11
+    4300578: S_AA_Gun_Body
+    4300580: S_AA_Gun_LeftGun
+    4300582: S_AA_Gun_LeftBarrel
+    4300584: S_AA_Gun_RightGun
+    4300586: S_AA_Gun_RightBarrel
+    4300588: S_AA_Gun_CameraYAxis
+    4300590: S_AA_Gun_CameraXAxis
+    4300592: SideAA_Gun_Base12
+    4300594: S_AA_Gun_Body
+    4300596: S_AA_Gun_LeftGun
+    4300598: S_AA_Gun_LeftBarrel
+    4300600: S_AA_Gun_RightGun
+    4300602: S_AA_Gun_RightBarrel
+    4300604: S_AA_Gun_CameraYAxis
+    4300606: S_AA_Gun_CameraXAxis
+    4300608: SideAA_Gun_Base13
+    4300610: S_AA_Gun_Body
+    4300612: S_AA_Gun_LeftGun
+    4300614: S_AA_Gun_LeftBarrel
+    4300616: S_AA_Gun_RightGun
+    4300618: S_AA_Gun_RightBarrel
+    4300620: S_AA_Gun_CameraYAxis
+    4300622: S_AA_Gun_CameraXAxis
+    4300624: SideAA_Gun_Base14
+    4300626: S_AA_Gun_Body
+    4300628: S_AA_Gun_LeftGun
+    4300630: S_AA_Gun_LeftBarrel
+    4300632: S_AA_Gun_RightGun
+    4300634: S_AA_Gun_RightBarrel
+    4300636: S_AA_Gun_CameraYAxis
+    4300638: S_AA_Gun_CameraXAxis
+    4300640: SideAA_Gun_Base15
+    4300642: S_AA_Gun_Body
+    4300644: S_AA_Gun_LeftGun
+    4300646: S_AA_Gun_LeftBarrel
+    4300648: S_AA_Gun_RightGun
+    4300650: S_AA_Gun_RightBarrel
+    4300652: S_AA_Gun_CameraYAxis
+    4300654: S_AA_Gun_CameraXAxis
+    4300656: SideAA_Gun_Base16
+    4300658: S_AA_Gun_Body
+    4300660: S_AA_Gun_LeftGun
+    4300662: S_AA_Gun_LeftBarrel
+    4300664: S_AA_Gun_RightGun
+    4300666: S_AA_Gun_RightBarrel
+    4300668: S_AA_Gun_CameraYAxis
+    4300670: S_AA_Gun_CameraXAxis
+    4300672: SideAA_Gun_Base17
+    4300674: S_AA_Gun_Body
+    4300676: S_AA_Gun_LeftGun
+    4300678: S_AA_Gun_LeftBarrel
+    4300680: S_AA_Gun_RightGun
+    4300682: S_AA_Gun_RightBarrel
+    4300684: S_AA_Gun_CameraYAxis
+    4300686: S_AA_Gun_CameraXAxis
+    4300688: SideAA_Gun_Base18
+    4300690: S_AA_Gun_Body
+    4300692: S_AA_Gun_LeftGun
+    4300694: S_AA_Gun_LeftBarrel
+    4300696: S_AA_Gun_RightGun
+    4300698: S_AA_Gun_RightBarrel
+    4300700: S_AA_Gun_CameraYAxis
+    4300702: S_AA_Gun_CameraXAxis
+    4300704: SideAA_Gun_Base19
+    4300706: S_AA_Gun_Body
+    4300708: S_AA_Gun_LeftGun
+    4300710: S_AA_Gun_LeftBarrel
+    4300712: S_AA_Gun_RightGun
+    4300714: S_AA_Gun_RightBarrel
+    4300716: S_AA_Gun_CameraYAxis
+    4300718: S_AA_Gun_CameraXAxis
+    4300720: polySurface7
+    4300722: polySurface8
+    4300724: polySurface1
+    4300726: polySurface6
+    4300728: pCube177
+    4300730: pCube178
+    4300732: pCube179
+    4300734: pCube180
+    4300736: pCube181
+    4300738: pCube182
+    4300740: AA_Gun_Base12
+    4300742: AA_Gun_Body
+    4300744: AA_Gun_LeftGun
+    4300746: AA_Gun_LeftBarrel
+    4300748: AA_Gun_RightGun
+    4300750: AA_Gun_RightBarrel
+    4300752: AA_Gun_CameraYAxis
+    4300754: AA_Gun_CameraXAxis
+    4300756: AA_Gun_Base13
+    4300758: AA_Gun_Body
+    4300760: AA_Gun_LeftGun
+    4300762: AA_Gun_LeftBarrel
+    4300764: AA_Gun_RightGun
+    4300766: AA_Gun_RightBarrel
+    4300768: AA_Gun_CameraYAxis
+    4300770: AA_Gun_CameraXAxis
+    4300772: SideAA_Gun_Base20
+    4300774: S_AA_Gun_Body
+    4300776: S_AA_Gun_LeftGun
+    4300778: S_AA_Gun_LeftBarrel
+    4300780: S_AA_Gun_RightGun
+    4300782: S_AA_Gun_RightBarrel
+    4300784: S_AA_Gun_CameraYAxis
+    4300786: S_AA_Gun_CameraXAxis
+    4300788: SideAA_Gun_Base21
+    4300790: S_AA_Gun_Body
+    4300792: S_AA_Gun_LeftGun
+    4300794: S_AA_Gun_LeftBarrel
+    4300796: S_AA_Gun_RightGun
+    4300798: S_AA_Gun_RightBarrel
+    4300800: S_AA_Gun_CameraYAxis
+    4300802: S_AA_Gun_CameraXAxis
+    4300804: SideAA_Gun_Base22
+    4300806: S_AA_Gun_Body
+    4300808: S_AA_Gun_LeftGun
+    4300810: S_AA_Gun_LeftBarrel
+    4300812: S_AA_Gun_RightGun
+    4300814: S_AA_Gun_RightBarrel
+    4300816: S_AA_Gun_CameraYAxis
+    4300818: S_AA_Gun_CameraXAxis
+    4300820: SideAA_Gun_Base23
+    4300822: S_AA_Gun_Body
+    4300824: S_AA_Gun_LeftGun
+    4300826: S_AA_Gun_LeftBarrel
+    4300828: S_AA_Gun_RightGun
+    4300830: S_AA_Gun_RightBarrel
+    4300832: S_AA_Gun_CameraYAxis
+    4300834: S_AA_Gun_CameraXAxis
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
