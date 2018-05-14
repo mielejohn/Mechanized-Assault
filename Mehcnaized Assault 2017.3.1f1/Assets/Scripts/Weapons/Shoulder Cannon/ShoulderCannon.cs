@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public enum CannonStatus{Deployed, Retracted};
 
@@ -22,7 +23,8 @@ public class ShoulderCannon : MonoBehaviour {
 
 	[Header("Aniamtions")]
 	public Animator Anim;
-	public CannonStatus currentStatus;
+    [EnumToggleButtons]
+    public CannonStatus currentStatus;
 
 	[Header("Main Body")]
 	public GameObject CannonBody;

@@ -73,8 +73,8 @@ public class Left_Minigun : MonoBehaviour {
 		GameObject minigunbullet_I = (GameObject)Instantiate (minigunBullet,ShotSpawn_1.transform.position, Quaternion.identity);
 		minigunbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
 		Destroy (minigunbullet_I, 0.75f);
-		Vector3 forward = ShotSpawn_1.transform.TransformDirection (ShotSpawn_1.transform.forward);
-		RaycastHit shotHit;
+		//Vector3 forward = ShotSpawn_1.transform.TransformDirection (ShotSpawn_1.transform.forward);
+		/*RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right,out shotHit,700)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
@@ -83,7 +83,7 @@ public class Left_Minigun : MonoBehaviour {
 				Enemy.GetComponent<Enemy> ().Hit (3);
 				Destroy (minigunbullet_I, 0.75f);
 			}
-		}
+		}*/
 
 	}
 
@@ -93,7 +93,7 @@ public class Left_Minigun : MonoBehaviour {
 		minigunbullet_II.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
 		Destroy (minigunbullet_II, 0.75f);
 		//Vector3 forward = ShotSpawn_2.transform.TransformDirection (ShotSpawn_2.transform.forward);
-		RaycastHit shotHit;
+		/*RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn_2.transform.position, -ShotSpawn_2.transform.right,out shotHit,700)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
@@ -102,7 +102,7 @@ public class Left_Minigun : MonoBehaviour {
 				Enemy.GetComponent<Enemy> ().Hit (3);
 				Destroy (minigunbullet_II, 0.75f);
 			}
-		}
+		}*/
 
 	}
 

@@ -443,9 +443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a4fcf78457c6240afa0a3fcc582976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topObject: {fileID: 0}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1382018965700472}
-  subMachinegunBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  subMachinegunBullet: {fileID: 1705203971808370, guid: a9c20d1235867e2479c79886ff025206,
     type: 2}
   Ammo: 100
   AmmoCount: {fileID: 0}

@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992247703690856}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.0000001490116}
-  m_LocalPosition: {x: -889.88837, y: 168.59999, z: -236.32059}
+  m_LocalPosition: {x: -1011, y: 96, z: -4}
   m_LocalScale: {x: 752.50507, y: 575.3321, z: 575.3322}
   m_Children:
   - {fileID: 4424040643966774}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1611345687580864}
-  marksmanRifleBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  marksmanRifleBullet: {fileID: 1705203971808370, guid: e3b072b03aca16f4ca5ca05b72ad841c,
     type: 2}
   Ammo: 35
   AmmoCount: {fileID: 0}
@@ -513,7 +513,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1860873299
+  randomSeed: 1357689061
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3895,7 +3895,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1878402053
+  randomSeed: 946452444
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7277,7 +7277,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1747683638
+  randomSeed: -442482933
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10659,7 +10659,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1609185642
+  randomSeed: 1104386275
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14041,7 +14041,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1867115458
+  randomSeed: 162909808
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17423,7 +17423,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 555700490
+  randomSeed: -788605335
   InitialModule:
     serializedVersion: 3
     enabled: 1

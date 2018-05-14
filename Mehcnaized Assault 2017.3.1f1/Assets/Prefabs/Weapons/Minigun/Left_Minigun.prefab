@@ -880,7 +880,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   ShotSpawn_1: {fileID: 1164889916017290}
   ShotSpawn_2: {fileID: 1683300173360150}
-  minigunBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  minigunBullet: {fileID: 1705203971808370, guid: ec6a0b15088dc7d4980f9ac97fa3408b,
     type: 2}
   Ammo: 150
   AmmoCount: {fileID: 0}

@@ -1,0 +1,1973 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Grenade Launcher Fire
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -0.04296469, y: 0, z: -0, w: 0.9990766}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: {x: -0.04296469, y: 0, z: -0, w: 0.9990766}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: {x: -0.07179119, y: 0, z: -0, w: 0.9974197}
+        inSlope: {x: -1.2842815, y: 0, z: 0, w: -0.11066805}
+        outSlope: {x: -1.2842815, y: 0, z: 0, w: -0.11066805}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: {x: -0.16911757, y: 0, z: -0, w: 0.9855959}
+        inSlope: {x: -0.81778604, y: 0, z: 0, w: -0.12907311}
+        outSlope: {x: -0.81778604, y: 0, z: 0, w: -0.12907311}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: {x: -0.19444388, y: 0, z: -0, w: 0.98091364}
+        inSlope: {x: -0.08422949, y: 0, z: 0, w: -0.01662077}
+        outSlope: {x: -0.08422949, y: 0, z: 0, w: -0.01662077}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: {x: -0.22450319, y: 0, z: -0, w: 0.97447336}
+        inSlope: {x: 0.07565491, y: 0, z: 0, w: 0.017330663}
+        outSlope: {x: 0.07565491, y: 0, z: 0, w: 0.017330663}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: {x: -0.08279864, y: 0, z: -0, w: 0.9965663}
+        inSlope: {x: 0.3466582, y: 0, z: 0, w: 0.0289956}
+        outSlope: {x: 0.3466582, y: 0, z: 0, w: 0.0289956}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: -0.04296469, y: 0, z: -0, w: 0.9990766}
+        inSlope: {x: 0.040154383, y: 0, z: 0, w: 0.0017541663}
+        outSlope: {x: 0.040154383, y: 0, z: 0, w: 0.0017541663}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.92298746, y: 0, z: 0, w: 0.38517588}
+        inSlope: {x: -0.056930836, y: 0, z: 0, w: 0.14459623}
+        outSlope: {x: -0.056930836, y: 0, z: 0, w: 0.14459623}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: {x: 0.91690224, y: -0, z: 0, w: 0.39911184}
+        inSlope: {x: -0.34704688, y: 0, z: 0, w: 0.772029}
+        outSlope: {x: -0.34704688, y: 0, z: 0, w: 0.772029}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: {x: 0.8527075, y: 0, z: 0, w: 0.52238876}
+        inSlope: {x: -0.6238413, y: 0, z: 0, w: 1.0365398}
+        outSlope: {x: -0.6238413, y: 0, z: 0, w: 1.0365398}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: {x: 0.81053436, y: 0, z: 0, w: 0.5856911}
+        inSlope: {x: -0.17430083, y: 0, z: 0, w: 0.24185145}
+        outSlope: {x: -0.17430083, y: 0, z: 0, w: 0.24185145}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: {x: 0.7833208, y: 0, z: 0, w: 0.6216177}
+        inSlope: {x: 0.01841875, y: 0, z: 0, w: -0.023258353}
+        outSlope: {x: 0.01841875, y: 0, z: 0, w: -0.023258353}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: {x: 0.8815828, y: -0, z: 0, w: 0.47202948}
+        inSlope: {x: 0.28120306, y: 0, z: 0, w: -0.524662}
+        outSlope: {x: 0.28120306, y: 0, z: 0, w: -0.524662}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: 0.9232886, y: -0, z: 0, w: 0.3841071}
+        inSlope: {x: 0.023161791, y: 0, z: 0, w: -0.055514626}
+        outSlope: {x: 0.023161791, y: 0, z: 0, w: -0.055514626}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: {x: 0, y: 0, z: 3.6970854e-14, w: 1}
+        inSlope: {x: 0, y: 0, z: 0.058567047, w: -0.000057220514}
+        outSlope: {x: 0, y: 0, z: 0.058567047, w: -0.000057220514}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: {x: 0, y: 0, z: 0.2151137, w: 0.976589}
+        inSlope: {x: 0, y: 0, z: 0.6993793, w: -0.15392944}
+        outSlope: {x: 0, y: 0, z: 0.6993793, w: -0.15392944}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: {x: 0, y: 0, z: 0.3760557, w: 0.92659706}
+        inSlope: {x: 0, y: 0, z: 0.054287963, w: -0.021970889}
+        outSlope: {x: 0, y: 0, z: 0.054287963, w: -0.021970889}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -0.28364307, y: -17.475756, z: -49.750954}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: -0.28364307, y: -17.475756, z: -49.750954}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -0.000010162747, y: 23.247105, z: -384.48218}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: -0.000010162747, y: 23.247105, z: -384.48218}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.099999905
+        value: {x: -0.1596073, y: 51.71999, z: -240.3922}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: {x: -0.1596073, y: 51.71999, z: -240.3922}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.81709486, y: 0.6346449, z: 0.6346449}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: 0.81709486, y: 0.6346449, z: 0.6346449}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.93333364
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.93333364
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.06666684
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: 30.000029
+        outSlope: 30.000029
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 25
+    script: {fileID: 0}
+  m_PPtrCurves: []
+  m_SampleRate: 30
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 405382818
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2032202214
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 219674643
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 219674643
+      attribute: 3305885265
+      script: {fileID: 0}
+      typeID: 25
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 405382818
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2032202214
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 219674643
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 405382818
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2032202214
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 219674643
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 405382818
+      attribute: 3305885265
+      script: {fileID: 0}
+      typeID: 25
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2032202214
+      attribute: 3305885265
+      script: {fileID: 0}
+      typeID: 25
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1917375785
+      attribute: 3305885265
+      script: {fileID: 0}
+      typeID: 25
+      customType: 0
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1.3666668
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.93333364
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.93333364
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.06666684
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: 30.000029
+        outSlope: 30.000029
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: -0
+        outSlope: -0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.04296469
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: -0.04296469
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: -0.07179119
+        inSlope: -1.2842815
+        outSlope: -1.2842815
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: -0.16911757
+        inSlope: -0.81778604
+        outSlope: -0.81778604
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: -0.19444388
+        inSlope: -0.08422949
+        outSlope: -0.08422949
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: -0.22450319
+        inSlope: 0.07565491
+        outSlope: 0.07565491
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: -0.08279864
+        inSlope: 0.3466582
+        outSlope: 0.3466582
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0.04296469
+        inSlope: 0.040154383
+        outSlope: 0.040154383
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.9990766
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0.9990766
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0.9974197
+        inSlope: -0.11066805
+        outSlope: -0.11066805
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: 0.9855959
+        inSlope: -0.12907311
+        outSlope: -0.12907311
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0.98091364
+        inSlope: -0.01662077
+        outSlope: -0.01662077
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: 0.97447336
+        inSlope: 0.017330663
+        outSlope: 0.017330663
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: 0.9965663
+        inSlope: 0.0289956
+        outSlope: 0.0289956
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.9990766
+        inSlope: 0.0017541663
+        outSlope: 0.0017541663
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.92298746
+        inSlope: -0.056930836
+        outSlope: -0.056930836
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0.91690224
+        inSlope: -0.34704688
+        outSlope: -0.34704688
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 0.8527075
+        inSlope: -0.6238413
+        outSlope: -0.6238413
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0.81053436
+        inSlope: -0.17430083
+        outSlope: -0.17430083
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 0.7833208
+        inSlope: 0.01841875
+        outSlope: 0.01841875
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 0.8815828
+        inSlope: 0.28120306
+        outSlope: 0.28120306
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.9232886
+        inSlope: 0.023161791
+        outSlope: 0.023161791
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.38517588
+        inSlope: 0.14459623
+        outSlope: 0.14459623
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0.39911184
+        inSlope: 0.772029
+        outSlope: 0.772029
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 0.52238876
+        inSlope: 1.0365398
+        outSlope: 1.0365398
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0.5856911
+        inSlope: 0.24185145
+        outSlope: 0.24185145
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 0.6216177
+        inSlope: -0.023258353
+        outSlope: -0.023258353
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 0.47202948
+        inSlope: -0.524662
+        outSlope: -0.524662
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.3841071
+        inSlope: -0.055514626
+        outSlope: -0.055514626
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 3.6970854e-14
+        inSlope: 0.058567047
+        outSlope: 0.058567047
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 0.2151137
+        inSlope: 0.6993793
+        outSlope: 0.6993793
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 0.3760557
+        inSlope: 0.054287963
+        outSlope: 0.054287963
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: -0.000057220514
+        outSlope: -0.000057220514
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 0.976589
+        inSlope: -0.15392944
+        outSlope: -0.15392944
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 0.92659706
+        inSlope: -0.021970889
+        outSlope: -0.021970889
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.28364307
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0.28364307
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -17.475756
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -17.475756
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -49.750954
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -49.750954
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.000010162747
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0.000010162747
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 23.247105
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 23.247105
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -384.48218
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -384.48218
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.099999905
+        value: -0.1596073
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: -0.1596073
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.099999905
+        value: 51.71999
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 51.71999
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.099999905
+        value: -240.3922
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: -240.3922
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.81709486
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.81709486
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.6346449
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.6346449
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.6346449
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0.6346449
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -4.9249063
+        inSlope: -0.00047206585
+        outSlope: -0.00047206585
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: -4.9249063
+        inSlope: -0.00047206585
+        outSlope: -0.00023603461
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: -8.233747
+        inSlope: -147.71832
+        outSlope: -147.71832
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: -19.473034
+        inSlope: -94.82875
+        outSlope: -94.80375
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: -22.424477
+        inSlope: -9.838014
+        outSlope: -9.837422
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: -25.94733
+        inSlope: 8.893653
+        outSlope: 8.893669
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: -9.4988985
+        inSlope: 39.828163
+        outSlope: 39.85519
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -4.9249063
+        inSlope: 4.605715
+        outSlope: 4.605715
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10000014
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666675
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7333336
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.166667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: GrenadeLauncher_Arm_One
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 45.302948
+        inSlope: 17.800488
+        outSlope: 17.800488
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 47.04533
+        inSlope: 96.99666
+        outSlope: 96.99575
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 62.98525
+        inSlope: 138.5074
+        outSlope: 138.43542
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 71.70365
+        inSlope: 34.159042
+        outSlope: 34.138477
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 76.86872
+        inSlope: -3.3998983
+        outSlope: -3.3998673
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 56.33223
+        inSlope: -68.067955
+        outSlope: -68.14792
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 45.17664
+        inSlope: -6.8929405
+        outSlope: -6.8929405
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.03333354
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.13333344
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.2666669
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7000003
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1000004
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.3666668
+        value: 180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.10000014
+        value: 4.2365473e-12
+        inSlope: 6.7111664
+        outSlope: 6.7111664
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.53333354
+        value: 24.844393
+        inSlope: 81.76889
+        outSlope: 81.8514
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9000001
+        value: 44.179146
+        inSlope: 6.7108383
+        outSlope: 6.7108383
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: GrenadeLauncher_Arm_One/GrenadeLauncher_Arm_Two/GrenadeLauncher/GrenadeLauncherTube_Cylinder
+    classID: 4
+    script: {fileID: 0}
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []

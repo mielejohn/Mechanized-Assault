@@ -49,7 +49,7 @@ public class Left_Pistol : MonoBehaviour {
 		pistolBullet_I.GetComponent<Rigidbody> ().AddForce (-transform.forward * 1000f, ForceMode.VelocityChange);
 		Destroy (pistolBullet_I, 0.4f);
 		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		RaycastHit shotHit;
+		/*RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.forward,out shotHit,250)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
@@ -58,7 +58,7 @@ public class Left_Pistol : MonoBehaviour {
 				Enemy.GetComponent<Enemy> ().Hit (1);
 				Destroy (pistolBullet_I, 0.4f);
 			}
-		}
+		}*/
 
 	}
 

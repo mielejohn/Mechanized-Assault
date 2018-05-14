@@ -56,7 +56,7 @@ public class Right_Shotgun : MonoBehaviour {
 		Bullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1500f, ForceMode.VelocityChange);
 		Destroy (Bullet_I, 0.5f);
 		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		RaycastHit shotHit;
+		/*RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,400)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
@@ -65,7 +65,7 @@ public class Right_Shotgun : MonoBehaviour {
 				Enemy.GetComponent<Enemy> ().Hit (4);
 				Destroy (Bullet_I, 0.5f);
 			}
-		}
+		}*/
 
 	}
 

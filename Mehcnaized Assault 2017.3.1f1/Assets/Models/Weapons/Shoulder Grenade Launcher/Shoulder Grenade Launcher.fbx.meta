@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: c979306052a8bd14db297ab5965a31b3
+timeCreated: 1526236318
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: GrenadeLauncher
+    100002: GrenadeLauncher_Arm_One
+    100004: GrenadeLauncher_Arm_Two
+    100006: GrenadeLauncherTube_Cylinder
+    100008: //RootNode
+    400000: GrenadeLauncher
+    400002: GrenadeLauncher_Arm_One
+    400004: GrenadeLauncher_Arm_Two
+    400006: GrenadeLauncherTube_Cylinder
+    400008: //RootNode
+    2100000: Cannon_BaseGray
+    2100002: Cannon_LightGray
+    2100004: Cannon_light_gray
+    2100006: Cannon_Dark_Gray
+    2100008: Cannon_silver_blinn
+    2100010: GrenadeLauncher_Silver
+    2100012: GrenadeLauncher_Gray
+    2100014: GrenadeLauncher_DarkGray
+    2100016: GrenadeLauncher_LightGray
+    2100018: GrenadeLauncher_BlackAntenna
+    2100020: GrenadeLauncher_CameraLense
+    2300000: GrenadeLauncher
+    2300002: GrenadeLauncher_Arm_One
+    2300004: GrenadeLauncher_Arm_Two
+    2300006: GrenadeLauncherTube_Cylinder
+    2300008: //RootNode
+    3300000: GrenadeLauncher
+    3300002: GrenadeLauncher_Arm_One
+    3300004: GrenadeLauncher_Arm_Two
+    3300006: GrenadeLauncherTube_Cylinder
+    3300008: //RootNode
+    4300000: GrenadeLauncher_Top
+    4300002: GrenadeLauncher_Arm_One
+    4300004: GrenadeLauncher_Arm_Two
+    4300006: GrenadeLauncher
+    4300008: GrenadeLauncherTube_Cylinder
+    7400000: Take 001
+    7400002: Grenade Launcher Up
+    7400004: Grenade Launcher Fire
+    7400006: Grenade Launcher Aim
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 131
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

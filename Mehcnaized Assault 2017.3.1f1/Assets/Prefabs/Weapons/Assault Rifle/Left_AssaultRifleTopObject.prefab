@@ -446,7 +446,7 @@ MonoBehaviour:
   topObject: {fileID: 0}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1392461625821530}
-  assaultRifleBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  assaultRifleBullet: {fileID: 1705203971808370, guid: 693db86637395b54b976f293e1157a36,
     type: 2}
   Ammo: 100
   AmmoCount: {fileID: 0}

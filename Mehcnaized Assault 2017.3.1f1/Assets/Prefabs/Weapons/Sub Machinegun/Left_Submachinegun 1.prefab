@@ -433,11 +433,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1372565278981670}
-  subMachinegunBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  subMachinegunBullet: {fileID: 1705203971808370, guid: a9c20d1235867e2479c79886ff025206,
     type: 2}
   Ammo: 100
   AmmoCount: {fileID: 0}
   Reloading: 0
+  dropped: 0
   MuzzleFlash: {fileID: 198139266991047100}
   audioSource: {fileID: 0}
 --- !u!114 &114821843085420500

@@ -176,8 +176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1501369406834080}
-  pistolBullet: {fileID: 1705203971808370, guid: 34676bd63819a9145afa1856dbb5738c,
+  pistolBullet: {fileID: 1705203971808370, guid: defc380c6a59d5949abeccbd0daf83ef,
     type: 2}
   Ammo: 20
   AmmoCount: {fileID: 0}
   Reloading: 0
+  MuzzleFlash: {fileID: 0}
+  audioSource: {fileID: 0}

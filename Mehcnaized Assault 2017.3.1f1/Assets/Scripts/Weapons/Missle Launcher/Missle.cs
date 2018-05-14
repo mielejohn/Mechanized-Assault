@@ -6,8 +6,9 @@ public class Missle : MonoBehaviour {
 	public PlayerController pc;
 	public Transform target;
 	public GameObject SpawnPoint;
+    public GameObject Explosion;
 
-	public float speed = 80f;
+    public float speed = 80f;
 
 	private Rigidbody rb;
 	// Use this for initialization
@@ -43,7 +44,13 @@ public class Missle : MonoBehaviour {
 	{
 		if (other.tag == "Enemy") {
 			other.GetComponent<Enemy>().Hit(10);
-			Destroy (this.gameObject);
+            DestroyObject();
 		}
 	}
+
+    public void DestroyObject()
+    {
+        GameObject Explosion_I = (GameObject)Instantiate(Explosion, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
 }

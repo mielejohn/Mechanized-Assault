@@ -162,6 +162,7 @@ MonoBehaviour:
   pc: {fileID: 0}
   target: {fileID: 0}
   SpawnPoint: {fileID: 0}
+  Explosion: {fileID: 1466911866003036, guid: a9a2abeabd4c6174b877634e6fc05dda, type: 2}
   speed: 140
 --- !u!198 &198986975581820772
 ParticleSystem:
