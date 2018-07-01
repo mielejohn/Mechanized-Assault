@@ -35,12 +35,12 @@ public class Right_Minigun : MonoBehaviour {
 		AmmoCount.text = Ammo.ToString ();
 		Debug.DrawRay (ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right, Color.red);
 
-		if (Input.GetMouseButtonDown (1)) {
+		if (Input.GetMouseButtonDown (1) && Player.canMove == true) {
 			Anim.SetBool("Spin Down", false);
 			Anim.SetBool ("Firing", true);
 		}
 
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true) {
+		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			MuzzleFlash_1.Play ();
 			Shoot_1 ();
@@ -51,23 +51,23 @@ public class Right_Minigun : MonoBehaviour {
 			myTime = 0.0f;
 		}
 
-		if (Input.GetMouseButtonUp (1)) {
+		if (Input.GetMouseButtonUp (1) && Player.canMove == true) {
 			Anim.SetBool ("Firing", false);
 			Anim.SetBool("Spin Down", true);
 		}
 
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
 			StartCoroutine (Player.Right_Reload ());
 			StartCoroutine(Reload ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
 
 	private void Shoot_1(){
-		Debug.Log ("Shooting");
+		//Debug.Log ("Shooting");
 		GameObject minigunbullet_I = (GameObject)Instantiate (minigunBullet,ShotSpawn_1.transform.position, Quaternion.identity);
 		minigunbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
 		Destroy (minigunbullet_I, 0.75f);
@@ -86,7 +86,7 @@ public class Right_Minigun : MonoBehaviour {
 	}
 
 	private void Shoot_2(){
-		Debug.Log ("Shooting");
+		//Debug.Log ("Shooting");
 		GameObject minigunbullet_II = (GameObject)Instantiate (minigunBullet,ShotSpawn_2.transform.position, Quaternion.identity);
 		minigunbullet_II.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
 		Destroy (minigunbullet_II, 0.75f);

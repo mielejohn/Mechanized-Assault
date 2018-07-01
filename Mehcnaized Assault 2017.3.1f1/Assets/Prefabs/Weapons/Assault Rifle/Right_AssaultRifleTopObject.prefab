@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1562046735818658
 GameObject:
   m_ObjectHideFlags: 1
@@ -460,12 +460,14 @@ MonoBehaviour:
   ShotSpawn: {fileID: 1370449679432220}
   assaultRifleBullet: {fileID: 1705203971808370, guid: 693db86637395b54b976f293e1157a36,
     type: 2}
-  Ammo: 100
+  Ammo: 50
   AmmoCount: {fileID: 0}
   Reloading: 0
   dropped: 0
   MuzzleFlash: {fileID: 198691839949540628}
   audioSource: {fileID: 0}
+  objectPooler: {fileID: 0}
+  poolTag: AR Bullet
 --- !u!198 &198057348680413528
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -526,7 +528,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 512141511
+  randomSeed: -451859094
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3908,7 +3910,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 348335980
+  randomSeed: -577436293
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7290,7 +7292,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1995196082
+  randomSeed: -512425029
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10672,7 +10674,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1731007731
+  randomSeed: 1807910777
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14054,7 +14056,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1996610167
+  randomSeed: -1215874214
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17436,7 +17438,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -900201735
+  randomSeed: 398847788
   InitialModule:
     serializedVersion: 3
     enabled: 1

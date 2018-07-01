@@ -30,7 +30,7 @@ public class Right_SubMachineGun : MonoBehaviour {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
 		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true) {
+		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			MuzzleFlash.Play();
 			Shoot ();
@@ -39,12 +39,12 @@ public class Right_SubMachineGun : MonoBehaviour {
 			myTime = 0.0f;
 		}
 
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
 			StartCoroutine (Player.Right_Reload ());
 			StartCoroutine(Reload ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}

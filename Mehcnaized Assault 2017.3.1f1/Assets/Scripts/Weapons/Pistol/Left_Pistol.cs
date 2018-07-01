@@ -11,7 +11,7 @@ public class Left_Pistol : MonoBehaviour {
 	private float nextFire = 0.45f;
 	private float myTime = 0.0f;
 	public GameObject pistolBullet;
-	public int Ammo = 20;
+	public int Ammo = 15;
 	public Text AmmoCount;
 	public bool Reloading;
 
@@ -28,7 +28,7 @@ public class Left_Pistol : MonoBehaviour {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
 		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.forward, Color.red);
-		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true) {
+		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			//MuzzleFlash.Play ();
 			Shoot ();
@@ -37,7 +37,7 @@ public class Left_Pistol : MonoBehaviour {
 			myTime = 0.0f;
 		}
 
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (Input.GetKeyDown (KeyCode.E) && Player.canMove == true) {
 			StartCoroutine (Player.Left_Reload ());
 			StartCoroutine(Reload ());
 		}
@@ -65,7 +65,7 @@ public class Left_Pistol : MonoBehaviour {
 	private IEnumerator Reload(){
 		Reloading = true;
 		yield return new WaitForSeconds(0.98f);
-		Ammo = 20;
+		Ammo = 15;
 		Reloading = false;
 	}
 }

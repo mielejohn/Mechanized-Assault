@@ -178,7 +178,7 @@ MonoBehaviour:
   ShotSpawn: {fileID: 1501369406834080}
   pistolBullet: {fileID: 1705203971808370, guid: defc380c6a59d5949abeccbd0daf83ef,
     type: 2}
-  Ammo: 20
+  Ammo: 15
   AmmoCount: {fileID: 0}
   Reloading: 0
   MuzzleFlash: {fileID: 0}

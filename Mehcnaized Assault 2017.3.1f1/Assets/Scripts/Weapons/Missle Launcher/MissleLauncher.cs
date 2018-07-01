@@ -12,7 +12,10 @@ public class MissleLauncher : MonoBehaviour {
 	public GameObject missleSpawn;
 	public GameObject missleObject;
 	public int Ammo = 12;
-	public GameObject ammoTextObject;
+    private float fireDelta = 0.25f;
+    private float nextFire = 0.25f;
+    private float myTime = 0.0f;
+    public GameObject ammoTextObject;
 	public Text AmmoText;
 	public GameObject ReloadImage;
 	public WeaponStatus WS = WeaponStatus.ReadytoFire;
@@ -27,7 +30,8 @@ public class MissleLauncher : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (AmmoText.gameObject.activeSelf == true) {
+        myTime = myTime + Time.deltaTime;
+        if (AmmoText.gameObject.activeSelf == true) {
 			AmmoText.text = Ammo.ToString ();
 		}
         if (PC.targetedLeftEnemy != null || PC.targetedRightEnemy != null) {
@@ -36,10 +40,13 @@ public class MissleLauncher : MonoBehaviour {
 			missleLauncher_Y.transform.localEulerAngles = new Vector3(Mathf.Lerp(missleLauncher_Y.transform.rotation.x,0.0f,0.1f), Mathf.Lerp(missleLauncher_Y.transform.rotation.y,0.0f,0.1f), Mathf.Lerp(missleLauncher_Y.transform.rotation.z,0.0f,0.1f));
 		}
 
-		if (Input.GetKeyDown (KeyCode.F) && Ammo > 0) {
-			//Debug.Log ("Hitting F");
-			Shoot ();
-		}
+		if (Input.GetKey (KeyCode.F) && Ammo > 0 && myTime > nextFire && PC.canMove == true && PC.canMove == true) {
+            //Debug.Log ("Hitting F");
+            nextFire = myTime + fireDelta;
+            Shoot ();
+            nextFire = nextFire - myTime;
+            myTime = 0.0f;
+        }
 
 		if (Ammo <= 0 && WS != WeaponStatus.Reloading) {
 			StartCoroutine(Reload());
@@ -71,6 +78,8 @@ public class MissleLauncher : MonoBehaviour {
 		//Debug.Log("Shooting");
         if (PC.targetedLeftEnemy != null || PC.targetedRightEnemy != null) {
 			GameObject Missle_I = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
+            Missle_I.GetComponent<Missle>().target = PC.targetedLeftEnemy.transform;
+            Missle_I.GetComponent<Missle>().lockedOn = true;
 			Destroy (Missle_I, 10.0f);
 		} else {
 			GameObject Missle_II = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);

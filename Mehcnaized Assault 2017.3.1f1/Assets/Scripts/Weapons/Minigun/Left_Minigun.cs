@@ -36,12 +36,12 @@ public class Left_Minigun : MonoBehaviour {
 		AmmoCount.text = Ammo.ToString ();
 		Debug.DrawRay (ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right, Color.red);
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && Player.canMove == true) {
 			Anim.SetBool("Spin Down", false);
 			Anim.SetBool ("Firing", true);
 		}
 
-		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true) {
+		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			//Anim.SetBool ("Firing", true);
 			nextFire = myTime + fireDelta;
 			MuzzleFlash_1.Play ();
@@ -53,17 +53,17 @@ public class Left_Minigun : MonoBehaviour {
 			myTime = 0.0f;
 		}
 
-		if (Input.GetMouseButtonUp (0)) {
+		if (Input.GetMouseButtonUp (0) && Player.canMove == true) {
 			Anim.SetBool ("Firing", false);
 			Anim.SetBool("Spin Down", true);
 		}
 
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (Input.GetKeyDown (KeyCode.E) && Player.canMove == true) {
 			StartCoroutine (Player.Left_Reload ());
 			StartCoroutine(Reload ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.K)) {
+		if (Input.GetKeyDown (KeyCode.K) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}

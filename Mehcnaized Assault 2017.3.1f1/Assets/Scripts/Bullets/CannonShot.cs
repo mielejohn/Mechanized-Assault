@@ -11,9 +11,10 @@ public class CannonShot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.DrawRay (transform.position, transform.forward, Color.red);
+        Vector3 rayDir = GetComponent<Rigidbody>().velocity;
+        Debug.DrawRay (transform.position, rayDir, Color.red);
 		RaycastHit shotHit;
-		if(Physics.Raycast(transform.position, transform.forward,out shotHit,100f)){
+		if(Physics.Raycast(transform.position, rayDir, out shotHit,100f)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {

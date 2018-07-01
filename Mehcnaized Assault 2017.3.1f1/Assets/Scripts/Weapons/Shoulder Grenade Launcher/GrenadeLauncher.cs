@@ -53,21 +53,21 @@ public class GrenadeLauncher : MonoBehaviour {
             AmmoText.text = Ammo.ToString();
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && Ammo > 0 && canFire == true)
+        if (Input.GetKeyDown(KeyCode.F) && Ammo > 0 && canFire == true && PC.canMove == true)
         {
             //Debug.Log ("Hitting F");
            // MuzzleFlash.Play();
             Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Retracted)
+        if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Retracted && PC.canMove == true)
         {
             StartCoroutine(WeaponUp());
             //Anim.SetBool("Put Away",false);
             //Anim.SetBool("Bring Up",true);
             //CS = CannonStatus.Deployed;
         }
-        else if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Deployed)
+        else if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Deployed && PC.canMove == true)
         {
             currentStatus = CannonStatus.Retracted;
             Anim.SetBool("Bring Up", false);

@@ -10,7 +10,8 @@ public class Missle : MonoBehaviour {
 
     public float speed = 80f;
 
-	private Rigidbody rb;
+    public bool lockedOn;
+	//private Rigidbody rb;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -19,7 +20,7 @@ public class Missle : MonoBehaviour {
 			target = pc.targetedRightEnemy.transform;
 		}
 		SpawnPoint = GameObject.FindGameObjectWithTag("Missle_Launcher").GetComponent<MissleLauncher>().missleSpawn;
-		rb = GetComponent<Rigidbody>();
+		//rb = GetComponent<Rigidbody>();
 	}
 
 	void Start () {
@@ -31,7 +32,7 @@ public class Missle : MonoBehaviour {
 	void Update ()
 	{
 		//target = pc.Enemy.transform;
-        if (pc.targetedLeftEnemy != null || pc.targetedRightEnemy != null) {
+        if (lockedOn == true) {
 			float step = speed * Time.deltaTime;
 			transform.LookAt (target);
 			transform.position = Vector3.MoveTowards (transform.position, target.position, step);
@@ -44,13 +45,15 @@ public class Missle : MonoBehaviour {
 	{
 		if (other.tag == "Enemy") {
 			other.GetComponent<Enemy>().Hit(10);
-            DestroyObject();
-		}
+            DestroyMissle();
+		} else if (other.tag == "Ground" || other.tag == "Level Asset"){
+            DestroyMissle();
+        }
 	}
 
-    public void DestroyObject()
+    public void DestroyMissle()
     {
-        GameObject Explosion_I = (GameObject)Instantiate(Explosion, transform.position, Quaternion.identity);
+        Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1635247815609530
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,12 +448,14 @@ MonoBehaviour:
   ShotSpawn: {fileID: 1392461625821530}
   assaultRifleBullet: {fileID: 1705203971808370, guid: 693db86637395b54b976f293e1157a36,
     type: 2}
-  Ammo: 100
+  Ammo: 50
   AmmoCount: {fileID: 0}
   Reloading: 0
   dropped: 0
   MuzzleFlash: {fileID: 198576035327464438}
   audioSource: {fileID: 0}
+  objectPooler: {fileID: 0}
+  poolTag: AR Bullet
 --- !u!114 &114990345428229718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,7 +528,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 716665587
+  randomSeed: 993940329
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3908,7 +3910,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1241622648
+  randomSeed: -1604024414
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10672,7 +10674,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1185348073
+  randomSeed: 1462263451
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14054,7 +14056,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1787799978
+  randomSeed: 585316705
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17436,7 +17438,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1840405941
+  randomSeed: 1152967224
   InitialModule:
     serializedVersion: 3
     enabled: 1

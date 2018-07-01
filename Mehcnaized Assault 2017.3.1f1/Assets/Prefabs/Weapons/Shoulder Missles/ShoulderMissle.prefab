@@ -39,8 +39,8 @@ GameObject:
   - component: {fileID: 33270944989869062}
   - component: {fileID: 23339145644498246}
   - component: {fileID: 54263103668465920}
-  - component: {fileID: 64135728544713540}
   - component: {fileID: 114725188348843466}
+  - component: {fileID: 65925058374795366}
   m_Layer: 0
   m_Name: ShoulderMissle
   m_TagString: Untagged
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1616427487713868}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.03769, y: 6.44, z: 2.2836888}
+  m_LocalPosition: {x: 16.03769, y: 6.44, z: 5.72}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4957640144133006}
@@ -134,8 +134,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64135728544713540
-MeshCollider:
+--- !u!65 &65925058374795366
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -143,11 +143,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 2b0d329d68ec1a14aa70c549a9a9ed72, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 24.200249, y: 34.15486, z: 223.40451}
+  m_Center: {x: 0.7908821, y: 0.0000074505806, z: 20.481062}
 --- !u!114 &114725188348843466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +161,8 @@ MonoBehaviour:
   target: {fileID: 0}
   SpawnPoint: {fileID: 0}
   Explosion: {fileID: 1466911866003036, guid: a9a2abeabd4c6174b877634e6fc05dda, type: 2}
-  speed: 140
+  speed: 150
+  lockedOn: 0
 --- !u!198 &198986975581820772
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -171,7 +170,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054922772894356}
   serializedVersion: 5
-  lengthInSec: 5
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -224,7 +223,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1596005051
+  randomSeed: 573602284
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -314,7 +313,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.384}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -784,7 +783,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 700
+      scalar: 1000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -882,8 +881,14 @@ ParticleSystem:
           outSlope: 2
           tangentMode: 0
         - serializedVersion: 2
+          time: 0.6505548
+          value: 0.92335576
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
           time: 1
-          value: 0.9200001
+          value: 0.67449665
           inSlope: 0
           outSlope: 0
           tangentMode: 0

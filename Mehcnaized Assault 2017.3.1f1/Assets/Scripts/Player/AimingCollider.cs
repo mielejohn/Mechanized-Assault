@@ -17,17 +17,35 @@ public class AimingCollider : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && PC.Targeting == false)
+        if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false)
         {
             PC.PossibleEnemy = other.gameObject;
+        }
+
+        if (PC.isScanning == true && other.tag == "Enemy") {
+            other.GetComponent<Enemy>().Scanned = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false) {
+            PC.PossibleEnemy = other.gameObject;
+        }
+
+        if (PC.isScanning == true && other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned != true) {
+            other.GetComponent<Enemy>().Scanned = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Enemy" && PC.PossibleEnemy != null)
+        /*if (other.tag == "Enemy" && PC.PossibleEnemy != null)
         {
             PC.PossibleEnemy = null;
+        }*/
+
+        if (other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned == true) {
+            other.GetComponent<Enemy>().Scanned = false;
         }
     }
 }

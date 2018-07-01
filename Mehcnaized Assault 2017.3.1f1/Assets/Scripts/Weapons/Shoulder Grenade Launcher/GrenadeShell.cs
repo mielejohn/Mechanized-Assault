@@ -32,16 +32,17 @@ public class GrenadeShell : MonoBehaviour {
 
     public void DestroyObject()
     {
-        GameObject Explosion_I = (GameObject)Instantiate(Explosion, transform.position, Quaternion.identity);
+        Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
     public IEnumerator GrenadeTimer()
     {
         yield return new WaitForSeconds(5.0f);
-        if (this.gameObject != null)
+        /*if (this.gameObject != null)
         {
             DestroyObject();
         }
+        */
     }
 }

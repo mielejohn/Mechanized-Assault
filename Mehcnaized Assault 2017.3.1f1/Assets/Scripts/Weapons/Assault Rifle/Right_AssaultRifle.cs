@@ -21,8 +21,10 @@ public class Right_AssaultRifle : MonoBehaviour {
 	public ParticleSystem MuzzleFlash;
 	public AudioSource audioSource;
 
-	void Start () {
-		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+
+    void Start () {
+
+        Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
 	}
 
@@ -30,32 +32,34 @@ public class Right_AssaultRifle : MonoBehaviour {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
 		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true) {
+		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			MuzzleFlash.Play ();
-			Shoot ();
-			Ammo--;
+            Shoot();
+            Ammo--;
 			nextFire = nextFire - myTime;
 			myTime = 0.0f;
 		}
 
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
 			StartCoroutine (Player.Right_Reload ());
 			StartCoroutine(Reload ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-		GameObject ARbullet_I = (GameObject)Instantiate (assaultRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
+        GameObject ARbullet_I = (GameObject)Instantiate (assaultRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
 		ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2000f, ForceMode.VelocityChange);
 		Destroy (ARbullet_I, 0.7f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		/*RaycastHit shotHit;
+
+
+        //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
+        /*RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,600)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
@@ -66,9 +70,16 @@ public class Right_AssaultRifle : MonoBehaviour {
 			}
 		}*/
 
-	}
+        #region Object Pool
+        /*GameObject ARbullet_I = objectPooler.SpawnFromPool(poolTag, ShotSpawn.transform.position);
+        ARbullet_I.GetComponent<Rigidbody>().AddForce(-transform.right * 2000f, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(0.7f);
+        ARbullet_I.SetActive(false);*/
+        #endregion
 
-	private IEnumerator Reload(){
+    }
+
+    private IEnumerator Reload(){
 		Reloading = true;
 		yield return new WaitForSeconds(0.98f);
 		Ammo = 50;
