@@ -39,13 +39,16 @@ public class AimingCollider : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        /*if (other.tag == "Enemy" && PC.PossibleEnemy != null)
-        {
-            PC.PossibleEnemy = null;
-        }*/
-
-        if (other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned == true) {
-            other.GetComponent<Enemy>().Scanned = false;
+        if (other.tag == "Enemy" && PC.Targeting == true){
+            PC.UnTargeted();
         }
+
+        if (other.tag == "Enemy" && PC.PossibleEnemy != null && PC.Targeting != true) {
+            PC.PossibleEnemy = null;
+        }
+
+        /*if (other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned == true) {
+            other.GetComponent<Enemy>().Scanned = false;
+        }*/
     }
 }

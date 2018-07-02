@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-	public int Health = 100;
-    public int baseHealth;
+	public float Health = 100;
+    public float baseHealth;
 	public Slider HealthBar;
     public PlayerController PC;
     public bool Targeted;
     public bool Scanned;
     public GameObject UICanvas;
-    public Text damageIndicator;
 
     [Header("Patrol Points")]
     public GameObject patrolPointOne;
@@ -31,39 +30,28 @@ public class Enemy : MonoBehaviour {
             Dead();
 		}
 
-        /*if (Targeted == true && Scanned == true)
+        if (Targeted == true && Scanned == true)
         {
             UICanvas.SetActive(true);
         }
         else
         {
             UICanvas.SetActive(false);
-        }*/
+        }
 
-        if(Scanned == true) {
+        /*if(Scanned == true) {
             UICanvas.SetActive(true);
-            if(Health <=70) {
-                damageIndicator.text = "Damage Indicator: Low";
-            }
-
-            if (Health <= 70) {
-                damageIndicator.text = "Damage Indicator: Medium";
-            }
-
-            if (Health <= 70) {
-                damageIndicator.text = "Damage Indicator: High";
-            }
         } else if(Scanned == false) {
             UICanvas.SetActive(false);
-        }
+        }*/
 
         //Patrolling();
 	}
 
-	public void Hit(int Damage){
-		Debug.Log (this.gameObject + " was hit by a ray");
+    public void Hit(float Damage){
+		Debug.Log ("Enemy damage = " + Damage);
 		Health -= Damage;
-        //HealthBar.value = Health;
+        HealthBar.value = Health;
     }
 
 	void OnTriggerEnter(Collider other){

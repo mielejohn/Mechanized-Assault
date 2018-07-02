@@ -35,10 +35,16 @@ public class Missle : MonoBehaviour {
         if (lockedOn == true) {
 			float step = speed * Time.deltaTime;
 			transform.LookAt (target);
-			transform.position = Vector3.MoveTowards (transform.position, target.position, step);
-        } else if (pc.targetedLeftEnemy != null || pc.targetedRightEnemy != null) {
-			//rb.velocity = SpawnPoint.transform.forward * speed;
-		}
+                if(target != null) { 
+			        transform.position = Vector3.MoveTowards (transform.position, target.position, step);
+                } else {
+                    lockedOn = false;
+                }
+        } else if (pc.targetedLeftEnemy == null || pc.targetedRightEnemy == null) {
+            //rb.velocity = SpawnPoint.transform.forward * speed;
+            lockedOn = false;
+            GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.VelocityChange);
+        }
 	}
 
 	void OnTriggerEnter (Collider other)
