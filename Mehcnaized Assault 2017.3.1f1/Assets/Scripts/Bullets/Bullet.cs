@@ -35,16 +35,16 @@ public class Bullet : MonoBehaviour {
                 #region Wokring Bullet Dropoff
 
                 if(DistanceToPlayer < shortRange) {
-                    shotHit.collider.GetComponent<Enemy>().Hit(Damage * 1.5f);
+                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage * 1.5f);
+                    CloseHit(Damage, shotHit);
                     Destroy(this.gameObject);
                 } else if(DistanceToPlayer >= shortRange && DistanceToPlayer < mediumRange) {
-                    shotHit.collider.GetComponent<Enemy>().Hit(Damage);
+                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage);
+                    MediumHit(Damage, shotHit);
                     Destroy(this.gameObject);
                 } else if (DistanceToPlayer >= mediumRange && DistanceToPlayer < longRange) {
-                    shotHit.collider.GetComponent<Enemy>().Hit(Damage/0.85f);
-                    Destroy(this.gameObject);
-                } else if (DistanceToPlayer >= shortRange && DistanceToPlayer < mediumRange) {
-                    shotHit.collider.GetComponent<Enemy>().Hit(Damage/0.5f);
+                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage/0.85f);
+                    LongRangeHit(Damage, shotHit);
                     Destroy(this.gameObject);
                 } else if (DistanceToPlayer >= outOfRange) {
                     Destroy(this.gameObject);
@@ -70,4 +70,16 @@ public class Bullet : MonoBehaviour {
         }
 
 	}*/
+
+    public void CloseHit(float Damage, RaycastHit shotHit) {
+        shotHit.collider.GetComponent<Enemy>().Hit(Damage * 1.5f);
+    }
+
+    public void MediumHit(float Damage, RaycastHit shotHit) {
+        shotHit.collider.GetComponent<Enemy>().Hit(Damage);
+    }
+
+    public void LongRangeHit(float Damage, RaycastHit shotHit) {
+        shotHit.collider.GetComponent<Enemy>().Hit(Damage -1.5f);
+    }
 }

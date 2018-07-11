@@ -53,19 +53,18 @@ public class Left_SniperRifle : MonoBehaviour {
 		GameObject sniperRilfebullet_I = (GameObject)Instantiate (sniperRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
 		sniperRilfebullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 5000f, ForceMode.VelocityChange);
 		Destroy (sniperRilfebullet_I, 1.5f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,1400f)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (10);
-				Destroy (sniperRilfebullet_I, 1.5f);
-			}
-		}
+        //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 100)) {
+            //Debug.Log ("Hit soemthing at: " + shotHit.distance);
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                sniperRilfebullet_I.GetComponent<Bullet>().CloseHit(10, shotHit);
+                Destroy(sniperRilfebullet_I, 1.5f);
+            }
+        }
 
-	}
+    }
 
 	private IEnumerator Reload(){
 		Reloading = true;

@@ -54,12 +54,11 @@ public class Left_MarksmanRifle : MonoBehaviour {
 		Destroy (marksmanRilfebullet_I, 0.9f);
 		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
 		RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,800)){
+		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,50)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (5);
+                marksmanRilfebullet_I.GetComponent<Bullet>().CloseHit(7, shotHit);
 				Destroy (marksmanRilfebullet_I, 0.9f);
 			}
 		}

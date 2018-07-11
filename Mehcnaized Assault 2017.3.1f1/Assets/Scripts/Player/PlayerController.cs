@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
     public Rigidbody RB;
     [SerializeField]
     private float jumpInput;
+    private float moveX;
+    private float moveZ;
+    private float moveY;
+
 
     [Header("Variables")]
     [SerializeField]
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour
     public GameObject targetedLeftEnemy;
     public GameObject possibleTargetReticle;
     public GameObject targetedReticle;
+    public GameObject aimgingCollider;
 
     [Header("Boolean Conditions")]
     public bool onGround;
@@ -94,6 +99,12 @@ public class PlayerController : MonoBehaviour
     private float shieldsReference;
     public Text healthText;
     public Text shieldText;
+
+    [Header("Flying Variables")]
+    public Slider flightTestUiBar;
+    public float thrustAmount;
+    public float thrustRecharge;
+    private float fallingWeight;
 
     [Header("Scanning Items")]
     public GameObject scanOverlay;
@@ -169,6 +180,7 @@ public class PlayerController : MonoBehaviour
                 groundForce = 63;
                 Shields = 50;
                 shieldsReference = Shields;
+                fallingWeight = 200f;
                 break;
 
             case 1:
@@ -180,6 +192,7 @@ public class PlayerController : MonoBehaviour
                 groundForce = 50;
                 Shields = 50;
                 shieldsReference = Shields;
+                fallingWeight = 150f;
                 break;
 
             case 2:
@@ -191,6 +204,7 @@ public class PlayerController : MonoBehaviour
                 groundForce = 30;
                 Shields = 50;
                 shieldsReference = Shields;
+                fallingWeight = 100f;
                 break;
 
         }
@@ -296,35 +310,43 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         #region Keyboard Movement
-        float moveX = Input.GetAxis("Horizontal") * Time.deltaTime * groundSpeed;
-        float moveZ = Input.GetAxis("Vertical") * Time.deltaTime * groundSpeed;
-        float moveY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
+        moveX = Input.GetAxis("Horizontal") * Time.deltaTime * groundSpeed;
+        moveZ = Input.GetAxis("Vertical") * Time.deltaTime * groundSpeed;
+        moveY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
+        animX = Input.GetAxis("Horizontal");
+        animZ = Input.GetAxis("Vertical");
 
         if (Input.GetButton("Horizontal") && canMove == true || Input.GetButton("Vertical") && canMove == true || Input.GetButton("Jump") && canMove == true)
         {
-            animX = Input.GetAxis("Horizontal");
-            animZ = Input.GetAxis("Vertical");
-            MoveForwards(moveZ, moveX, animZ, animX);
+            MoveForwards(moveZ, moveX);
+            //Debug.Log("Normalized Velocity: " + RB.velocity.normalized);
+            Debug.Log("Normalized Velocity X: " + RB.velocity.normalized.x);
+            Debug.Log("Normalized Velocity Z: " + RB.velocity.normalized.z);
             //MoveSideways (moveX, animX);
             //MoveFlying(moveY);
         }
         //Debug.Log("Rigidbody Velocity reference is: " + RB.velocity.magnitude);
-        if (Input.GetButton("Jump") && canMove == true) {
+        if (canMove == true && Input.GetButton("Jump") && thrustAmount > 0f) {
             MoveFlying(moveY);
-        } else if (Input.GetButton("Jump") == false && onGround == false) {
+            thrustAmount -= 0.1f;
+        } else if (Input.GetButton("Jump") == false && onGround == false || thrustAmount <= 0f && onGround == false) {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
-                if (hit.distance > 15 && RB.velocity.magnitude < 40f) {
+                if (hit.distance > 15f) {
                     moveY = hit.distance;
-                    MoveFlying(-moveY / 100);
+                    MoveFlying(-moveY / fallingWeight);
 
                 } else if(hit.distance <15) {
                     moveY = -0.3f;
                     MoveFlying(moveY);
                 }
             }
-        }
+        } 
 
+        if(thrustAmount > 0 && onGround == false && Input.GetButton("Jump") == false) {
+            moveY = -0.3f;
+            MoveFlying(moveY);
+        }
 
 
         Anim.SetFloat("X_Axis", animX);
@@ -407,7 +429,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //HealthBar();
-        
+        flightTestUiBar.value = thrustAmount;
         if (Health < 0)
         {
             healthText.text = "" + 0;
@@ -451,7 +473,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(LeftPistolSwap());
         }
 
-        if (Input.GetButtonDown("Jump") && Boosting == false)
+        if (Input.GetButtonDown("Boost") && Boosting == false)
         {
             //Debug.Log("Pressed dash forward");
             StartCoroutine(Dash());
@@ -589,10 +611,10 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Move Methods
-    void MoveForwards(float moveZ, float moveX, float animZ, float animX)
+    void MoveForwards(float moveZ, float moveX)
     {
         //if(Boosting != true) {
-            Vector3 movement = new Vector3(moveX, 0.0f, moveZ);
+            Vector3 movement = new Vector3(moveX, 0.00f, moveZ);
             RB.AddRelativeForce (movement * groundForce,ForceMode.Impulse);
             //Debug.Log("Current velocity mag is: " + RB.velocity.magnitude);
             if(RB.velocity.magnitude > magnitudeReference) { 
@@ -853,7 +875,7 @@ public class PlayerController : MonoBehaviour
         scannerText.SetActive(false);
         talkingMaterial.color = new Color(0f, 0f, 255f);
     }
-
+    #region Tester Methods
     public void FrameChange() {
         switch (frameType.value) {
             case 0:
@@ -891,5 +913,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    #endregion
 
 }

@@ -56,23 +56,21 @@ public class Left_AssaultRifle : MonoBehaviour {
 	private void Shoot(){
 		Debug.Log ("Shooting");
         GameObject ARbullet_I = (GameObject)Instantiate(assaultRifleBullet, ShotSpawn.transform.position, Quaternion.identity);
-        ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2000f, ForceMode.VelocityChange);
+        ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1700f, ForceMode.VelocityChange);
         Destroy(ARbullet_I, 0.7f);
         //yield return new WaitForSeconds(0.7f);
         //ARbullet_I.SetActive(false);
         //OP.poolDictionary["Assault Rifle Bullet"].Enqueue(ARbullet_I);
 
         //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-        /*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,600)){
+        RaycastHit shotHit;
+		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,40)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (2);
-				Destroy (ARbullet_I, 0.7f);
+                assaultRifleBullet.GetComponent<Bullet>().CloseHit(5, shotHit);
 			}
-		}*/
+		}
         #region Object Pool
         //GameObject ARbullet_I = objectPooler.SpawnFromPool(poolTag, ShotSpawn.transform.position);
         //ARbullet_I.GetComponent<TrailRenderer>().enabled = false;

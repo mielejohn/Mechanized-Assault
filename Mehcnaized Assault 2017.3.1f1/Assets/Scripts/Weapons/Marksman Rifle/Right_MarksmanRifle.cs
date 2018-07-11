@@ -53,19 +53,18 @@ public class Right_MarksmanRifle : MonoBehaviour {
 		GameObject marksmanRilfebullet_I = (GameObject)Instantiate (marksmanRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
 		marksmanRilfebullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 3000f, ForceMode.VelocityChange);
 		Destroy (marksmanRilfebullet_I, 0.9f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,600)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (5);
-				Destroy (marksmanRilfebullet_I, 0.9f);
-			}
-		}
+        //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 50)) {
+            //Debug.Log ("Hit soemthing at: " + shotHit.distance);
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                marksmanRilfebullet_I.GetComponent<Bullet>().CloseHit(7, shotHit);
+                Destroy(marksmanRilfebullet_I, 0.9f);
+            }
+        }
 
-	}
+    }
 
 	private IEnumerator Reload(){
 		Reloading = true;

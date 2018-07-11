@@ -212,6 +212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 7
+  Player: {fileID: 0}
+  shortRange: 50
+  mediumRange: 80
+  longRange: 130
+  outOfRange: 160
 --- !u!135 &135674838026864558
 SphereCollider:
   m_ObjectHideFlags: 1

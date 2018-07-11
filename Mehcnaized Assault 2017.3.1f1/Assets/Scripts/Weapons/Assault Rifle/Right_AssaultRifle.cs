@@ -54,21 +54,19 @@ public class Right_AssaultRifle : MonoBehaviour {
 	private void Shoot(){
 		Debug.Log ("Shooting");
         GameObject ARbullet_I = (GameObject)Instantiate (assaultRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
-		ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2000f, ForceMode.VelocityChange);
+		ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1700f, ForceMode.VelocityChange);
 		Destroy (ARbullet_I, 0.7f);
 
 
         //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-        /*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,600)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (2);
-				Destroy (ARbullet_I, 0.7f);
-			}
-		}*/
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 40)) {
+            //Debug.Log ("Hit soemthing at: " + shotHit.distance);
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                assaultRifleBullet.GetComponent<Bullet>().CloseHit(5, shotHit);
+            }
+        }
 
         #region Object Pool
         /*GameObject ARbullet_I = objectPooler.SpawnFromPool(poolTag, ShotSpawn.transform.position);

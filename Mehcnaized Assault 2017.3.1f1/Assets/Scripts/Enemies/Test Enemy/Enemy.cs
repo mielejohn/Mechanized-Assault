@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour {
     public GameObject patrolPointOne;
     public GameObject patrolPointTwo;
     public GameObject patrolPointSelected;
+
+    [Header("Animations")]
+    public Animator Anim;
     // Use this for initialization
     void Start () {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -46,7 +49,17 @@ public class Enemy : MonoBehaviour {
         }*/
 
         //Patrolling();
-	}
+
+        if (Input.GetKey(KeyCode.UpArrow) && Anim.GetFloat("Z-Movement") < 1.0f) {
+            Anim.SetFloat("Z-Movement", Anim.GetFloat("Z-Movement") + 0.01f);
+        } else if (Input.GetKey(KeyCode.LeftArrow) && Anim.GetFloat("X-Movement") > -1.0f) {
+            Anim.SetFloat("X-Movement", Anim.GetFloat("X-Movement") - 0.01f);
+        } else if (Input.GetKey(KeyCode.RightArrow) && Anim.GetFloat("X-Movement") < 1.0f) {
+            Anim.SetFloat("X-Movement", Anim.GetFloat("X-Movement") + 0.01f);
+        } else if (Input.GetKey(KeyCode.DownArrow) && Anim.GetFloat("Z-Movement") > -1.0f) {
+            Anim.SetFloat("Z-Movement", Anim.GetFloat("Z-Movement") - 0.01f);
+        }
+    }
 
     public void Hit(float Damage){
 		Debug.Log ("Enemy damage = " + Damage);

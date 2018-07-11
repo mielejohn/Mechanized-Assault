@@ -55,12 +55,11 @@ public class Right_SniperRifle : MonoBehaviour {
 		Destroy (sniperRilfebullet_I, 1.5f);
 		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
 		RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,1400)){
+		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,100)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (10);
+                sniperRilfebullet_I.GetComponent<Bullet>().CloseHit(10, shotHit);
 				Destroy (sniperRilfebullet_I, 1.5f);
 			}
 		}
