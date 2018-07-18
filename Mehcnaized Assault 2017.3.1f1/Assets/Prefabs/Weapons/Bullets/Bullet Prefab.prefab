@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4857845459224592}
   - component: {fileID: 33276367379998784}
   - component: {fileID: 135674838026864558}
+  - component: {fileID: 114894055200655246}
   - component: {fileID: 23055662289934714}
   - component: {fileID: 54303089741398226}
   - component: {fileID: 96915780672422556}
-  - component: {fileID: 114894055200655246}
   m_Layer: 0
   m_Name: Bullet Prefab
   m_TagString: Bullet
@@ -212,6 +212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
+  Player: {fileID: 0}
+  shortRange: 0
+  mediumRange: 0
+  longRange: 0
+  outOfRange: 0
 --- !u!135 &135674838026864558
 SphereCollider:
   m_ObjectHideFlags: 1

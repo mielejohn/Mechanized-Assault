@@ -68,9 +68,7 @@ public class Enemy : MonoBehaviour {
     }
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Bullet") {
-			Destroy (other.gameObject);
-		}
+
 	}
 
     private void Dead()
@@ -81,7 +79,7 @@ public class Enemy : MonoBehaviour {
             PC.targetedRightEnemy = null;
             PC.Targeting = false;
         }
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     private void CanvasRotate() {

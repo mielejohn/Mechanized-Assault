@@ -21,10 +21,24 @@ public class Right_SubMachineGun : MonoBehaviour {
 	public ParticleSystem MuzzleFlash;
 	public AudioSource audioSource;
 
-	void Start () {
+    public GameObject bulletPoolParent;
+    public List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField]
+    private int poolCount;
+
+    void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
-	}
+        bulletPoolParent = GameObject.FindGameObjectWithTag("RightBulletParent");
+
+        for (int i = 0; i < bulletPool.Count; i++) {
+            GameObject RSMG_Bullet = Instantiate(subMachinegunBullet);
+            bulletPool[i] = RSMG_Bullet;
+            bulletPool[i].transform.parent = bulletPoolParent.transform;
+            bulletPool[i].SetActive(false);
+        }
+        Debug.Log("bulletPool count is " + bulletPool.Count);
+    }
 
 	void Update () {
 		myTime = myTime + Time.deltaTime;
@@ -51,24 +65,29 @@ public class Right_SubMachineGun : MonoBehaviour {
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-		GameObject SMGbullet_I = (GameObject)Instantiate (subMachinegunBullet,ShotSpawn.transform.position, Quaternion.identity);
-		SMGbullet_I.GetComponent<Rigidbody> ().AddForce (transform.right * 2000f, ForceMode.VelocityChange);
-		Destroy (SMGbullet_I, 0.7f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		/*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, ShotSpawn.transform.right,out shotHit,600)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (2);
-				Destroy (SMGbullet_I, 0.7f);
-			}
-		}*/
 
-	}
+        #region Object Pool
 
-	private IEnumerator Reload(){
+
+        bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
+        bulletPool[poolCount].SetActive(true);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
+        bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
+        bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(transform.right * 2000f, ForceMode.VelocityChange);
+
+        if (poolCount >= bulletPool.Count - 1) {
+            Debug.Log("pool count reset");
+            poolCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount++;
+        }
+        #endregion
+
+
+    }
+
+    private IEnumerator Reload(){
 		Reloading = true;
 		yield return new WaitForSeconds(0.98f);
 		Ammo = 100;
@@ -86,6 +105,5 @@ public class Right_SubMachineGun : MonoBehaviour {
 		this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		this.GetComponent<MeshCollider>().enabled = true;
 		Destroy(this.gameObject, 10.0f);
-		//Destroy(topObject, 10.0f);
 	}
 }

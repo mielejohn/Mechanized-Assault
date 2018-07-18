@@ -454,6 +454,12 @@ MonoBehaviour:
   dropped: 0
   MuzzleFlash: {fileID: 198747384569318818}
   audioSource: {fileID: 0}
+  bulletPoolParent: {fileID: 0}
+  bulletPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  poolCount: 0
 --- !u!198 &198146845975651844
 ParticleSystem:
   m_ObjectHideFlags: 1

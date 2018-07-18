@@ -446,7 +446,7 @@ MonoBehaviour:
   topObject: {fileID: 0}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1392461625821530}
-  assaultRifleBullet: {fileID: 1705203971808370, guid: 693db86637395b54b976f293e1157a36,
+  assaultRifleBullet: {fileID: 1705203971808370, guid: f028ab284e49c1f4b8a9816b1865fffe,
     type: 2}
   Ammo: 50
   AmmoCount: {fileID: 0}
@@ -454,8 +454,19 @@ MonoBehaviour:
   dropped: 0
   MuzzleFlash: {fileID: 198576035327464438}
   audioSource: {fileID: 0}
-  objectPooler: {fileID: 0}
-  poolTag: AR Bullet
+  bulletPoolParent: {fileID: 0}
+  bulletPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  poolCount: 0
 --- !u!114 &114990345428229718
 MonoBehaviour:
   m_ObjectHideFlags: 1

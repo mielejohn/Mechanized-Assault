@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33276367379998784}
   - component: {fileID: 135674838026864558}
   - component: {fileID: 23055662289934714}
+  - component: {fileID: 114387877540063226}
   - component: {fileID: 54303089741398226}
   - component: {fileID: 96915780672422556}
-  - component: {fileID: 114894055200655246}
   m_Layer: 0
   m_Name: Assault Rifle Bullet
   m_TagString: Bullet
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705203971808370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.91, y: 15.73, z: 17.98}
+  m_LocalPosition: {x: -39.05347, y: 10.85, z: -56.745415}
   m_LocalScale: {x: 0.14523858, y: 0.14523855, z: 0.14523855}
   m_Children: []
   m_Father: {fileID: 0}
@@ -200,7 +200,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
---- !u!114 &114894055200655246
+--- !u!114 &114387877540063226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   shortRange: 50
   mediumRange: 80
   longRange: 130
-  outOfRange: 160
+  outOfRange: 150
 --- !u!135 &135674838026864558
 SphereCollider:
   m_ObjectHideFlags: 1

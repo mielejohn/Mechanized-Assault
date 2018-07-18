@@ -31,45 +31,30 @@ public class Bullet : MonoBehaviour {
             //Debug.Log("Hit object: " + shotHit.transform.gameObject);
             if (shotHit.collider.tag == "Enemy")
             {
-                //GameObject Enemy = shotHit.collider.gameObject;
-                #region Wokring Bullet Dropoff
+                #region Bullet Dropoff
 
                 if(DistanceToPlayer < shortRange) {
-                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage * 1.5f);
                     CloseHit(Damage, shotHit);
-                    Destroy(this.gameObject);
+                    Debug.Log("Destroyed close range");
+                    this.gameObject.SetActive(false);
                 } else if(DistanceToPlayer >= shortRange && DistanceToPlayer < mediumRange) {
-                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage);
                     MediumHit(Damage, shotHit);
-                    Destroy(this.gameObject);
+                    Debug.Log("Destroyed medium range");
+                    this.gameObject.SetActive(false);
                 } else if (DistanceToPlayer >= mediumRange && DistanceToPlayer < longRange) {
-                    //shotHit.collider.GetComponent<Enemy>().Hit(Damage/0.85f);
                     LongRangeHit(Damage, shotHit);
-                    Destroy(this.gameObject);
+                    Debug.Log("Destroyed long range");
+                    this.gameObject.SetActive(false);
                 } else if (DistanceToPlayer >= outOfRange) {
-                    Destroy(this.gameObject);
+                    Debug.Log("Destroyed out of range");
+                    this.gameObject.SetActive(false);
                 }
                 #endregion
-                /*shotHit.collider.GetComponent<Enemy>().Hit(Damage);
-                Destroy(this.gameObject);*/
-                //this.gameObject.SetActive(false);
             } else if(shotHit.collider.tag == "Level Asset" || shotHit.collider.tag == "Ground") {
-                //this.gameObject.SetActive(false);
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
             }
         }
-        //Debug.Log("Bullet distance to player" + DistanceToPlayer);
     }
-
-   /* void OnTriggerEnter(Collider other){
-
-        if (other.tag == "Enemy")
-        {
-            other.gameObject.GetComponent<Enemy>().Hit(Damage);
-            Destroy(this.gameObject);
-        }
-
-	}*/
 
     public void CloseHit(float Damage, RaycastHit shotHit) {
         shotHit.collider.GetComponent<Enemy>().Hit(Damage * 1.5f);
@@ -81,5 +66,11 @@ public class Bullet : MonoBehaviour {
 
     public void LongRangeHit(float Damage, RaycastHit shotHit) {
         shotHit.collider.GetComponent<Enemy>().Hit(Damage -1.5f);
+    }
+
+    public IEnumerator WaitTillInActive(float WaitTime) {
+        yield return new WaitForSeconds(WaitTime);
+        Debug.Log("Destroyed Wait till");
+        this.gameObject.SetActive(false);
     }
 }

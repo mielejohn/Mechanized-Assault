@@ -320,8 +320,8 @@ public class PlayerController : MonoBehaviour
         {
             MoveForwards(moveZ, moveX);
             //Debug.Log("Normalized Velocity: " + RB.velocity.normalized);
-            Debug.Log("Normalized Velocity X: " + RB.velocity.normalized.x);
-            Debug.Log("Normalized Velocity Z: " + RB.velocity.normalized.z);
+            //Debug.Log("Normalized Velocity X: " + RB.velocity.normalized.x);
+            //Debug.Log("Normalized Velocity Z: " + RB.velocity.normalized.z);
             //MoveSideways (moveX, animX);
             //MoveFlying(moveY);
         }
@@ -399,7 +399,7 @@ public class PlayerController : MonoBehaviour
 		}*/
 
         #region Controller Movement
-        if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0)
+        if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0)    
         {
             //float moveX = GM.state.ThumbSticks.Left.X * Time.deltaTime * groundSpeed;
             //float moveZ = GM.state.ThumbSticks.Left.Y * Time.deltaTime * groundSpeed;

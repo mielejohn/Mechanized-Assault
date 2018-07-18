@@ -21,13 +21,23 @@ public class Left_AssaultRifle : MonoBehaviour {
 	public ParticleSystem MuzzleFlash;
 	public AudioSource audioSource;
 
-    public ObjectPooler objectPooler;
-    public string poolTag;
+    public GameObject bulletPoolParent;
+    public List<GameObject> bulletPool = new List<GameObject> ();
+    [SerializeField]
+    private int poolCount;
 
     void Start () {
-        objectPooler = ObjectPooler.Instance;
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
+        bulletPoolParent = GameObject.FindGameObjectWithTag("LeftBulletParent");
+
+        for(int i = 0; i< bulletPool.Count; i++) {
+            GameObject LAR_Bullet = Instantiate(assaultRifleBullet);
+            bulletPool[i] = LAR_Bullet;
+            bulletPool[i].transform.parent = bulletPoolParent.transform;
+            bulletPool[i].SetActive(false);
+        }
+        Debug.Log("bulletPool count is " + bulletPool.Count);
 	}
 
 	void Update () {
@@ -55,28 +65,33 @@ public class Left_AssaultRifle : MonoBehaviour {
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-        GameObject ARbullet_I = (GameObject)Instantiate(assaultRifleBullet, ShotSpawn.transform.position, Quaternion.identity);
-        ARbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1700f, ForceMode.VelocityChange);
-        Destroy(ARbullet_I, 0.7f);
-        //yield return new WaitForSeconds(0.7f);
-        //ARbullet_I.SetActive(false);
-        //OP.poolDictionary["Assault Rifle Bullet"].Enqueue(ARbullet_I);
-
-        //Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
         RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,40)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
+
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {
                 assaultRifleBullet.GetComponent<Bullet>().CloseHit(5, shotHit);
 			}
 		}
         #region Object Pool
-        //GameObject ARbullet_I = objectPooler.SpawnFromPool(poolTag, ShotSpawn.transform.position);
-        //ARbullet_I.GetComponent<TrailRenderer>().enabled = false;
-        //ARbullet_I.transform.position = ShotSpawn.transform.position;
-        //ARbullet_I.GetComponent<TrailRenderer>().enabled = true;
-        //ARbullet_I.SetActive(true);
+
+        Debug.Log("About to fire Left");
+
+        bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
+        bulletPool[poolCount].SetActive(true);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
+        bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
+        bulletPool[poolCount].GetComponent<Rigidbody> ().AddForce(-transform.right * 1700f, ForceMode.VelocityChange);
+
+        Debug.Log("Just fired Left");
+
+        if (poolCount >= bulletPool.Count-1) {
+            Debug.Log("pool count reset");
+            poolCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount++;
+        }
         #endregion
     }
 
