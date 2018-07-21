@@ -36,13 +36,27 @@ public class ShoulderCannon : MonoBehaviour {
 	public ParticleSystem MuzzleFlash;
 	public AudioSource audioSource;
 
-	// Use this for initialization
-	void Awake () {
+    public GameObject cannonPoolParent;
+    public List<GameObject> cannonPool = new List<GameObject>();
+    [SerializeField]
+    private int cannonCount;
+
+    // Use this for initialization
+    void Awake () {
 		AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
 		PC = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
 		ReloadImage.SetActive(false);
-	}
+
+        cannonPoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
+
+        for (int i = 0; i < cannonPool.Count; i++) {
+            GameObject S_Cannon = Instantiate(cannonShot);
+            cannonPool[i] = S_Cannon;
+            cannonPool[i].transform.parent = cannonPoolParent.transform;
+            cannonPool[i].SetActive(false);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -68,9 +82,6 @@ public class ShoulderCannon : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.M) && currentStatus == CannonStatus.Retracted && PC.canMove == true) {
 			StartCoroutine(WeaponUp());
-			//Anim.SetBool("Put Away",false);
-			//Anim.SetBool("Bring Up",true);
-			//CS = CannonStatus.Deployed;
 		} else if (Input.GetKeyDown (KeyCode.M) && currentStatus == CannonStatus.Deployed && PC.canMove == true) {
 			currentStatus = CannonStatus.Retracted;
 			Anim.SetBool("Bring Up",false);
@@ -79,31 +90,38 @@ public class ShoulderCannon : MonoBehaviour {
 		}
 	}
 
-	/*void LateUpdate ()
-	{
-		if (PC.Enemy != null&&CS == CannonStatus.Deployed) {
-			//CannonBody.transform.LookAt(PC.Enemy.transform);
-			Vector3 relativePos = CannonBody.transform.position - PC.Enemy.transform.position;
-			Quaternion rotation = Quaternion.LookRotation (relativePos,Vector3.forward);
-			CannonBody.transform.rotation = rotation;
-			CannonBody.transform.LookAt (PC.Enemy.transform.position - CannonBody.transform.position, transform.forward);
-		}
-	}*/
-
 	private void Shoot(){
 		audioSource.Play();
 		Debug.Log ("Shooting");
 		StartCoroutine(FireAnimation());
-		GameObject cannonShot_I = (GameObject)Instantiate (cannonShot,shotSpawn.transform.position, Quaternion.identity);
-		cannonShot_I.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.up * 4000f, ForceMode.VelocityChange);
+		//GameObject cannonShot_I = (GameObject)Instantiate (cannonShot,shotSpawn.transform.position, Quaternion.identity);
+		//cannonShot_I.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.up * 4000f, ForceMode.VelocityChange);
 		Ammo--;
 
-		//Anim.SetBool("Fired",false);
-		Destroy (cannonShot_I, 3.0f);
-		//MuzzleFlash.Stop();
-	}
+        #region Object Pool
 
-	private IEnumerator Reload(){
+        Debug.Log("About to fire Left");
+
+        cannonPool[cannonCount].transform.position = shotSpawn.transform.position;
+        cannonPool[cannonCount].SetActive(true);
+        StartCoroutine(cannonPool[cannonCount].GetComponent<CannonShot>().WaitTillInActive(1.0f));
+        cannonPool[cannonCount].transform.rotation = shotSpawn.transform.rotation;
+        cannonPool[cannonCount].GetComponent<Rigidbody>().AddForce(shotSpawn.transform.up * 4000f, ForceMode.VelocityChange);
+
+        Debug.Log("Just fired Left");
+
+        if (cannonCount >= cannonPool.Count - 1) {
+            Debug.Log("pool count reset");
+            cannonCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            cannonCount++;
+        }
+        #endregion
+        //Destroy (cannonShot_I, 3.0f);
+    }
+
+    private IEnumerator Reload(){
 		Debug.Log("Reloading");
 		AmmoText.gameObject.SetActive(false);
 		ReloadImage.SetActive(true);
@@ -125,7 +143,6 @@ public class ShoulderCannon : MonoBehaviour {
 		Debug.Log("Firing");
 		canFire = false;
 		Anim.SetBool("Fired",true);
-		//Anim.SetBool("Fired",false);
 		yield return new WaitForSeconds(4.10f);
 		Anim.SetBool("Fired",false);
 		canFire = true;

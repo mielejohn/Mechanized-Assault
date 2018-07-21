@@ -483,5 +483,15 @@ MonoBehaviour:
   AmmoText: {fileID: 0}
   ReloadImage: {fileID: 0}
   Anim: {fileID: 95678825957047608}
-  CS: 1
+  currentStatus: 0
   CannonBody: {fileID: 1162031632493802}
+  MuzzleFlash: {fileID: 0}
+  audioSource: {fileID: 0}
+  cannonPoolParent: {fileID: 0}
+  cannonPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cannonCount: 0

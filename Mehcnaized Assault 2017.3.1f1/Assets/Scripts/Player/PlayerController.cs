@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
                 groundForce = 63;
                 Shields = 50;
                 shieldsReference = Shields;
-                fallingWeight = 200f;
+                fallingWeight = 300000f;
                 break;
 
             case 1:
@@ -206,7 +206,6 @@ public class PlayerController : MonoBehaviour
                 shieldsReference = Shields;
                 fallingWeight = 100f;
                 break;
-
         }
 
 
@@ -220,42 +219,36 @@ public class PlayerController : MonoBehaviour
                 GameObject RightAssaultRifle_I = Instantiate(rightAssaultRifle);
                 RightAssaultRifle_I.transform.position = rightWeaponSpawn.transform.position;
                 RightAssaultRifle_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "HC-67";
                 break;
 
             case "Shotgun":
                 GameObject RightShotgun_I = Instantiate(rightShotgun);
                 RightShotgun_I.transform.position = rightWeaponSpawn.transform.position;
                 RightShotgun_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "CCS-50";
                 break;
 
             case "Marksman Rifle":
                 GameObject RightMR_I = Instantiate(rightMarksmanRifle);
                 RightMR_I.transform.position = rightWeaponSpawn.transform.position;
                 RightMR_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "DMR-203";
                 break;
 
             case "Minigun":
                 GameObject RightMinigun_I = Instantiate(rightMinigun);
                 RightMinigun_I.transform.position = rightWeaponSpawn.transform.position;
                 RightMinigun_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "LCMG-15";
                 break;
 
             case "Sniper Rifle":
                 GameObject RightSniperRifle_I = Instantiate(rightSniperRifle);
                 RightSniperRifle_I.transform.position = rightWeaponSpawn.transform.position;
                 RightSniperRifle_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "LRS-500";
                 break;
 
             case "Submachine Gun":
                 GameObject RightSMG_I = Instantiate(rightSubMachinegun);
                 RightSMG_I.transform.position = rightWeaponSpawn.transform.position;
                 RightSMG_I.transform.parent = RightHand.transform;
-                //rightWeaponName.text = "SC-67";
                 break;
         }
 
@@ -266,42 +259,36 @@ public class PlayerController : MonoBehaviour
                 GameObject LeftAssaultRifle_I = Instantiate(leftAssaultRifle);
                 LeftAssaultRifle_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftAssaultRifle_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "HC-67";
                 break;
 
             case "Shotgun":
                 GameObject LeftShotgun_I = (GameObject)Instantiate(leftShotgun);
                 LeftShotgun_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftShotgun_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "CCS-50";
                 break;
 
             case "Marksman Rifle":
                 GameObject LeftMR_I = Instantiate(leftMarksmanRifle);
                 LeftMR_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftMR_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "DMR-203";
                 break;
 
             case "Minigun":
                 GameObject LeftMinigun_I = Instantiate(leftMinigun);
                 LeftMinigun_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftMinigun_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "LCMG-15";
                 break;
 
             case "Sniper Rifle":
                 GameObject LeftSniperRifle_I = Instantiate(leftSniperRifle);
                 LeftSniperRifle_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftSniperRifle_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "LRS-500";
                 break;
 
             case "Submachine Gun":
                 GameObject LeftSMG_I = Instantiate(leftSubMachinegun);
                 LeftSMG_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftSMG_I.transform.parent = LeftHand.transform;
-                //leftWeaponName.text = "SC-67";
                 break;
         }
         #endregion
@@ -319,22 +306,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Horizontal") && canMove == true || Input.GetButton("Vertical") && canMove == true || Input.GetButton("Jump") && canMove == true)
         {
             MoveForwards(moveZ, moveX);
-            //Debug.Log("Normalized Velocity: " + RB.velocity.normalized);
-            //Debug.Log("Normalized Velocity X: " + RB.velocity.normalized.x);
-            //Debug.Log("Normalized Velocity Z: " + RB.velocity.normalized.z);
-            //MoveSideways (moveX, animX);
-            //MoveFlying(moveY);
         }
         //Debug.Log("Rigidbody Velocity reference is: " + RB.velocity.magnitude);
         if (canMove == true && Input.GetButton("Jump") && thrustAmount > 0f) {
             MoveFlying(moveY);
             thrustAmount -= 0.1f;
-        } else if (Input.GetButton("Jump") == false && onGround == false || thrustAmount <= 0f && onGround == false) {
+        } else if (thrustAmount <= 0f && onGround == false || Input.GetButton("Jump") == false && onGround == false ) {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
                 if (hit.distance > 15f) {
-                    moveY = hit.distance;
-                    MoveFlying(-moveY / fallingWeight);
+                    //moveY = hit.distance;
+                    MoveFlying(-30f / fallingWeight);
 
                 } else if(hit.distance <15) {
                     moveY = -0.3f;
@@ -438,15 +420,8 @@ public class PlayerController : MonoBehaviour
         {
             healthText.text = Health.ToString();
         }
+
         shieldBar();
-        if (Shields < 0)
-        {
-            //shieldText.text = "" + 0;
-        }
-        else
-        {
-            //shieldText.text = Shields.ToString();
-        }
 
         if (Shields <= 0)
         {
@@ -570,9 +545,6 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        //RightArm.transform.LookAt (Enemy.transform.position * 2f - RightArm.transform.position, new Vector3(0,0.5f, 0));
-        //targetedRightEnemy = targetedEnemy;
-        //targetedLeftEnemy = targetedEnemy;
         if (targetedLeftEnemy != null && targetedRightEnemy != null)
         {
             #region Dead Code
@@ -732,13 +704,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        /*if (other.tag == "EnemyBullet") {
-			if (Shields > 0) {
-				Shields -= 3;
-			} else {
-				Health -= 3;
-			}
-		}*/
+
     }
 
     public void UnTargeted() {
@@ -768,13 +734,13 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ShieldUp()
     {
         ShieldStatus = ShieldStatus.Up;
+        Shield.SetActive(true);
         Anim.SetBool("ShieldDown", false);
         Anim.SetBool("ShieldDropping", false);
         Anim.SetBool("ShieldRecharging", true);
         yield return new WaitForSeconds(1.0f);
         Anim.SetBool("ShieldRecharging", false);
         Anim.SetBool("ShieldUp", true);
-        Shield.SetActive(true);
     }
 
     private IEnumerator RightPistolSwap()

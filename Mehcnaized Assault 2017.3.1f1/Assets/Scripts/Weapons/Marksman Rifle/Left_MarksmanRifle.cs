@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +20,24 @@ public class Left_MarksmanRifle : MonoBehaviour {
 	public ParticleSystem MuzzleFlash;
 	public AudioSource audioSource;
 
-	void Start () {
+    public GameObject bulletPoolParent;
+    public List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField]
+    private int poolCount;
+
+    void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
-	}
+        bulletPoolParent = GameObject.FindGameObjectWithTag("LeftBulletParent");
+
+        for (int i = 0; i < bulletPool.Count; i++) {
+            GameObject LMR_Bullet = Instantiate(marksmanRifleBullet);
+            bulletPool[i] = LMR_Bullet;
+            bulletPool[i].transform.parent = bulletPoolParent.transform;
+            bulletPool[i].SetActive(false);
+        }
+        Debug.Log("bulletPool count is " + bulletPool.Count);
+    }
 
 	void Update () {
 		myTime = myTime + Time.deltaTime;
@@ -49,23 +64,43 @@ public class Left_MarksmanRifle : MonoBehaviour {
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-		GameObject marksmanRilfebullet_I = (GameObject)Instantiate (marksmanRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
+		/*GameObject marksmanRilfebullet_I = (GameObject)Instantiate (marksmanRifleBullet,ShotSpawn.transform.position, Quaternion.identity);
 		marksmanRilfebullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
-		Destroy (marksmanRilfebullet_I, 0.9f);
+		Destroy (marksmanRilfebullet_I, 0.9f);*/
 		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
 		RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,50)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
 			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
 			if (shotHit.collider.tag == "Enemy") {
-                marksmanRilfebullet_I.GetComponent<Bullet>().CloseHit(7, shotHit);
-				Destroy (marksmanRilfebullet_I, 0.9f);
+                marksmanRifleBullet.GetComponent<Bullet>().CloseHit(7, shotHit);
 			}
 		}
 
-	}
+        #region Object Pool
 
-	private IEnumerator Reload(){
+        Debug.Log("About to fire Left");
+
+        bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
+        bulletPool[poolCount].SetActive(true);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
+        bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
+        bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 2500f, ForceMode.VelocityChange);
+
+        Debug.Log("Just fired Left");
+
+        if (poolCount >= bulletPool.Count - 1) {
+            Debug.Log("pool count reset");
+            poolCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount++;
+        }
+        #endregion
+
+    }
+
+    private IEnumerator Reload(){
 		Reloading = true;
 		yield return new WaitForSeconds(0.98f);
 		Ammo = 35;
@@ -83,6 +118,5 @@ public class Left_MarksmanRifle : MonoBehaviour {
 		this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		this.GetComponent<MeshCollider>().enabled = true;
 		Destroy(this.gameObject, 10.0f);
-		//Destroy(topObject, 10.0f);
 	}
 }

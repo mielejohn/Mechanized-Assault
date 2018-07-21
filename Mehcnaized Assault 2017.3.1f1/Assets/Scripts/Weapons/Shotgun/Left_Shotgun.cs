@@ -19,6 +19,7 @@ public class Left_Shotgun : MonoBehaviour {
 
 	[Header("Muzzle Effects")]
 	public ParticleSystem MuzzleFlash;
+    public ParticleSystem shotParticles;
 	public AudioSource audioSource;
 
 	void Start () {
@@ -34,6 +35,7 @@ public class Left_Shotgun : MonoBehaviour {
 		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			MuzzleFlash.Play ();
+            //shotParticles.Play();
 			Shoot ();
 			Ammo--;
 			nextFire = nextFire - myTime;

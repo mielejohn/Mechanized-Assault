@@ -71,6 +71,7 @@ public class Bullet : MonoBehaviour {
     public IEnumerator WaitTillInActive(float WaitTime) {
         yield return new WaitForSeconds(WaitTime);
         Debug.Log("Destroyed Wait till");
+        this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         this.gameObject.SetActive(false);
     }
 }

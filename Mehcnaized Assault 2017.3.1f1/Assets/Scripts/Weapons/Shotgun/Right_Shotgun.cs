@@ -19,7 +19,8 @@ public class Right_Shotgun : MonoBehaviour {
 
 	[Header("Muzzle Effects")]
 	public ParticleSystem MuzzleFlash;
-	public AudioSource audioSource;
+    public ParticleSystem shotParticles;
+    public AudioSource audioSource;
 
 	void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
@@ -34,7 +35,8 @@ public class Right_Shotgun : MonoBehaviour {
 		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
 			MuzzleFlash.Play ();
-			Shoot ();
+            //shotParticles.Play();
+            Shoot ();
 			Ammo--;
 			nextFire = nextFire - myTime;
 			myTime = 0.0f;

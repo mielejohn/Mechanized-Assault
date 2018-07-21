@@ -1,4 +1,4 @@
-﻿	using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,12 +23,36 @@ public class Left_Minigun : MonoBehaviour {
 	public ParticleSystem MuzzleFlash_2;
 	public AudioSource audioSource;
 
+    public GameObject bulletPoolParent;
+    public List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField]
+    private int poolCount;
 
-	void Start () {
+    public List<GameObject> bulletPool_2 = new List<GameObject>();
+    [SerializeField]
+    private int poolCount_2;
+
+    void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
 		Anim = GetComponent<Animator>();
-	}
+
+        bulletPoolParent = GameObject.FindGameObjectWithTag("LeftBulletParent");
+
+        for (int i = 0; i < bulletPool.Count; i++) {
+            GameObject RMG_Bullet_1 = Instantiate(minigunBullet);
+            bulletPool[i] = RMG_Bullet_1;
+            bulletPool[i].transform.parent = bulletPoolParent.transform;
+            bulletPool[i].SetActive(false);
+        }
+
+        for (int i = 0; i < bulletPool_2.Count; i++) {
+            GameObject RMG_Bullet_2 = Instantiate(minigunBullet);
+            bulletPool_2[i] = RMG_Bullet_2;
+            bulletPool_2[i].transform.parent = bulletPoolParent.transform;
+            bulletPool_2[i].SetActive(false);
+        }
+    }
 
 	void Update ()
 	{
@@ -70,43 +94,47 @@ public class Left_Minigun : MonoBehaviour {
 
 	private void Shoot_1(){
 		Debug.Log ("Shooting");
-		GameObject minigunbullet_I = (GameObject)Instantiate (minigunBullet,ShotSpawn_1.transform.position, Quaternion.identity);
-		minigunbullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
-		Destroy (minigunbullet_I, 0.75f);
-		//Vector3 forward = ShotSpawn_1.transform.TransformDirection (ShotSpawn_1.transform.forward);
-		/*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right,out shotHit,700)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (3);
-				Destroy (minigunbullet_I, 0.75f);
-			}
-		}*/
+        #region Object Pool
 
-	}
 
-	private void Shoot_2(){
+        bulletPool[poolCount].transform.position = ShotSpawn_1.transform.position;
+        bulletPool[poolCount].SetActive(true);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
+        bulletPool[poolCount].transform.rotation = ShotSpawn_1.transform.rotation;
+        bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 2500f, ForceMode.VelocityChange);
+
+        if (poolCount >= bulletPool.Count - 1) {
+            Debug.Log("pool count reset");
+            poolCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount++;
+        }
+        #endregion
+    }
+
+    private void Shoot_2(){
 		Debug.Log ("Shooting");
-		GameObject minigunbullet_II = (GameObject)Instantiate (minigunBullet,ShotSpawn_2.transform.position, Quaternion.identity);
-		minigunbullet_II.GetComponent<Rigidbody> ().AddForce (-transform.right * 2500f, ForceMode.VelocityChange);
-		Destroy (minigunbullet_II, 0.75f);
-		//Vector3 forward = ShotSpawn_2.transform.TransformDirection (ShotSpawn_2.transform.forward);
-		/*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn_2.transform.position, -ShotSpawn_2.transform.right,out shotHit,700)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (3);
-				Destroy (minigunbullet_II, 0.75f);
-			}
-		}*/
+        #region Object Pool
 
-	}
 
-	private IEnumerator Reload(){
+        bulletPool_2[poolCount].transform.position = ShotSpawn_2.transform.position;
+        bulletPool_2[poolCount].SetActive(true);
+        StartCoroutine(bulletPool_2[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
+        bulletPool_2[poolCount].transform.rotation = ShotSpawn_2.transform.rotation;
+        bulletPool_2[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 2500f, ForceMode.VelocityChange);
+
+        if (poolCount_2 >= bulletPool_2.Count - 1) {
+            Debug.Log("pool count reset");
+            poolCount_2 = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount_2++;
+        }
+        #endregion
+    }
+
+    private IEnumerator Reload(){
 		Reloading = true;
 		yield return new WaitForSeconds(0.98f);
 		Ammo = 150;

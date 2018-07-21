@@ -36,12 +36,26 @@ public class GrenadeLauncher : MonoBehaviour {
     public ParticleSystem MuzzleFlash;
     public AudioSource audioSource;
 
+    public GameObject grenadePoolParent;
+    public List<GameObject> grenadePool = new List<GameObject>();
+    [SerializeField]
+    private int grenadeCount;
+
     // Use this for initialization
     void Start () {
         AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
         ReloadImage.SetActive(false);
+
+        grenadePoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
+
+        for (int i = 0; i < grenadePool.Count; i++) {
+            GameObject S_Cannon = Instantiate(Grenade);
+            grenadePool[i] = S_Cannon;
+            grenadePool[i].transform.parent = grenadePoolParent.transform;
+            grenadePool[i].SetActive(false);
+        }
     }
 	
 	// Update is called once per frame
@@ -74,6 +88,10 @@ public class GrenadeLauncher : MonoBehaviour {
             Anim.SetBool("Put Away", true);
 
         }
+
+        if(Ammo == 0) {
+            Ammo = 8;
+        }
     }
 
     private void Shoot()
@@ -81,10 +99,32 @@ public class GrenadeLauncher : MonoBehaviour {
         //audioSource.Play();
         Debug.Log("Shooting");
         StartCoroutine(FireAnimation());
-        GameObject grenadeShot_I = (GameObject)Instantiate(Grenade, shotSpawn.transform.position, shotSpawn.transform.rotation);
-        grenadeShot_I.GetComponent<Rigidbody>().AddForce(shotSpawn.transform.forward * 200f, ForceMode.VelocityChange);
-        StartCoroutine(grenadeShot_I.GetComponent<GrenadeShell>().GrenadeTimer());
+        //GameObject grenadeShot_I = (GameObject)Instantiate(Grenade, shotSpawn.transform.position, shotSpawn.transform.rotation);
+        //grenadeShot_I.GetComponent<Rigidbody>().AddForce(shotSpawn.transform.forward * 200f, ForceMode.VelocityChange);
+
+        #region Object Pool
+
+        Debug.Log("About to fire Left");
         Ammo--;
+        grenadePool[grenadeCount].transform.position = shotSpawn.transform.position;
+        grenadePool[grenadeCount].SetActive(true);
+        grenadePool[grenadeCount].transform.rotation = shotSpawn.transform.rotation;
+        grenadePool[grenadeCount].GetComponent<Rigidbody>().AddForce(shotSpawn.transform.forward * 200f, ForceMode.VelocityChange);
+        StartCoroutine(grenadePool[grenadeCount].GetComponent<GrenadeShell>().GrenadeTimer());
+
+        Debug.Log("Just fired Left");
+
+        if (grenadeCount >= grenadePool.Count - 1) {
+            Debug.Log("pool count reset");
+            grenadeCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            grenadeCount++;
+        }
+        #endregion
+
+
+
 
         //Anim.SetBool("Fired",false);
         //Destroy(grenadeShot_I, 3.0f);

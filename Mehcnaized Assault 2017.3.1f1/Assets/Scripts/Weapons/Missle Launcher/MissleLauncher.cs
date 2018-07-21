@@ -19,13 +19,28 @@ public class MissleLauncher : MonoBehaviour {
 	public Text AmmoText;
 	public GameObject ReloadImage;
 	public WeaponStatus WS = WeaponStatus.ReadytoFire;
-	// Use this for initialization
-	void Awake () {
+
+    public GameObject misslePoolParent;
+    public List<GameObject> misslePool = new List<GameObject>();
+    [SerializeField]
+    private int missleCount;
+    // Use this for initialization
+    void Awake () {
 		AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
 		PC = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
 		ReloadImage.SetActive(false);
-	}
+
+        misslePoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
+
+        for (int i = 0; i < misslePool.Count; i++) {
+            GameObject S_Missle = Instantiate(missleObject);
+            misslePool[i] = S_Missle;
+            misslePool[i].transform.parent = misslePoolParent.transform;
+            misslePool[i].SetActive(false);
+        }
+        Debug.Log("bulletPool count is " + misslePool.Count);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -49,54 +64,61 @@ public class MissleLauncher : MonoBehaviour {
         }
 
 		if (Ammo <= 0 && WS != WeaponStatus.Reloading) {
-			StartCoroutine(Reload());
+			StartCoroutine(reload());
 		}
 	}
 
 	void Tracking(){
-		/*Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
+		Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
 		float angle = Mathf.Atan2 (-targetDirection.x, -targetDirection.y) * Mathf.Rad2Deg;
 		Vector3 q = Quaternion.AngleAxis (angle, -Vector3.forward).eulerAngles;
-		missleLauncher_Y.transform.rotation = Quaternion.Slerp(missleLauncher_Y.transform.rotation, Quaternion.Euler(new Vector3(0f, q.y+10f, 0f)) ,Time.deltaTime * 2);
-		missleLauncher_X.transform.rotation = Quaternion.Slerp(missleLauncher_X.transform.rotation, Quaternion.Euler(new Vector3(q.x, 0f, 0f)) ,Time.deltaTime * 2);
-
-		/*Vector3 target = PC.Enemy.transform.position - PC.gameObject.transform.position;
-		target.x = 0.0f;
-		target.z = 0.0f;
-		missleLauncher_Y.transform.LookAt(target);*/
-
-		//missleLauncher_Y.transform.LookAt(PC.targetedEnemy.transform);
-		/*Vector3 Rotation_targetDir = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
-		float Rotation_step = 5 * Time.deltaTime;
-		Vector3 Rotation_newDir = Vector3.RotateTowards(transform.forward, Rotation_targetDir, Rotation_step, 0.0f);
-        missleLauncher_Y.transform.rotation = Quaternion.LookRotation(new Vector3(Rotation_targetDir.x, 0.0f, 0.0f));*/
+        missleLauncher_Y.transform.rotation = Quaternion.Euler(new Vector3(0f, q.y + 18f, 0f));
+        missleLauncher_X.transform.rotation = Quaternion.Euler(new Vector3(q.x, q.y + 18f, 0f));
 	}
 
 	void Shoot ()
 	{
-		Ammo--;
+        #region Object Pool
+        Ammo--;
 		//Debug.Log("Shooting");
         if (PC.targetedLeftEnemy != null || PC.targetedRightEnemy != null) {
-			GameObject Missle_I = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
-            Missle_I.GetComponent<Missle>().target = PC.targetedLeftEnemy.transform;
-            Missle_I.GetComponent<Missle>().lockedOn = true;
-			Destroy (Missle_I, 10.0f);
-		} else {
-			GameObject Missle_II = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
-			Missle_II.GetComponent<Rigidbody> ().AddForce (missleSpawn.transform.forward * 100f, ForceMode.VelocityChange);
-			Destroy (Missle_II, 10.0f);
-		}
-	}
+			//GameObject Missle_I = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
+            misslePool[missleCount].transform.position = missleSpawn.transform.position;
+            misslePool[missleCount].GetComponent<Missle>().target = PC.targetedLeftEnemy.transform;
+            misslePool[missleCount].GetComponent<Missle>().lockedOn = true;
+            misslePool[missleCount].SetActive(true);
 
-	private IEnumerator Reload(){
-		Debug.Log("Reloading");
-		WS = WeaponStatus.Reloading;
-		AmmoText.gameObject.SetActive(false);
-		ReloadImage.SetActive(true);
-		yield return new WaitForSeconds(2.0f);
-		AmmoText.gameObject.SetActive(true);
-		ReloadImage.SetActive(false);
-		Ammo = 12;
-		WS = WeaponStatus.ReadytoFire;
-	}
+            //Destroy (Missle_I, 10.0f);
+        } else {
+			//GameObject Missle_II = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
+            misslePool[missleCount].transform.position = missleSpawn.transform.position;
+            misslePool[missleCount].transform.rotation = missleSpawn.transform.rotation;
+            misslePool[missleCount].GetComponent<Rigidbody> ().AddForce (missleSpawn.transform.forward * 100f, ForceMode.VelocityChange);
+            misslePool[missleCount].SetActive(true);
+            StartCoroutine(misslePool[missleCount].GetComponent<Missle>().DestroyMissle(10f, misslePool[missleCount].transform.position));
+            //Destroy (Missle_II, 10.0f);
+        }
+
+
+        if (missleCount >= misslePool.Count - 1) {
+            Debug.Log("pool count reset");
+            missleCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            missleCount++;
+        }
+        #endregion
+    }
+
+    private IEnumerator reload() {
+        Debug.Log("Reloading");
+        WS = WeaponStatus.Reloading;
+        AmmoText.gameObject.SetActive(false);
+        ReloadImage.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        AmmoText.gameObject.SetActive(true);
+        ReloadImage.SetActive(false);
+        Ammo = 12;
+        WS = WeaponStatus.ReadytoFire;
+    }
 }

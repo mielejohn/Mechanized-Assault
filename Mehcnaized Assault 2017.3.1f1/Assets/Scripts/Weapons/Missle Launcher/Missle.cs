@@ -50,16 +50,26 @@ public class Missle : MonoBehaviour {
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "Enemy") {
+            Debug.Log("Hit Enemy");
 			other.GetComponent<Enemy>().Hit(10);
-            DestroyMissle();
+            StartCoroutine(DestroyMissle(0f, other.gameObject.transform.position));
 		} else if (other.tag == "Ground" || other.tag == "Level Asset"){
-            DestroyMissle();
+            Debug.Log("Hit Level Asset");
+            StartCoroutine(DestroyMissle(0f, other.gameObject.transform.position));
         }
 	}
 
-    public void DestroyMissle()
+    public IEnumerator DestroyMissle(float waitTime, Vector3 DyingLocation)
     {
-        Instantiate(Explosion, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(waitTime);
+        this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        this.gameObject.transform.position = DyingLocation;
+        Explosion.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        Explosion.SetActive(false);
+        Debug.Log("Destroying Explosion");
+        this.gameObject.SetActive(false);
+        //Instantiate(Explosion, transform.position, Quaternion.identity);
+        //Destroy(this.gameObject);
     }
 }
