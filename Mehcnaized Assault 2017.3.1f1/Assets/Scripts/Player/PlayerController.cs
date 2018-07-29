@@ -346,7 +346,7 @@ public class PlayerController : MonoBehaviour
             //PlayerCamera.transform.Translate (Vector3.up * Time.deltaTime * 7);
             Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 1.3f);
 		} else {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 1.3f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 0.75f);
         }
         #endregion
 
