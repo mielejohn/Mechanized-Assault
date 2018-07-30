@@ -331,8 +331,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Anim.SetFloat("X_Axis", animX);
-        Anim.SetFloat("Z_Axis", animZ);
+        Anim.SetFloat("X_Axis", RB.velocity.normalized.x);
+        Anim.SetFloat("Z_Axis", RB.velocity.normalized.z);
         #endregion
 
         #region CameraMovement
