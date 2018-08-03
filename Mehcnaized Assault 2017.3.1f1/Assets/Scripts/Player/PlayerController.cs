@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         #region Frame Stats Select
-        switch(frameType.value) {
+        switch(0) {
             case 0:
                 //65 Magnitude Reference
                 //73 Ground Force
@@ -331,8 +331,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Anim.SetFloat("X_Axis", RB.velocity.normalized.x);
-        Anim.SetFloat("Z_Axis", RB.velocity.normalized.z);
+        Anim.SetFloat("X_Axis", animX);
+        Anim.SetFloat("Z_Axis", animZ);
         #endregion
 
         #region CameraMovement
@@ -381,7 +381,7 @@ public class PlayerController : MonoBehaviour
 		}*/
 
         #region Controller Movement
-        if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0)    
+        /*if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0)    
         {
             //float moveX = GM.state.ThumbSticks.Left.X * Time.deltaTime * groundSpeed;
             //float moveZ = GM.state.ThumbSticks.Left.Y * Time.deltaTime * groundSpeed;
@@ -389,7 +389,7 @@ public class PlayerController : MonoBehaviour
             animZ = GM.state.ThumbSticks.Left.Y;
             //MoveForwards (moveZ, animZ);
             //MoveSideways(moveX, animX);
-        }
+        }*/
         #endregion
 
         #region Camera Rotation

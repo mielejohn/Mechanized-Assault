@@ -6,15 +6,30 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: MissleLauncher_X
+    100004: MissleLauncher_Y
     400000: //RootNode
+    400002: MissleLauncher_X
+    400004: MissleLauncher_Y
     2100000: Off_White
     2100002: Base_ML_Gray
     2100004: Red
     2100006: Yellow
+    2100008: Dark_ML_Gray
+    2100010: LightGray
+    2100012: Silver_Non_UV_X
+    2100014: Antennas
     2300000: //RootNode
+    2300002: MissleLauncher_X
+    2300004: MissleLauncher_Y
     3300000: //RootNode
+    3300002: MissleLauncher_X
+    3300004: MissleLauncher_Y
     4300000: pCylinder1
     4300002: Missle
+    4300004: MissleLauncher_Arm
+    4300006: MissleLauncher_Y
+    4300008: MissleLauncher_X
     9500000: //RootNode
   externalObjects: {}
   materials:
