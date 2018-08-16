@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 5788ce44bfdfdf04b92dceee71344fda
+timeCreated: 1526438751
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Head
+    100002: Left_Backpack_Fin
+    100004: Left_Foot
+    100006: Left_Hand
+    100008: Left_Holster
+    100010: Left_Lower_Arm
+    100012: Left_Lower_Leg
+    100014: Left_MiddleFinger_Bot
+    100016: Left_MiddleFinger_Mid
+    100018: Left_MiddleFinger_Top
+    100020: Left_PinkyFinger_Bot
+    100022: Left_PinkyFinger_Mid
+    100024: Left_PinkyFinger_Top
+    100026: Left_Pistol
+    100028: Left_Pistol_Stock
+    100030: Left_PointerFinger_Bot
+    100032: Left_PointerFinger_Mid
+    100034: Left_PointerFinger_Top
+    100036: Left_RingFinger_Bot1
+    100038: Left_RingFinger_Mid
+    100040: Left_RingFinger_Top
+    100042: Left_Shoulder
+    100044: Left_Thumb_Bot
+    100046: Left_Thumb_Top
+    100048: Left_Upper_Arm
+    100050: Left_Upper_Leg
+    100052: Left_Waist_Skirt
+    100054: Lower_Chest
+    100056: //RootNode
+    100058: Right_Backpack_Fin
+    100060: Right_Foot
+    100062: Right_Hand
+    100064: Right_Lower_Arm
+    100066: Right_Lower_Leg
+    100068: Right_MiddleFinger_Bot
+    100070: Right_MiddleFinger_Mid
+    100072: Right_MiddleFinger_Top
+    100074: Right_PinkyFinger_Bot
+    100076: Right_PinkyFinger_Mid
+    100078: Right_PinkyFinger_Top
+    100080: Right_Pistol
+    100082: Right_Pistol_Holster
+    100084: Right_Pistol_Stock
+    100086: Right_PointerFinger_Bot
+    100088: Right_PointerFinger_Mid
+    100090: Right_PointerFinger_Top
+    100092: Right_RingFinger_Bot
+    100094: Right_RingFinger_Mid
+    100096: Right_RingFinger_Top
+    100098: Right_Shoulder
+    100100: Right_Thumb_Bot
+    100102: Right_Thumb_Top
+    100104: Right_Upper_Arm
+    100106: Right_Upper_Leg
+    100108: Right_Waist_Skirt
+    100110: Upper_Chest
+    100112: Waist
+    400000: Head
+    400002: Left_Backpack_Fin
+    400004: Left_Foot
+    400006: Left_Hand
+    400008: Left_Holster
+    400010: Left_Lower_Arm
+    400012: Left_Lower_Leg
+    400014: Left_MiddleFinger_Bot
+    400016: Left_MiddleFinger_Mid
+    400018: Left_MiddleFinger_Top
+    400020: Left_PinkyFinger_Bot
+    400022: Left_PinkyFinger_Mid
+    400024: Left_PinkyFinger_Top
+    400026: Left_Pistol
+    400028: Left_Pistol_Stock
+    400030: Left_PointerFinger_Bot
+    400032: Left_PointerFinger_Mid
+    400034: Left_PointerFinger_Top
+    400036: Left_RingFinger_Bot1
+    400038: Left_RingFinger_Mid
+    400040: Left_RingFinger_Top
+    400042: Left_Shoulder
+    400044: Left_Thumb_Bot
+    400046: Left_Thumb_Top
+    400048: Left_Upper_Arm
+    400050: Left_Upper_Leg
+    400052: Left_Waist_Skirt
+    400054: Lower_Chest
+    400056: //RootNode
+    400058: Right_Backpack_Fin
+    400060: Right_Foot
+    400062: Right_Hand
+    400064: Right_Lower_Arm
+    400066: Right_Lower_Leg
+    400068: Right_MiddleFinger_Bot
+    400070: Right_MiddleFinger_Mid
+    400072: Right_MiddleFinger_Top
+    400074: Right_PinkyFinger_Bot
+    400076: Right_PinkyFinger_Mid
+    400078: Right_PinkyFinger_Top
+    400080: Right_Pistol
+    400082: Right_Pistol_Holster
+    400084: Right_Pistol_Stock
+    400086: Right_PointerFinger_Bot
+    400088: Right_PointerFinger_Mid
+    400090: Right_PointerFinger_Top
+    400092: Right_RingFinger_Bot
+    400094: Right_RingFinger_Mid
+    400096: Right_RingFinger_Top
+    400098: Right_Shoulder
+    400100: Right_Thumb_Bot
+    400102: Right_Thumb_Top
+    400104: Right_Upper_Arm
+    400106: Right_Upper_Leg
+    400108: Right_Waist_Skirt
+    400110: Upper_Chest
+    400112: Waist
+    2100000: lambert1
+    2100002: DarkGray
+    2100004: Antennas
+    2100006: Yellow
+    2100008: Main_Gray
+    2100010: Black
+    2100012: Thrusters_Silver_Metal
+    2100014: Light_Gray
+    2100016: Mid_Dark_Gray
+    2100018: Gray
+    2100020: White
+    2100022: Eye_Color
+    2100024: Tubes_Wires_Antennas
+    2100026: Main_Gray1
+    2100028: Dark_Gray
+    2100030: lambert27
+    2100032: Pistol_Lambert_Gray3
+    2100034: Pistol_Lambert_DarkGray3
+    2100036: Pistol_Lambert_Gray2
+    2100038: Pistol_Blinn_Silver1
+    2100040: Pistol_Blinn_SensorGreen1
+    2100042: Pistol_Lambert_DarkGray2
+    2100044: Pistol_Lambert_LightGray1
+    2100046: Color_Material
+    2100048: Talking_Eye_Material
+    2100050: Light_Gray_Frame
+    2300000: Head
+    2300002: Left_Backpack_Fin
+    2300004: Left_Foot
+    2300006: Left_Hand
+    2300008: Left_Holster
+    2300010: Left_Lower_Arm
+    2300012: Left_Lower_Leg
+    2300014: Left_MiddleFinger_Bot
+    2300016: Left_MiddleFinger_Mid
+    2300018: Left_MiddleFinger_Top
+    2300020: Left_PinkyFinger_Bot
+    2300022: Left_PinkyFinger_Mid
+    2300024: Left_PinkyFinger_Top
+    2300026: Left_Pistol
+    2300028: Left_Pistol_Stock
+    2300030: Left_PointerFinger_Bot
+    2300032: Left_PointerFinger_Mid
+    2300034: Left_PointerFinger_Top
+    2300036: Left_RingFinger_Bot1
+    2300038: Left_RingFinger_Mid
+    2300040: Left_RingFinger_Top
+    2300042: Left_Shoulder
+    2300044: Left_Thumb_Bot
+    2300046: Left_Thumb_Top
+    2300048: Left_Upper_Arm
+    2300050: Left_Upper_Leg
+    2300052: Left_Waist_Skirt
+    2300054: Lower_Chest
+    2300056: //RootNode
+    2300058: Right_Backpack_Fin
+    2300060: Right_Foot
+    2300062: Right_Hand
+    2300064: Right_Lower_Arm
+    2300066: Right_Lower_Leg
+    2300068: Right_MiddleFinger_Bot
+    2300070: Right_MiddleFinger_Mid
+    2300072: Right_MiddleFinger_Top
+    2300074: Right_PinkyFinger_Bot
+    2300076: Right_PinkyFinger_Mid
+    2300078: Right_PinkyFinger_Top
+    2300080: Right_Pistol
+    2300082: Right_Pistol_Holster
+    2300084: Right_Pistol_Stock
+    2300086: Right_PointerFinger_Bot
+    2300088: Right_PointerFinger_Mid
+    2300090: Right_PointerFinger_Top
+    2300092: Right_RingFinger_Bot
+    2300094: Right_RingFinger_Mid
+    2300096: Right_RingFinger_Top
+    2300098: Right_Shoulder
+    2300100: Right_Thumb_Bot
+    2300102: Right_Thumb_Top
+    2300104: Right_Upper_Arm
+    2300106: Right_Upper_Leg
+    2300108: Right_Waist_Skirt
+    2300110: Upper_Chest
+    2300112: Waist
+    3300000: Head
+    3300002: Left_Backpack_Fin
+    3300004: Left_Foot
+    3300006: Left_Hand
+    3300008: Left_Holster
+    3300010: Left_Lower_Arm
+    3300012: Left_Lower_Leg
+    3300014: Left_MiddleFinger_Bot
+    3300016: Left_MiddleFinger_Mid
+    3300018: Left_MiddleFinger_Top
+    3300020: Left_PinkyFinger_Bot
+    3300022: Left_PinkyFinger_Mid
+    3300024: Left_PinkyFinger_Top
+    3300026: Left_Pistol
+    3300028: Left_Pistol_Stock
+    3300030: Left_PointerFinger_Bot
+    3300032: Left_PointerFinger_Mid
+    3300034: Left_PointerFinger_Top
+    3300036: Left_RingFinger_Bot1
+    3300038: Left_RingFinger_Mid
+    3300040: Left_RingFinger_Top
+    3300042: Left_Shoulder
+    3300044: Left_Thumb_Bot
+    3300046: Left_Thumb_Top
+    3300048: Left_Upper_Arm
+    3300050: Left_Upper_Leg
+    3300052: Left_Waist_Skirt
+    3300054: Lower_Chest
+    3300056: //RootNode
+    3300058: Right_Backpack_Fin
+    3300060: Right_Foot
+    3300062: Right_Hand
+    3300064: Right_Lower_Arm
+    3300066: Right_Lower_Leg
+    3300068: Right_MiddleFinger_Bot
+    3300070: Right_MiddleFinger_Mid
+    3300072: Right_MiddleFinger_Top
+    3300074: Right_PinkyFinger_Bot
+    3300076: Right_PinkyFinger_Mid
+    3300078: Right_PinkyFinger_Top
+    3300080: Right_Pistol
+    3300082: Right_Pistol_Holster
+    3300084: Right_Pistol_Stock
+    3300086: Right_PointerFinger_Bot
+    3300088: Right_PointerFinger_Mid
+    3300090: Right_PointerFinger_Top
+    3300092: Right_RingFinger_Bot
+    3300094: Right_RingFinger_Mid
+    3300096: Right_RingFinger_Top
+    3300098: Right_Shoulder
+    3300100: Right_Thumb_Bot
+    3300102: Right_Thumb_Top
+    3300104: Right_Upper_Arm
+    3300106: Right_Upper_Leg
+    3300108: Right_Waist_Skirt
+    3300110: Upper_Chest
+    3300112: Waist
+    4300000: Titan_Reference_Point
+    4300002: Upper_Chest
+    4300004: Left_Backpack_Fin
+    4300006: Right_Backpack_Fin
+    4300008: Head
+    4300010: Left_Shoulder
+    4300012: Left_Upper_Arm
+    4300014: Left_Lower_Arm
+    4300016: Left_Hand
+    4300018: Left_Thumb_Bot
+    4300020: Left_Thumb_Top
+    4300022: Left_PinkyFinger_Bot
+    4300024: Left_PinkyFinger_Mid
+    4300026: Left_PinkyFinger_Top
+    4300028: Left_RingFinger_Bot1
+    4300030: Left_RingFinger_Mid
+    4300032: Left_RingFinger_Top
+    4300034: Left_MiddleFinger_Bot
+    4300036: Left_MiddleFinger_Mid
+    4300038: Left_MiddleFinger_Top
+    4300040: Left_PointerFinger_Bot
+    4300042: Left_PointerFinger_Mid
+    4300044: Left_PointerFinger_Top
+    4300046: Right_Shoulder
+    4300048: Right_Upper_Arm
+    4300050: Right_Lower_Arm
+    4300052: Right_Hand
+    4300054: Right_PointerFinger_Bot
+    4300056: Right_PointerFinger_Mid
+    4300058: Right_PointerFinger_Top
+    4300060: Right_MiddleFinger_Bot
+    4300062: Right_MiddleFinger_Mid
+    4300064: Right_MiddleFinger_Top
+    4300066: Right_RingFinger_Bot
+    4300068: Right_RingFinger_Mid
+    4300070: Right_RingFinger_Top
+    4300072: Right_PinkyFinger_Bot
+    4300074: Right_PinkyFinger_Mid
+    4300076: Right_PinkyFinger_Top
+    4300078: Right_Thumb_Bot
+    4300080: Right_Thumb_Top
+    4300082: Lower_Chest
+    4300084: Waist
+    4300086: Left_Waist_Skirt
+    4300088: Right_Waist_Skirt
+    4300090: Right_Upper_Leg
+    4300092: Right_Lower_Leg
+    4300094: Right_Pistol_Holster
+    4300096: Right_Pistol
+    4300098: Right_Pistol_Stock
+    4300100: Right_Foot
+    4300102: Left_Upper_Leg
+    4300104: Left_Lower_Leg
+    4300106: Left_Foot
+    4300108: Left_Holster
+    4300110: Left_Pistol
+    4300112: Left_Pistol_Stock
+    7400000: Take 001
+    7400002: Ground Idle
+    7400004: Ground Forward
+    7400006: Ground Right
+    7400008: Ground Left
+    7400010: Ground Backwards
+    7400012: Flight Idle
+    7400014: Flight Forward
+    7400016: Flight Right
+    7400018: Flight Left
+    7400020: Flight Backwards
+    7400022: Right Arm Reload
+    7400024: Left Arm Reload
+    7400026: Right Arm Pistol Swap
+    7400028: Left Arm Pistol Swap
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 478
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

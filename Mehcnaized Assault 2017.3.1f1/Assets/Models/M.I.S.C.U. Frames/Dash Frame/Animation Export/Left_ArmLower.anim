@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Left_ArmLower
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.40220866, y: 0.57887465, z: -0.4047165, w: 0.58338726}
+        inSlope: {x: 0.05668436, y: -0.037996467, z: -0.056254808, w: -0.037748314}
+        outSlope: {x: 0.05668436, y: -0.037996467, z: -0.056254808, w: -0.037748314}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.14999962
+        value: {x: 0.42878947, y: 0.5590695, z: -0.4310828, w: 0.56369185}
+        inSlope: {x: 0.33459905, y: -0.2560887, z: -0.33185422, w: -0.2547297}
+        outSlope: {x: 0.33459905, y: -0.2560887, z: -0.33185422, w: -0.2547297}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.43333435
+        value: {x: 0.5429152, y: 0.4497946, z: -0.5441286, w: 0.45480987}
+        inSlope: {x: 0.35250387, y: -0.42155018, z: -0.34861842, w: -0.42060968}
+        outSlope: {x: 0.35250387, y: -0.42155018, z: -0.34861842, w: -0.42060968}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 0.5876223, y: 0.39092422, z: -0.5883074, w: 0.39604133}
+        inSlope: {x: 0.007149945, y: -0.019423021, z: -0.0069999294, w: -0.019439207}
+        outSlope: {x: 0.007149945, y: -0.019423021, z: -0.0069999294, w: -0.019439207}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_LeftShoulder
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.029195601, y: 0.7074484, z: -0.024683516, w: 0.7057321}
+        inSlope: {x: 0.044216074, y: -0.001626365, z: -0.04432409, w: -0.0019087037}
+        outSlope: {x: 0.044216074, y: -0.001626365, z: -0.04432409, w: -0.0019087037}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.016666412
+        value: {x: 0.03002013, y: 0.70741814, z: -0.02551006, w: 0.7056965}
+        inSlope: {x: 0.054872632, y: -0.00201884, z: -0.055006687, w: -0.0023693207}
+        outSlope: {x: 0.054872632, y: -0.00201884, z: -0.055006687, w: -0.0023693207}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.3666668
+        value: {x: 0.17292494, y: 0.6874429, z: -0.16885932, w: 0.6848399}
+        inSlope: {x: 0.54490983, y: -0.13431814, z: -0.546981, w: -0.13755293}
+        outSlope: {x: 0.54490983, y: -0.13431814, z: -0.546981, w: -0.13755293}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 0.27297032, y: 0.65501636, z: -0.26933515, w: 0.6518362}
+        inSlope: {x: 0.021881001, y: -0.014059289, z: -0.022020089, w: -0.014170465}
+        outSlope: {x: 0.021881001, y: -0.014059289, z: -0.022020089, w: -0.014170465}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_RightShoulder
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 5.462022, y: 9.054669, z: 166.78369}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 5.462022, y: 9.054669, z: 166.78369}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_LeftShoulder
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 5.462022, y: 9.054669, z: -166.78345}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 5.462022, y: 9.054669, z: -166.78345}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_RightShoulder
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_LeftShoulder
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.66666603
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: QuickRigCharacter3_Hips/QuickRigCharacter3_Spine/QuickRigCharacter3_Spine1/QuickRigCharacter3_Spine2/QuickRigCharacter3_RightShoulder
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.66666603
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []

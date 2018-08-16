@@ -1,0 +1,417 @@
+fileFormatVersion: 2
+guid: 61edae18c99819b4eb492684efc0c533
+timeCreated: 1532912284
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Left_MiddleFinger_Bot
+    100002: Left_MiddleFinger_Bot 1
+    100004: Left_MiddleFinger_Mid
+    100006: Left_MiddleFinger_Mid 1
+    100008: Left_MiddleFinger_Top
+    100010: Left_MiddleFinger_Top 1
+    100012: Left_PinkyFinger_Bot
+    100014: Left_PinkyFinger_Bot 1
+    100016: Left_PinkyFinger_Mid
+    100018: Left_PinkyFinger_Mid 1
+    100020: Left_PinkyFinger_Top
+    100022: Left_PinkyFinger_Top 1
+    100024: Left_PointerFinger_Bot
+    100026: Left_PointerFinger_Bot 1
+    100028: Left_PointerFinger_Mid
+    100030: Left_PointerFinger_Mid 1
+    100032: Left_PointerFinger_Top
+    100034: Left_PointerFinger_Top 1
+    100036: Left_RingFinger_Bot1
+    100038: Left_RingFinger_Bot1 1
+    100040: Left_RingFinger_Mid
+    100042: Left_RingFinger_Mid 1
+    100044: Left_RingFinger_Top
+    100046: Left_RingFinger_Top 1
+    100048: Left_Thumb_Bot
+    100050: Left_Thumb_Bot 1
+    100052: Left_Thumb_Top
+    100054: Left_Thumb_Top 1
+    100056: //RootNode
+    100058: RHINO_Fin_1
+    100060: RHINO_Fin_2
+    100062: RHINO_Fin_3
+    100064: RHINO_Head
+    100066: RHINO_LeftFoot
+    100068: RHINO_LeftHand
+    100070: RHINO_LeftLowerArm
+    100072: RHINO_LeftLowerLeg
+    100074: RHINO_LeftShoulder
+    100076: RHINO_LeftToe
+    100078: RHINO_LeftUpperArm
+    100080: RHINO_LeftUpperLeg
+    100082: RHINO_LeftWaistSkirt
+    100084: RHINO_LowerChest
+    100086: RHINO_RightFoot
+    100088: RHINO_RightHand
+    100090: RHINO_RightLowerArm
+    100092: RHINO_RightLowerLeg
+    100094: RHINO_RightShoulder
+    100096: RHINO_RightToe
+    100098: RHINO_RightUpperArm
+    100100: RHINO_RightUpperLeg
+    100102: RHINO_RightWaistSkirt
+    100104: RHINO_UpperChest
+    100106: RHINO_Waist
+    400000: Left_MiddleFinger_Bot
+    400002: Left_MiddleFinger_Bot 1
+    400004: Left_MiddleFinger_Mid
+    400006: Left_MiddleFinger_Mid 1
+    400008: Left_MiddleFinger_Top
+    400010: Left_MiddleFinger_Top 1
+    400012: Left_PinkyFinger_Bot
+    400014: Left_PinkyFinger_Bot 1
+    400016: Left_PinkyFinger_Mid
+    400018: Left_PinkyFinger_Mid 1
+    400020: Left_PinkyFinger_Top
+    400022: Left_PinkyFinger_Top 1
+    400024: Left_PointerFinger_Bot
+    400026: Left_PointerFinger_Bot 1
+    400028: Left_PointerFinger_Mid
+    400030: Left_PointerFinger_Mid 1
+    400032: Left_PointerFinger_Top
+    400034: Left_PointerFinger_Top 1
+    400036: Left_RingFinger_Bot1
+    400038: Left_RingFinger_Bot1 1
+    400040: Left_RingFinger_Mid
+    400042: Left_RingFinger_Mid 1
+    400044: Left_RingFinger_Top
+    400046: Left_RingFinger_Top 1
+    400048: Left_Thumb_Bot
+    400050: Left_Thumb_Bot 1
+    400052: Left_Thumb_Top
+    400054: Left_Thumb_Top 1
+    400056: //RootNode
+    400058: RHINO_Fin_1
+    400060: RHINO_Fin_2
+    400062: RHINO_Fin_3
+    400064: RHINO_Head
+    400066: RHINO_LeftFoot
+    400068: RHINO_LeftHand
+    400070: RHINO_LeftLowerArm
+    400072: RHINO_LeftLowerLeg
+    400074: RHINO_LeftShoulder
+    400076: RHINO_LeftToe
+    400078: RHINO_LeftUpperArm
+    400080: RHINO_LeftUpperLeg
+    400082: RHINO_LeftWaistSkirt
+    400084: RHINO_LowerChest
+    400086: RHINO_RightFoot
+    400088: RHINO_RightHand
+    400090: RHINO_RightLowerArm
+    400092: RHINO_RightLowerLeg
+    400094: RHINO_RightShoulder
+    400096: RHINO_RightToe
+    400098: RHINO_RightUpperArm
+    400100: RHINO_RightUpperLeg
+    400102: RHINO_RightWaistSkirt
+    400104: RHINO_UpperChest
+    400106: RHINO_Waist
+    2100000: lambert1
+    2100002: ColorScheme_FrameJoint
+    2100004: ColorScheme_LightGray
+    2100006: Black
+    2100008: Gray_LightGray
+    2100010: Dark_Gray
+    2100012: Yellow
+    2100014: ColorScheme_Gray
+    2100016: ColorScheme_DarkGray
+    2100018: Gray_LightGray2
+    2100020: Red_Talking_RHINO
+    2100022: ColorScheme_Black
+    2100024: ColorScheme_Red
+    2100026: Light_Gray1
+    2100028: Dark_Gray3
+    2100030: Main_Gray2
+    2100032: Light_Gray_Frame2
+    2100034: lambert15
+    2300000: Left_MiddleFinger_Bot
+    2300002: Left_MiddleFinger_Bot 1
+    2300004: Left_MiddleFinger_Mid
+    2300006: Left_MiddleFinger_Mid 1
+    2300008: Left_MiddleFinger_Top
+    2300010: Left_MiddleFinger_Top 1
+    2300012: Left_PinkyFinger_Bot
+    2300014: Left_PinkyFinger_Bot 1
+    2300016: Left_PinkyFinger_Mid
+    2300018: Left_PinkyFinger_Mid 1
+    2300020: Left_PinkyFinger_Top
+    2300022: Left_PinkyFinger_Top 1
+    2300024: Left_PointerFinger_Bot
+    2300026: Left_PointerFinger_Bot 1
+    2300028: Left_PointerFinger_Mid
+    2300030: Left_PointerFinger_Mid 1
+    2300032: Left_PointerFinger_Top
+    2300034: Left_PointerFinger_Top 1
+    2300036: Left_RingFinger_Bot1
+    2300038: Left_RingFinger_Bot1 1
+    2300040: Left_RingFinger_Mid
+    2300042: Left_RingFinger_Mid 1
+    2300044: Left_RingFinger_Top
+    2300046: Left_RingFinger_Top 1
+    2300048: Left_Thumb_Bot
+    2300050: Left_Thumb_Bot 1
+    2300052: Left_Thumb_Top
+    2300054: Left_Thumb_Top 1
+    2300056: //RootNode
+    2300058: RHINO_Fin_1
+    2300060: RHINO_Fin_2
+    2300062: RHINO_Fin_3
+    2300064: RHINO_Head
+    2300066: RHINO_LeftFoot
+    2300068: RHINO_LeftHand
+    2300070: RHINO_LeftLowerArm
+    2300072: RHINO_LeftLowerLeg
+    2300074: RHINO_LeftShoulder
+    2300076: RHINO_LeftToe
+    2300078: RHINO_LeftUpperArm
+    2300080: RHINO_LeftUpperLeg
+    2300082: RHINO_LeftWaistSkirt
+    2300084: RHINO_LowerChest
+    2300086: RHINO_RightFoot
+    2300088: RHINO_RightHand
+    2300090: RHINO_RightLowerArm
+    2300092: RHINO_RightLowerLeg
+    2300094: RHINO_RightShoulder
+    2300096: RHINO_RightToe
+    2300098: RHINO_RightUpperArm
+    2300100: RHINO_RightUpperLeg
+    2300102: RHINO_RightWaistSkirt
+    2300104: RHINO_UpperChest
+    2300106: RHINO_Waist
+    3300000: Left_MiddleFinger_Bot
+    3300002: Left_MiddleFinger_Bot 1
+    3300004: Left_MiddleFinger_Mid
+    3300006: Left_MiddleFinger_Mid 1
+    3300008: Left_MiddleFinger_Top
+    3300010: Left_MiddleFinger_Top 1
+    3300012: Left_PinkyFinger_Bot
+    3300014: Left_PinkyFinger_Bot 1
+    3300016: Left_PinkyFinger_Mid
+    3300018: Left_PinkyFinger_Mid 1
+    3300020: Left_PinkyFinger_Top
+    3300022: Left_PinkyFinger_Top 1
+    3300024: Left_PointerFinger_Bot
+    3300026: Left_PointerFinger_Bot 1
+    3300028: Left_PointerFinger_Mid
+    3300030: Left_PointerFinger_Mid 1
+    3300032: Left_PointerFinger_Top
+    3300034: Left_PointerFinger_Top 1
+    3300036: Left_RingFinger_Bot1
+    3300038: Left_RingFinger_Bot1 1
+    3300040: Left_RingFinger_Mid
+    3300042: Left_RingFinger_Mid 1
+    3300044: Left_RingFinger_Top
+    3300046: Left_RingFinger_Top 1
+    3300048: Left_Thumb_Bot
+    3300050: Left_Thumb_Bot 1
+    3300052: Left_Thumb_Top
+    3300054: Left_Thumb_Top 1
+    3300056: //RootNode
+    3300058: RHINO_Fin_1
+    3300060: RHINO_Fin_2
+    3300062: RHINO_Fin_3
+    3300064: RHINO_Head
+    3300066: RHINO_LeftFoot
+    3300068: RHINO_LeftHand
+    3300070: RHINO_LeftLowerArm
+    3300072: RHINO_LeftLowerLeg
+    3300074: RHINO_LeftShoulder
+    3300076: RHINO_LeftToe
+    3300078: RHINO_LeftUpperArm
+    3300080: RHINO_LeftUpperLeg
+    3300082: RHINO_LeftWaistSkirt
+    3300084: RHINO_LowerChest
+    3300086: RHINO_RightFoot
+    3300088: RHINO_RightHand
+    3300090: RHINO_RightLowerArm
+    3300092: RHINO_RightLowerLeg
+    3300094: RHINO_RightShoulder
+    3300096: RHINO_RightToe
+    3300098: RHINO_RightUpperArm
+    3300100: RHINO_RightUpperLeg
+    3300102: RHINO_RightWaistSkirt
+    3300104: RHINO_UpperChest
+    3300106: RHINO_Waist
+    4300000: RHINO_MiddlePoint
+    4300002: RHINO_UpperChest
+    4300004: RHINO_Head
+    4300006: RHINO_Fin_3
+    4300008: RHINO_Fin_2
+    4300010: RHINO_Fin_1
+    4300012: RHINO_RightUpperArm
+    4300014: RHINO_RightLowerArm
+    4300016: RHINO_RightHand
+    4300018: Left_PointerFinger_Bot
+    4300020: Left_PointerFinger_Mid
+    4300022: Left_PointerFinger_Top
+    4300024: Left_MiddleFinger_Bot
+    4300026: Left_MiddleFinger_Mid
+    4300028: Left_MiddleFinger_Top
+    4300030: Left_RingFinger_Bot1
+    4300032: Left_RingFinger_Mid
+    4300034: Left_RingFinger_Top
+    4300036: Left_PinkyFinger_Bot
+    4300038: Left_PinkyFinger_Mid
+    4300040: Left_PinkyFinger_Top
+    4300042: Left_Thumb_Bot
+    4300044: Left_Thumb_Top
+    4300046: RHINO_RightShoulder
+    4300048: RHINO_LeftUpperArm
+    4300050: RHINO_LeftLowerArm
+    4300052: RHINO_LeftHand
+    4300054: Left_PointerFinger_Bot
+    4300056: Left_PointerFinger_Mid
+    4300058: Left_PointerFinger_Top
+    4300060: Left_MiddleFinger_Bot
+    4300062: Left_MiddleFinger_Mid
+    4300064: Left_MiddleFinger_Top
+    4300066: Left_RingFinger_Bot1
+    4300068: Left_RingFinger_Mid
+    4300070: Left_RingFinger_Top
+    4300072: Left_PinkyFinger_Bot
+    4300074: Left_PinkyFinger_Mid
+    4300076: Left_PinkyFinger_Top
+    4300078: Left_Thumb_Bot
+    4300080: Left_Thumb_Top
+    4300082: RHINO_LeftShoulder
+    4300084: RHINO_LowerChest
+    4300086: RHINO_Waist
+    4300088: RHINO_LeftWaistSkirt
+    4300090: RHINO_RightWaistSkirt
+    4300092: RHINO_RightUpperLeg
+    4300094: RHINO_RightLowerLeg
+    4300096: RHINO_RightFoot
+    4300098: RHINO_RightToe
+    4300100: RHINO_LeftUpperLeg
+    4300102: RHINO_LeftLowerLeg
+    4300104: RHINO_LeftFoot
+    4300106: RHINO_LeftToe
+    7400000: Take 001
+    7400002: Ground_Idle
+    7400004: Ground_Forward
+    7400006: Ground_Left
+    7400008: Ground_Right
+    7400010: Ground_Backwards
+    7400012: Flight_Idle
+    7400014: Flight_Forward
+    7400016: Flight_Left
+    7400018: Flight_Right
+    7400020: Flight_Backwards
+    7400022: RightArm_Reload
+    7400024: LeftArm_Reload
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 66
+      lastFrame: 211
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

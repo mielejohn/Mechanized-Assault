@@ -110,11 +110,6 @@ public class PlayerController : MonoBehaviour
     public GameObject scanOverlay;
     public GameObject scannerText;
 
-    [Header("Weapons UI")]
-    public Text leftWeaponName;
-    public Text rightWeaponName;
-    public Text shoulderWeaponName;
-
     [Header("Weapon Spawns")]
     public GameObject leftWeaponSpawn;
     public GameObject rightWeaponSpawn;
@@ -177,7 +172,7 @@ public class PlayerController : MonoBehaviour
                 Health = 1500;
                 healthReference = Health;
                 magnitudeReference = 65;
-                groundForce = 63;
+                groundForce = 75;
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 300000f;
@@ -189,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 Health = 2000;
                 healthReference = Health;
                 magnitudeReference = 68;
-                groundForce = 50;
+                groundForce = 63;
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 150f;
@@ -201,7 +196,7 @@ public class PlayerController : MonoBehaviour
                 Health = 2750;
                 healthReference = Health;
                 magnitudeReference = 45;
-                groundForce = 30;
+                groundForce = 50;
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 100f;
@@ -292,6 +287,8 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         #endregion
+
+        Camera = GameObject.FindGameObjectWithTag("Player Camera");
     }
 
     void FixedUpdate()
@@ -337,17 +334,26 @@ public class PlayerController : MonoBehaviour
 
         #region CameraMovement
         if (Input.GetAxis ("Horizontal") > 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, rightCameraPosition.transform.position, Time.deltaTime * 1.3f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, rightCameraPosition.transform.position, Time.deltaTime * 10f);
 		} else if (Input.GetAxis ("Horizontal") < 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, leftCameraPosition.transform.position, Time.deltaTime * 1.3f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, leftCameraPosition.transform.position, Time.deltaTime * 10f);
 		} else if (Input.GetAxis ("Jump") > 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, bottomCameraPosition.transform.position, Time.deltaTime * 1.3f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, bottomCameraPosition.transform.position, Time.deltaTime * 10f);
 		} else if (Input.GetAxis("Jump") == 0 && onGround == false) {
             //PlayerCamera.transform.Translate (Vector3.up * Time.deltaTime * 7);
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 1.3f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 10f);
 		} else {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 0.75f);
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 10f);
         }
+
+        if (canMove == true) {
+            this.transform.Rotate(new Vector3(0f, Input.GetAxis("Mouse X") * 5, 0f));
+            cameraRotationLimitX -= Input.GetAxis("Mouse Y") * 2.5f;
+            cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
+            //Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0f, 0f);
+            Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, this.transform.localEulerAngles.y, 0.0f);
+        }
+
         #endregion
 
         #region Dead Code
@@ -392,14 +398,7 @@ public class PlayerController : MonoBehaviour
         }*/
         #endregion
 
-        #region Camera Rotation
-        if(canMove == true){
-            this.transform.Rotate(new Vector3(0f, Input.GetAxis("Mouse X") * 5, 0f));
-            cameraRotationLimitX -= Input.GetAxis("Mouse Y") * 2.5f;
-            cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
-            Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0f, 0f);
-        }
-        #endregion
+
         //LeftArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,LeftArm.transform.rotation.z);
         //RightArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,RightArm.transform.rotation.z);
 
