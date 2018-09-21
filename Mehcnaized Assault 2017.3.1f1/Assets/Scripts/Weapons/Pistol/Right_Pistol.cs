@@ -30,7 +30,7 @@ public class Right_Pistol : MonoBehaviour {
 		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.forward, Color.red);
 		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && Player.canMove == true) {
 			nextFire = myTime + fireDelta;
-			//MuzzleFlash.Play ();
+			MuzzleFlash.Play ();
 			Shoot ();
 			Ammo--;
 			nextFire = nextFire - myTime;

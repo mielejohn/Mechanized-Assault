@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour{
     public GameObject UICanvas;
     public bool Scanned;
 
-    public float Health = 100;
+    public float Health;
     public float baseHealth;
     public Slider HealthBar;
+    public bool isAlive;
 
     void Start () {
-        baseHealth = Health;
+        Health = baseHealth;
     }
 
     void Update () {

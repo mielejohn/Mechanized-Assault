@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MechRotater : MonoBehaviour {
 
-
+    public MainMenuController MMC;
     public float rotation;
 
     void Start() {
@@ -14,11 +14,11 @@ public class MechRotater : MonoBehaviour {
 
     void Update() {
 
-        if (Input.GetKey("d")) {
+        if (Input.GetKey("d") && MMC.canRotate == true) {
             On_D_down();
         }
 
-        if (Input.GetKey("a")) {
+        if (Input.GetKey("a") && MMC.canRotate == true) {
             On_A_down();
         }
     }

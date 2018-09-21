@@ -24,7 +24,7 @@ public class MissleLauncher : MonoBehaviour {
     public List<GameObject> misslePool = new List<GameObject>();
     [SerializeField]
     private int missleCount;
-    // Use this for initialization
+
     void Awake () {
 		AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
 		PC = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
@@ -69,10 +69,11 @@ public class MissleLauncher : MonoBehaviour {
 	}
 
 	void Tracking(){
-		Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
+        /*Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
 		float angle = Mathf.Atan2 (-targetDirection.x, -targetDirection.y) * Mathf.Rad2Deg;
 		Vector3 q = Quaternion.AngleAxis (angle, -Vector3.forward).eulerAngles;
-        missleLauncher_Y.transform.rotation = Quaternion.Euler(new Vector3(0f, q.y, 0f));
+        missleLauncher_Y.transform.rotation = Quaternion.Euler(new Vector3(0f, q.y, 0f));*/
+
         //Debug.Log("Tracking Updated");
         //missleLauncher_X.transform.rotation = Quaternion.Euler(new Vector3(q.x, 0f, 0f));
 	}

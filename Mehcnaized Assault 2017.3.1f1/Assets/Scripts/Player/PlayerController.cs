@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using XInputDotNetPure;
 using UnityEngine.UI;
 
 using Sirenix.OdinInspector;
@@ -18,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public GameObject headReference;
 
     [Header("Camera")]
-    [Required]
     public GameObject Camera;
     float cameraRotationLimitX;
     public GameObject centerCameraPosition;
@@ -85,6 +82,7 @@ public class PlayerController : MonoBehaviour
     public bool Flying;
     public bool isScanning;
     public bool Boosting;
+    public bool speedDoubled;
 
     [Header("Shield and Health")]
     public ShieldStatus ShieldStatus = ShieldStatus.Up;
@@ -164,9 +162,9 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        #region Frame Stats Select
-        switch(0) {
-            case 0:
+        #region Frame stats selection
+        switch(PlayerPrefs.GetInt("FrameChoice")) {
+            case 1:
                 //65 Magnitude Reference
                 //73 Ground Force
                 Health = 1500;
@@ -175,10 +173,13 @@ public class PlayerController : MonoBehaviour
                 groundForce = 75;
                 Shields = 50;
                 shieldsReference = Shields;
-                fallingWeight = 300000f;
+                fallingWeight = 4f;
+                thrustAmount = 150;
+                jumpForce = 5;
+                jumpSpeed = 6;
                 break;
 
-            case 1:
+            case 2:
                 //50 Magnitude Reference
                 //50-60 Ground Force
                 Health = 2000;
@@ -187,10 +188,13 @@ public class PlayerController : MonoBehaviour
                 groundForce = 63;
                 Shields = 50;
                 shieldsReference = Shields;
-                fallingWeight = 150f;
+                fallingWeight = 5f;
+                thrustAmount = 125;
+                jumpForce = 4;
+                jumpSpeed = 5;
                 break;
 
-            case 2:
+            case 3:
                 //50 Magnitude Reference
                 //40 Ground Force
                 Health = 2750;
@@ -199,7 +203,10 @@ public class PlayerController : MonoBehaviour
                 groundForce = 50;
                 Shields = 50;
                 shieldsReference = Shields;
-                fallingWeight = 100f;
+                fallingWeight = 6f;
+                thrustAmount = 100;
+                jumpForce = 3;
+                jumpSpeed = 5;
                 break;
         }
 
@@ -207,83 +214,82 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region Weapon Select
-        switch (rightWeapon)
+        switch (PlayerPrefs.GetInt("RightWeaponChoice"))
         {
 
-            case "Assault Rifle":
+            case 0:
+                GameObject RightSMG_I = Instantiate(rightSubMachinegun);
+                RightSMG_I.transform.position = rightWeaponSpawn.transform.position;
+                RightSMG_I.transform.parent = RightHand.transform;
+                break;
+
+            case 1:
                 GameObject RightAssaultRifle_I = Instantiate(rightAssaultRifle);
                 RightAssaultRifle_I.transform.position = rightWeaponSpawn.transform.position;
                 RightAssaultRifle_I.transform.parent = RightHand.transform;
                 break;
 
-            case "Shotgun":
+            case 2:
                 GameObject RightShotgun_I = Instantiate(rightShotgun);
                 RightShotgun_I.transform.position = rightWeaponSpawn.transform.position;
                 RightShotgun_I.transform.parent = RightHand.transform;
                 break;
 
-            case "Marksman Rifle":
+            case 3:
                 GameObject RightMR_I = Instantiate(rightMarksmanRifle);
                 RightMR_I.transform.position = rightWeaponSpawn.transform.position;
                 RightMR_I.transform.parent = RightHand.transform;
                 break;
 
-            case "Minigun":
-                GameObject RightMinigun_I = Instantiate(rightMinigun);
-                RightMinigun_I.transform.position = rightWeaponSpawn.transform.position;
-                RightMinigun_I.transform.parent = RightHand.transform;
-                break;
-
-            case "Sniper Rifle":
+            case 4:
                 GameObject RightSniperRifle_I = Instantiate(rightSniperRifle);
                 RightSniperRifle_I.transform.position = rightWeaponSpawn.transform.position;
                 RightSniperRifle_I.transform.parent = RightHand.transform;
                 break;
 
-            case "Submachine Gun":
-                GameObject RightSMG_I = Instantiate(rightSubMachinegun);
-                RightSMG_I.transform.position = rightWeaponSpawn.transform.position;
-                RightSMG_I.transform.parent = RightHand.transform;
+            case 5:
+                GameObject RightMinigun_I = Instantiate(rightMinigun);
+                RightMinigun_I.transform.position = rightWeaponSpawn.transform.position;
+                RightMinigun_I.transform.parent = RightHand.transform;
                 break;
         }
 
-        switch (leftWeapon)
+        switch (PlayerPrefs.GetInt("LeftWeaponChoice"))
         {
+            case 0:
+                GameObject LeftSMG_I = Instantiate(leftSubMachinegun);
+                LeftSMG_I.transform.position = leftWeaponSpawn.transform.position;
+                LeftSMG_I.transform.parent = LeftHand.transform;
+                break;
 
-            case "Assault Rifle":
+            case 1:
                 GameObject LeftAssaultRifle_I = Instantiate(leftAssaultRifle);
                 LeftAssaultRifle_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftAssaultRifle_I.transform.parent = LeftHand.transform;
                 break;
 
-            case "Shotgun":
+            case 2:
                 GameObject LeftShotgun_I = (GameObject)Instantiate(leftShotgun);
                 LeftShotgun_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftShotgun_I.transform.parent = LeftHand.transform;
                 break;
 
-            case "Marksman Rifle":
+            case 3:
                 GameObject LeftMR_I = Instantiate(leftMarksmanRifle);
                 LeftMR_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftMR_I.transform.parent = LeftHand.transform;
                 break;
 
-            case "Minigun":
-                GameObject LeftMinigun_I = Instantiate(leftMinigun);
-                LeftMinigun_I.transform.position = leftWeaponSpawn.transform.position;
-                LeftMinigun_I.transform.parent = LeftHand.transform;
-                break;
-
-            case "Sniper Rifle":
+            case 4:
                 GameObject LeftSniperRifle_I = Instantiate(leftSniperRifle);
                 LeftSniperRifle_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftSniperRifle_I.transform.parent = LeftHand.transform;
                 break;
 
-            case "Submachine Gun":
-                GameObject LeftSMG_I = Instantiate(leftSubMachinegun);
-                LeftSMG_I.transform.position = leftWeaponSpawn.transform.position;
-                LeftSMG_I.transform.parent = LeftHand.transform;
+            case 5:
+                GameObject LeftMinigun_I = Instantiate(leftMinigun);
+                LeftMinigun_I.transform.position = leftWeaponSpawn.transform.position;
+                LeftMinigun_I.transform.parent = LeftHand.transform;
                 break;
         }
         #endregion
@@ -304,28 +310,38 @@ public class PlayerController : MonoBehaviour
         {
             MoveForwards(moveZ, moveX);
         }
+        RaycastHit hit;
         //Debug.Log("Rigidbody Velocity reference is: " + RB.velocity.magnitude);
         if (canMove == true && Input.GetButton("Jump") && thrustAmount > 0f) {
             MoveFlying(moveY);
             thrustAmount -= 0.1f;
         } else if (thrustAmount <= 0f && onGround == false || Input.GetButton("Jump") == false && onGround == false ) {
-            RaycastHit hit;
+
             if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
                 if (hit.distance > 15f) {
                     //moveY = hit.distance;
-                    MoveFlying(-30f / fallingWeight);
+                    MoveFlying(-0.0000000000000000000000003f);
 
                 } else if(hit.distance <15) {
                     moveY = -0.3f;
                     MoveFlying(moveY);
                 }
             }
-        } 
+        }
 
-        if(thrustAmount > 0 && onGround == false && Input.GetButton("Jump") == false) {
+       if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
+            if (hit.distance > 15f && speedDoubled != true) {
+                speedDoubled = true;
+                jumpSpeed = jumpSpeed * 2;
+            } else if (hit.distance < 15f && speedDoubled == true){
+                jumpSpeed = 5;
+            }
+       }
+
+       if (thrustAmount > 0 && onGround == false && Input.GetButton("Jump") == false) {
             moveY = -0.3f;
             MoveFlying(moveY);
-        }
+       }
 
 
         Anim.SetFloat("X_Axis", animX);
@@ -333,17 +349,19 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region CameraMovement
-        if (Input.GetAxis ("Horizontal") > 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, rightCameraPosition.transform.position, Time.deltaTime * 10f);
-		} else if (Input.GetAxis ("Horizontal") < 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, leftCameraPosition.transform.position, Time.deltaTime * 10f);
-		} else if (Input.GetAxis ("Jump") > 0) {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, bottomCameraPosition.transform.position, Time.deltaTime * 10f);
-		} else if (Input.GetAxis("Jump") == 0 && onGround == false) {
-            //PlayerCamera.transform.Translate (Vector3.up * Time.deltaTime * 7);
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 10f);
-		} else {
-            Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 10f);
+        if (canMove == true) { 
+            if (Input.GetAxis ("Horizontal") > 0) {
+                Camera.transform.position = Vector3.Lerp(Camera.transform.position, rightCameraPosition.transform.position, Time.deltaTime * 5f);
+		    } else if (Input.GetAxis ("Horizontal") < 0) {
+                Camera.transform.position = Vector3.Lerp(Camera.transform.position, leftCameraPosition.transform.position, Time.deltaTime * 5f);
+		    } else if (Input.GetAxis ("Jump") > 0) {
+                Camera.transform.position = Vector3.Lerp(Camera.transform.position, bottomCameraPosition.transform.position, Time.deltaTime * 5f);
+		    } else if (Input.GetAxis("Jump") == 0 && onGround == false) {
+                //PlayerCamera.transform.Translate (Vector3.up * Time.deltaTime * 7);
+                Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 5f);
+		    } else {
+                Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 5f);
+            }
         }
 
         if (canMove == true) {
@@ -351,7 +369,7 @@ public class PlayerController : MonoBehaviour
             cameraRotationLimitX -= Input.GetAxis("Mouse Y") * 2.5f;
             cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
             //Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0f, 0f);
-            Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, this.transform.localEulerAngles.y, 0.0f);
+            Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0.0f, 0.0f);
         }
 
         #endregion

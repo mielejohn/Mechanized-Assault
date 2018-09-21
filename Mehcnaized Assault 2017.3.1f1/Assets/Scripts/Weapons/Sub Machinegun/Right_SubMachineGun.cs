@@ -67,8 +67,6 @@ public class Right_SubMachineGun : MonoBehaviour {
 		Debug.Log ("Shooting");
 
         #region Object Pool
-
-
         bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
         bulletPool[poolCount].SetActive(true);
         StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));

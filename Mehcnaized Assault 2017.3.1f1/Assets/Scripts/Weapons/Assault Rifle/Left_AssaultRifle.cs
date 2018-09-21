@@ -112,7 +112,10 @@ public class Left_AssaultRifle : MonoBehaviour {
 		yield return new WaitForSeconds(0.2f);
 		this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		this.GetComponent<MeshCollider>().enabled = true;
-		Destroy(this.gameObject, 10.0f);
-		Destroy(topObject, 10.0f);
+        yield return new WaitForSeconds(10.0f);
+        topObject.SetActive(false);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject, 10.0f);
+		//Destroy(topObject, 10.0f);
 	}
 }

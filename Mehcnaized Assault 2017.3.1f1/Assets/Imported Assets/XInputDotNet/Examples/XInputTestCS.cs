@@ -1,12 +1,11 @@
 using UnityEngine;
-using XInputDotNetPure; // Required in C#
 
 public class XInputTestCS : MonoBehaviour
 {
-    bool playerIndexSet = false;
+    /*bool playerIndexSet = false;
     PlayerIndex playerIndex;
     GamePadState state;
-    GamePadState prevState;
+    GamePadState prevState;*/
 
     // Use this for initialization
     void Start()
@@ -18,7 +17,7 @@ public class XInputTestCS : MonoBehaviour
     {
         // SetVibration should be sent in a slower rate.
         // Set vibration according to triggers
-        GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
+        //GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class XInputTestCS : MonoBehaviour
     {
         // Find a PlayerIndex, for a single player game
         // Will find the first controller that is connected ans use it
-        if (!playerIndexSet || !prevState.IsConnected)
+        /*if (!playerIndexSet || !prevState.IsConnected)
         {
             for (int i = 0; i < 4; ++i)
             {
@@ -56,10 +55,10 @@ public class XInputTestCS : MonoBehaviour
         }
 
         // Make the current object turn
-        transform.localRotation *= Quaternion.Euler(0.0f, state.ThumbSticks.Left.X * 25.0f * Time.deltaTime, 0.0f);
+        transform.localRotation *= Quaternion.Euler(0.0f, state.ThumbSticks.Left.X * 25.0f * Time.deltaTime, 0.0f);*/
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         string text = "Use left stick to turn the cube, hold A to change color\n";
         text += string.Format("IsConnected {0} Packet #{1}\n", state.IsConnected, state.PacketNumber);
@@ -70,5 +69,5 @@ public class XInputTestCS : MonoBehaviour
         text += string.Format("\tButtons A {0} B {1} X {2} Y {3}\n", state.Buttons.A, state.Buttons.B, state.Buttons.X, state.Buttons.Y);
         text += string.Format("\tSticks Left {0} {1} Right {2} {3}\n", state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y, state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
         GUI.Label(new Rect(0, 0, Screen.width, Screen.height), text);
-    }
+    }*/
 }

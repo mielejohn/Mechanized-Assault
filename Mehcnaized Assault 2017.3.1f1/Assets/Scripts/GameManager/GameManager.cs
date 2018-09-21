@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
 
 public class GameManager : MonoBehaviour {
 
 	static GameManager gm;
 
 	//Controller input
-	public bool playerIndexSet = false;
+	/*public bool playerIndexSet = false;
 	public PlayerIndex playerIndex;
 	public GamePadState state;
-	public GamePadState prevState;
+	public GamePadState prevState;*/
 
 	void Awake(){
 
@@ -19,16 +18,16 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (gm == null) {
+		/*if (gm == null) {
 			gm = this;
 		}
 
-		DontDestroyOnLoad (gm);
+		DontDestroyOnLoad (gm);*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!playerIndexSet || !prevState.IsConnected)
+		/*if (!playerIndexSet || !prevState.IsConnected)
 		{
 			//print ("index set or is connected are false");
 			for (int i = 0; i < 4; ++i)
@@ -62,6 +61,6 @@ public class GameManager : MonoBehaviour {
 		if (prevState.IsConnected) {
 			Cursor.visible = false;
 			//print ("Prevstate is connected");
-		}
+		}*/
 	}
 }

@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893e0f259408ab54bb7acb61077f7b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topObject: {fileID: 0}
+  topObject: {fileID: 1221360168224712}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1392461625821530}
   assaultRifleBullet: {fileID: 1705203971808370, guid: f028ab284e49c1f4b8a9816b1865fffe,

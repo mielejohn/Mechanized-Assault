@@ -13,6 +13,7 @@ public class Rover_Enemy : MonoBehaviour {
     [Header("Class References")]
     public PlayerController PC;
     public Enemy enemyClass;
+    public TestController TC;
 
     [Header("Targeted and UI")]
     //public bool Targeted;
@@ -45,6 +46,11 @@ public class Rover_Enemy : MonoBehaviour {
     [Header("Animations")]
     public Animator Anim;
     public Rigidbody RB;
+
+    [Header("Explosions")]
+    public GameObject explosion01;
+    public GameObject explosion02;
+    public GameObject explosion03;
     // Use this for initialization
 
     void Start () {
@@ -57,8 +63,7 @@ public class Rover_Enemy : MonoBehaviour {
             }
         }*/
 
-        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        baseHealth = Health;
+        Health = baseHealth;
         RB = GetComponent<Rigidbody>();
         playerOfInterest = GameObject.FindGameObjectWithTag("Player");
         SwitchToPatrolling();
@@ -67,8 +72,9 @@ public class Rover_Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //CanvasRotate();
-		if (Health <= 0) {
-            Dead();
+		if (enemyClass.Health <= 0 && Cs != EnemyAILifeStates.Dead) {
+            enemyClass.isAlive = false;
+            StartCoroutine(Dead());
 		}
 
         /*if (enemyClass.Targeted == true && Scanned == true)
@@ -98,11 +104,11 @@ public class Rover_Enemy : MonoBehaviour {
         Anim.SetFloat("X-Movement", navMeshAgent.velocity.normalized.x);
     }
 
-    public void Hit(float Damage){
+    /*public void Hit(float Damage){
 		Debug.Log ("Enemy damage = " + Damage);
-		Health -= Damage;
+		Health  = Health - Damage;
         HealthBar.value = Health;
-    }
+    }*/
 
 	void OnTriggerEnter(Collider other){
 
@@ -182,13 +188,18 @@ public class Rover_Enemy : MonoBehaviour {
         Debug.Log(this.gameObject.ToString() + " is changing patrolpoint");
     }
 
-    private void Dead() {
+    private IEnumerator Dead() {
+        Cs = EnemyAILifeStates.Dead;
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (this.gameObject == PC.targetedLeftEnemy) {
             PC.targetedLeftEnemy = null;
             PC.targetedRightEnemy = null;
             PC.Targeting = false;
-            Cs = EnemyAILifeStates.Dead;
+            TC.enemyCount--;
         }
-        //Destroy(this.gameObject);
+        explosion01.SetActive(true);
+        explosion02.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        explosion03.SetActive(true);
     }
 }
