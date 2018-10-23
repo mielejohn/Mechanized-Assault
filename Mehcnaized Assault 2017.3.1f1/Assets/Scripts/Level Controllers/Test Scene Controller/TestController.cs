@@ -35,7 +35,6 @@ public class TestController : MonoBehaviour {
     private void Awake() {
         switch (PlayerPrefs.GetInt("FrameChoice")) {
             case 1:
-                Debug.Log("Instantiating the DASH frame");
                 Instantiate(dashFrame);
                 break;
 

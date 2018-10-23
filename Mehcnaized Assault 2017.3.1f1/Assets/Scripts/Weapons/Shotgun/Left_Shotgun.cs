@@ -5,49 +5,86 @@ using UnityEngine.UI;
 
 public class Left_Shotgun : MonoBehaviour {
 
-	public GameObject topObject;
+    public GameManager GM;
+    public GameObject topObject;
 	public PlayerController Player;
 	public GameObject ShotSpawn;
 	private float fireDelta = 0.55f;
 	private float nextFire = 0.55f;
 	private float myTime = 0.0f;
-	public GameObject Bullet;
+	public GameObject shotgunBullet;
+    public int shotCount = 24;
 	public int Ammo = 12;
-	public Text AmmoCount;
+    private int ammoReference;
+    public Text AmmoCount;
 	public bool Reloading;
 	public bool dropped = false;
 
+    [Header("Shotgun Spread")]
+    public float shotSpreadAngle = 0.1f;
+
 	[Header("Muzzle Effects")]
 	public ParticleSystem MuzzleFlash;
-    public ParticleSystem shotParticles;
 	public AudioSource audioSource;
 
-	void Start () {
+    public GameObject bulletPoolParent;
+    public List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField]
+    private int poolCount;
+
+    void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
-	}
+        bulletPoolParent = GameObject.FindGameObjectWithTag("LeftBulletParent");
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = this.GetComponent<AudioSource>();
+        ammoReference = Ammo;
+        for (int i = 0; i < bulletPool.Count; i++) {
+            GameObject LSG_Bullet = Instantiate(shotgunBullet);
+            bulletPool[i] = LSG_Bullet;
+            bulletPool[i].transform.parent = bulletPoolParent.transform;
+            bulletPool[i].SetActive(false);
+        }
+    }
 
 	void Update () {
-		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash.Play ();
-            //shotParticles.Play();
-			Shoot ();
-			Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
+
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButton (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash.Play ();
+                Shoot();
+			    Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+            }
 		}
 
-		if (Input.GetKeyDown (KeyCode.E) && Player.canMove == true) {
-			StartCoroutine (Player.Left_Reload ());
-			StartCoroutine(Reload ());
-		}
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Left > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash.Play();
+                Shoot();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
 
-		if (Input.GetKeyDown (KeyCode.K) && Player.canMove == true) {
+        if (Ammo <= ammoReference / 4 && Player.leftWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.leftWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.leftWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.leftWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && Reloading == false) {
+            StartCoroutine(Player.Left_Reload());
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetKeyDown (KeyCode.K) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 
@@ -55,22 +92,32 @@ public class Left_Shotgun : MonoBehaviour {
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-		GameObject Bullet_I = (GameObject)Instantiate (Bullet,ShotSpawn.transform.position, Quaternion.identity);
-		Bullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1500f, ForceMode.VelocityChange);
-		Destroy (Bullet_I, 0.5f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		/*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,400)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (4);
-				Destroy (Bullet_I, 0.5f);
-			}
-		}*/
+        /*
+        bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
+        bulletPool[poolCount].SetActive(true);
+        bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
+        bulletPool[poolCount].GetComponent<Rigidbody>().AddRelativeForce(-transform.right * 1500f, ForceMode.VelocityChange);
 
-	}
+        Debug.Log("Just fired Left");
+
+        if (poolCount >= bulletPool.Count - 1) {
+            Debug.Log("pool count reset");
+            poolCount = 0;
+        } else {
+            Debug.Log("pool count add 1");
+            poolCount++;
+        }
+        */
+
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 500f)) {
+
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                shotgunBullet.GetComponent<Bullet>().MediumHit(6, shotHit);
+            }
+        }
+    }
 
 	private IEnumerator Reload(){
 		Reloading = true;

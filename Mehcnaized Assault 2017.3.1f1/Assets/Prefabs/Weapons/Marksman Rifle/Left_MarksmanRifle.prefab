@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04118ba04f24bfc42b8b864263402c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GM: {fileID: 0}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1611345687580864}
   marksmanRifleBullet: {fileID: 1705203971808370, guid: e3b072b03aca16f4ca5ca05b72ad841c,
@@ -455,6 +456,11 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   bulletPoolParent: {fileID: 0}
   bulletPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -5,9 +5,18 @@ using UnityEngine;
 public class AimingCollider : MonoBehaviour {
 
     public PlayerController PC;
+    public bool autoAim;
     // Use this for initialization
     void Start () {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //Auto aim player pref
+        // 0 is Auto Aim off
+        //1 is Auto Aim on
+        if(PlayerPrefs.GetInt("Auto Aim") == 1) {
+            autoAim = true;
+        } else {
+            autoAim = false;
+        }
 	}
 	
 	// Update is called once per frame
@@ -17,10 +26,17 @@ public class AimingCollider : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false)
-        {
+        Debug.Log("Ontrigger Enter");
+        if(autoAim == false) { 
+            if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false)
+            {
+                Debug.Log("Ontrigger Enter POSSIBLE ENEMY");
+                PC.PossibleEnemy = other.gameObject;
+            }
+        } /*else if(autoAim == true && PC.isScanning == false && PC.Targeting == false) {
             PC.PossibleEnemy = other.gameObject;
-        }
+            PC.TargetEnemy();
+        }*/
 
         if (PC.isScanning == true && other.tag == "Enemy") {
             other.GetComponent<Enemy>().Scanned = true;
@@ -28,8 +44,10 @@ public class AimingCollider : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-        if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false) {
-            PC.PossibleEnemy = other.gameObject;
+        if (autoAim == false) {
+            if (PC.isScanning == false && other.tag == "Enemy" && PC.Targeting == false) {
+                PC.PossibleEnemy = other.gameObject;
+            }
         }
 
         if (PC.isScanning == true && other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned != true) {
@@ -38,7 +56,7 @@ public class AimingCollider : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other)
-    {
+    {   
         if (other.tag == "Enemy" && PC.Targeting == true){
             PC.UnTargeted();
         }
@@ -46,9 +64,5 @@ public class AimingCollider : MonoBehaviour {
         if (other.tag == "Enemy" && PC.PossibleEnemy != null && PC.Targeting != true) {
             PC.PossibleEnemy = null;
         }
-
-        /*if (other.tag == "Enemy" && other.GetComponent<Enemy>().Scanned == true) {
-            other.GetComponent<Enemy>().Scanned = false;
-        }*/
     }
 }

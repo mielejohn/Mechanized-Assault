@@ -31,7 +31,7 @@ MonoBehaviour:
   antialiasing:
     m_Enabled: 1
     m_Settings:
-      method: 0
+      method: 1
       fxaaSettings:
         preset: 2
       taaSettings:
@@ -40,9 +40,9 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 1.55
+      intensity: 0.88
       radius: 0.3
       sampleCount: 10
       downsampling: 1
@@ -71,17 +71,17 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 11.04
-      aperture: 0.1
-      focalLength: 18
+      focusDistance: 22.1
+      aperture: 14.4
+      focalLength: 300
       useCameraFov: 0
-      kernelSize: 0
+      kernelSize: 1
   motionBlur:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
-      shutterAngle: 270
-      sampleCount: 11
-      frameBlending: 0.432
+      shutterAngle: 150
+      sampleCount: 10
+      frameBlending: 0.024
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -97,7 +97,7 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       bloom:
         intensity: 0.00001
@@ -138,8 +138,8 @@ MonoBehaviour:
           power: {r: 0.9945179, g: 0.9890349, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.93280333, g: 1, b: 0.8082598, a: 0}
-          gamma: {r: 1, g: 0.93189603, b: 0.8085192, a: -0.012195129}
+          lift: {r: 0.9182285, g: 1, b: 0.8364556, a: 0}
+          gamma: {r: 1, g: 0.61103433, b: 0.37040108, a: -0.012195129}
           gain: {r: 0, g: 1, b: 0.9643657, a: 0}
       curves:
         master:
@@ -153,10 +153,10 @@ MonoBehaviour:
               outSlope: 1
               tangentMode: 0
             - serializedVersion: 2
-              time: 0.5457064
-              value: 0.5352941
-              inSlope: 1
-              outSlope: 1
+              time: 0.25706214
+              value: 0.25748503
+              inSlope: 0.9739437
+              outSlope: 0.9739437
               tangentMode: 0
             - serializedVersion: 2
               time: 1
@@ -290,22 +290,22 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.1
+      intensity: 0.24
   grain:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0.244
+      intensity: 0.224
       size: 0.3
-      luminanceContribution: 0.591
+      luminanceContribution: 0.935
   vignette:
     m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.333
-      smoothness: 0.2
+      intensity: 0.278
+      smoothness: 1
       roundness: 1
       mask: {fileID: 0}
       opacity: 1

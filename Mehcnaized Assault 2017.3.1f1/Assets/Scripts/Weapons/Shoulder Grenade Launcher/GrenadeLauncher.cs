@@ -7,9 +7,11 @@ using Sirenix.OdinInspector;
 public enum GrenadeLauncherStatus { Deployed, Retracted };
 
 public class GrenadeLauncher : MonoBehaviour {
+    [Header("Game Manager")]
+    public GameManager GM;
 
     [Header("Player")]
-    public PlayerController PC;
+    public PlayerController Player;
 
     [Header("Bullet Items")]
     public GameObject shotSpawn;
@@ -17,6 +19,8 @@ public class GrenadeLauncher : MonoBehaviour {
 
     [Header("Ammo and Reloading")]
     public int Ammo = 8;
+    private int ammoReference;
+    private int extraAmmo = 32;
     public GameObject ammoTextObject;
     public Text AmmoText;
     public GameObject ReloadImage;
@@ -41,13 +45,17 @@ public class GrenadeLauncher : MonoBehaviour {
     [SerializeField]
     private int grenadeCount;
 
+    public bool Dropped = false;
+    public GameObject jetesinedParticles;
+
     // Use this for initialization
     void Start () {
         AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
-        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
         ReloadImage.SetActive(false);
-
+        ammoReference = Ammo;
         grenadePoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
 
         for (int i = 0; i < grenadePool.Count; i++) {
@@ -64,43 +72,56 @@ public class GrenadeLauncher : MonoBehaviour {
         Debug.DrawRay(shotSpawn.transform.position, shotSpawn.transform.forward, Color.red);
         if (AmmoText.gameObject.activeSelf == true)
         {
-            AmmoText.text = Ammo.ToString();
+            AmmoText.text = "0" + Ammo.ToString() + " / " + extraAmmo;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && Ammo > 0 && canFire == true && PC.canMove == true)
+        if (Input.GetKeyDown(KeyCode.F) && Ammo > 0 && canFire == true && Player.canMove == true)
         {
-            //Debug.Log ("Hitting F");
-           // MuzzleFlash.Play();
             Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Retracted && PC.canMove == true)
+        if (GM.prevState.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Pressed && Ammo > 0 && canFire == true && Player.canMove == true) {
+            Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && currentStatus == CannonStatus.Retracted && Player.canMove == true)
         {
             StartCoroutine(WeaponUp());
-            //Anim.SetBool("Put Away",false);
-            //Anim.SetBool("Bring Up",true);
-            //CS = CannonStatus.Deployed;
         }
-        else if (Input.GetKeyDown(KeyCode.M) && currentStatus == CannonStatus.Deployed && PC.canMove == true)
+        else if (Input.GetKeyDown(KeyCode.E) && currentStatus == CannonStatus.Deployed && Player.canMove == true)
         {
             currentStatus = CannonStatus.Retracted;
             Anim.SetBool("Bring Up", false);
             Anim.SetBool("Put Away", true);
-
         }
 
-        if(Ammo == 0) {
-            Ammo = 8;
+        if (GM.prevState.Buttons.Y == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.Y == XInputDotNetPure.ButtonState.Pressed && currentStatus == CannonStatus.Retracted && Player.canMove == true) {
+            StartCoroutine(WeaponUp());
+        } else if (GM.prevState.Buttons.Y == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.Y == XInputDotNetPure.ButtonState.Pressed && currentStatus == CannonStatus.Deployed && Player.canMove == true) {
+            currentStatus = CannonStatus.Retracted;
+            Anim.SetBool("Bring Up", false);
+            Anim.SetBool("Put Away", true);
+        }
+
+        if (Ammo <= ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && extraAmmo != 0) {
+            StartCoroutine(Reload());
+        }
+
+        if (Ammo <= 0 && extraAmmo == 0) {
+            StartCoroutine(BreakOff());
         }
     }
 
     private void Shoot()
     {
-        //audioSource.Play();
         Debug.Log("Shooting");
         StartCoroutine(FireAnimation());
-        //GameObject grenadeShot_I = (GameObject)Instantiate(Grenade, shotSpawn.transform.position, shotSpawn.transform.rotation);
-        //grenadeShot_I.GetComponent<Rigidbody>().AddForce(shotSpawn.transform.forward * 200f, ForceMode.VelocityChange);
 
         #region Object Pool
 
@@ -122,24 +143,19 @@ public class GrenadeLauncher : MonoBehaviour {
             grenadeCount++;
         }
         #endregion
-
-
-
-
-        //Anim.SetBool("Fired",false);
-        //Destroy(grenadeShot_I, 3.0f);
-        //MuzzleFlash.Stop();
     }
 
     private IEnumerator Reload()
     {
         Debug.Log("Reloading");
         AmmoText.gameObject.SetActive(false);
+        Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
         ReloadImage.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         AmmoText.gameObject.SetActive(true);
         ReloadImage.SetActive(false);
-        Ammo = 5;
+        Ammo = ammoReference;
+        extraAmmo -= ammoReference;
     }
 
     private IEnumerator WeaponUp()
@@ -161,5 +177,20 @@ public class GrenadeLauncher : MonoBehaviour {
         Anim.SetBool("Fired", false);
         yield return new WaitForSeconds(0.7f);
         canFire = true;
+    }
+
+    private IEnumerator BreakOff() {
+        Dropped = true;
+        Player.shoulderWeaponNotice.text = "DETACHED";
+        yield return new WaitForSeconds(0.50f);
+        this.gameObject.transform.parent = null;
+        this.GetComponent<Rigidbody>().useGravity = true;
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        jetesinedParticles.SetActive(true);
+        this.GetComponent<Rigidbody>().AddForce(-this.transform.forward * 0.6f, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitForSeconds(10.0f);
+        this.gameObject.SetActive(false);
     }
 }

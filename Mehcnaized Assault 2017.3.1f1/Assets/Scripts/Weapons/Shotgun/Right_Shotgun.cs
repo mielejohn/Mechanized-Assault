@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Right_Shotgun : MonoBehaviour {
 
-	public GameObject topObject;
+    public GameManager GM;
+    public GameObject topObject;
 	public PlayerController Player;
 	public GameObject ShotSpawn;
 	private float fireDelta = 0.55f;
@@ -13,7 +14,8 @@ public class Right_Shotgun : MonoBehaviour {
 	private float myTime = 0.0f;
 	public GameObject Bullet;
 	public int Ammo = 12;
-	public Text AmmoCount;
+    private int ammoReference;
+    public Text AmmoCount;
 	public bool Reloading;
 	public bool dropped = false;
 
@@ -25,51 +27,72 @@ public class Right_Shotgun : MonoBehaviour {
 	void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
-	}
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        ammoReference = Ammo;
+    }
 
 	void Update () {
-		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash.Play ();
-            //shotParticles.Play();
-            Shoot ();
-			Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
+
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash.Play ();
+                //shotParticles.Play();
+                Shoot ();
+			    Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+            }
 		}
 
-		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
-			StartCoroutine (Player.Right_Reload ());
-			StartCoroutine(Reload ());
-		}
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Right > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash.Play();
+                //shotParticles.Play();
+                Shoot();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
 
-		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
+        if (Ammo <= ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && Reloading == false) {
+            StartCoroutine(Player.Right_Reload());
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
+        /*
 		GameObject Bullet_I = (GameObject)Instantiate (Bullet,ShotSpawn.transform.position, Quaternion.identity);
 		Bullet_I.GetComponent<Rigidbody> ().AddForce (-transform.right * 1500f, ForceMode.VelocityChange);
 		Destroy (Bullet_I, 0.5f);
-		//Vector3 forward = ShotSpawn.transform.TransformDirection (ShotSpawn.transform.forward);
-		/*RaycastHit shotHit;
-		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,400)){
-			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
-			Debug.Log ("Hit object: " + shotHit.transform.gameObject);
-			if (shotHit.collider.tag == "Enemy") {
-				GameObject Enemy = shotHit.collider.gameObject;
-				Enemy.GetComponent<Enemy> ().Hit (4);
-				Destroy (Bullet_I, 0.5f);
-			}
-		}*/
+        */
 
-	}
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 500f)) {
+
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                Bullet.GetComponent<Bullet>().MediumHit(6, shotHit);
+            }
+        }
+    }
 
 	private IEnumerator Reload(){
 		Reloading = true;

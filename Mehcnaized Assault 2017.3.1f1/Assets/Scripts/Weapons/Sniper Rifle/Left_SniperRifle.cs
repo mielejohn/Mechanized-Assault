@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Left_SniperRifle : MonoBehaviour {
 
-	public PlayerController Player;
+    public GameManager GM;
+    public PlayerController Player;
 	public GameObject ShotSpawn;
 	private float fireDelta = 1.5f;
 	private float nextFire = 1.5f;
@@ -29,6 +30,8 @@ public class Left_SniperRifle : MonoBehaviour {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("LeftWeaponAmmo").GetComponent<Text>();
         bulletPoolParent = GameObject.FindGameObjectWithTag("LeftBulletParent");
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = this.GetComponent<AudioSource>();
 
         for (int i = 0; i < bulletPool.Count; i++) {
             GameObject LSR_Bullet = Instantiate(sniperRifleBullet);
@@ -41,22 +44,35 @@ public class Left_SniperRifle : MonoBehaviour {
 	void Update () {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButtonDown (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash.Play();
-			Shoot ();
-			Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
-		}
 
-		if (Input.GetKeyDown (KeyCode.E) && Player.canMove == true) {
-			StartCoroutine (Player.Left_Reload ());
-			StartCoroutine(Reload ());
-		}
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButtonDown (0) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash.Play();
+			    Shoot ();
+			    Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+		    }
+        }
 
-		if (Input.GetKeyDown (KeyCode.K) && Player.canMove == true) {
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Left > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash.Play();
+                Shoot();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
+
+        if (Ammo <= 0 && Reloading == false) {
+            StartCoroutine(Player.Left_Reload());
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetKeyDown (KeyCode.K) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
@@ -77,10 +93,9 @@ public class Left_SniperRifle : MonoBehaviour {
 
         bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
         bulletPool[poolCount].SetActive(true);
-        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
         bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
-        bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 5000f, ForceMode.VelocityChange);
-
+        bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 1700f, ForceMode.VelocityChange);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitDestroy(1.5f));
         Debug.Log("Just fired Left");
 
         if (poolCount >= bulletPool.Count - 1) {

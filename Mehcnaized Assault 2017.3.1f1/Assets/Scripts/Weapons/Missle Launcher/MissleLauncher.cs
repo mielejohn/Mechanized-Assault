@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public enum WeaponStatus{Reloading, ReadytoFire};
 
 public class MissleLauncher : MonoBehaviour {
-	public PlayerController PC;
+
+    public GameManager GM;
+    public PlayerController Player;
 	public GameObject missleLauncher_Y;
 	public GameObject missleLauncher_X;
 	public GameObject missleSpawn;
 	public GameObject missleObject;
 	public int Ammo = 12;
+    private int ammoReference;
+    public int extraAmmo = 0;
     private float fireDelta = 0.25f;
     private float nextFire = 0.25f;
     private float myTime = 0.0f;
@@ -25,12 +29,18 @@ public class MissleLauncher : MonoBehaviour {
     [SerializeField]
     private int missleCount;
 
+    public AudioSource audioSource;
+    public bool Dropped = false;
+    public GameObject jetesinedParticles;
+
     void Awake () {
 		AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
-		PC = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
 		ReloadImage.SetActive(false);
-
+        ammoReference = Ammo;
         misslePoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
 
         for (int i = 0; i < misslePool.Count; i++) {
@@ -42,31 +52,50 @@ public class MissleLauncher : MonoBehaviour {
         Debug.Log("bulletPool count is " + misslePool.Count);
     }
 	
-	// Update is called once per frame
 	void Update ()
 	{
         myTime = myTime + Time.deltaTime;
         if (AmmoText.gameObject.activeSelf == true) {
-			AmmoText.text = Ammo.ToString ();
+			AmmoText.text = Ammo.ToString() + " / " + extraAmmo;
 		}
-        if (PC.targetedLeftEnemy != null || PC.targetedRightEnemy != null) {
+        if (Player.targetedLeftEnemy != null || Player.targetedRightEnemy != null) {
 			Tracking ();
 		} else {
 			missleLauncher_Y.transform.localEulerAngles = new Vector3(0f,0f,0f);
 		}
+        if(Dropped == false){
+		    if (Input.GetKey (KeyCode.F) && Ammo > 0 && myTime > nextFire && Player.canMove == true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                Shoot ();
+                audioSource.PlayOneShot(audioSource.clip);
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
 
-		if (Input.GetKey (KeyCode.F) && Ammo > 0 && myTime > nextFire && PC.canMove == true && PC.canMove == true) {
-            //Debug.Log ("Hitting F");
-            nextFire = myTime + fireDelta;
-            Shoot ();
-            nextFire = nextFire - myTime;
-            myTime = 0.0f;
+
+            if (GM.prevState.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Pressed && Ammo > 0 && myTime > nextFire && Player.canMove == true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                Shoot();
+                audioSource.Play();
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
         }
 
-		if (Ammo <= 0 && WS != WeaponStatus.Reloading) {
+        if (Ammo <= ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && WS != WeaponStatus.Reloading && extraAmmo != 0) {
 			StartCoroutine(reload());
 		}
-	}
+
+        if (Ammo <= 0 && extraAmmo == 0) {
+            StartCoroutine(BreakOff());
+        }
+    }
 
 	void Tracking(){
         /*Vector3 targetDirection = PC.targetedLeftEnemy.transform.position - missleLauncher_Y.transform.position;
@@ -83,10 +112,10 @@ public class MissleLauncher : MonoBehaviour {
         #region Object Pool
         Ammo--;
 		//Debug.Log("Shooting");
-        if (PC.targetedLeftEnemy != null || PC.targetedRightEnemy != null) {
+        if (Player.targetedLeftEnemy != null || Player.targetedRightEnemy != null) {
 			//GameObject Missle_I = (GameObject)Instantiate (missleObject, missleSpawn.transform.position, missleSpawn.transform.rotation);
             misslePool[missleCount].transform.position = missleSpawn.transform.position;
-            misslePool[missleCount].GetComponent<Missle>().target = PC.targetedLeftEnemy.transform;
+            misslePool[missleCount].GetComponent<Missle>().target = Player.targetedLeftEnemy.transform;
             misslePool[missleCount].GetComponent<Missle>().lockedOn = true;
             misslePool[missleCount].SetActive(true);
 
@@ -103,10 +132,10 @@ public class MissleLauncher : MonoBehaviour {
 
 
         if (missleCount >= misslePool.Count - 1) {
-            Debug.Log("pool count reset");
+            //Debug.Log("pool count reset");
             missleCount = 0;
         } else {
-            Debug.Log("pool count add 1");
+            //Debug.Log("pool count add 1");
             missleCount++;
         }
         #endregion
@@ -116,11 +145,28 @@ public class MissleLauncher : MonoBehaviour {
         Debug.Log("Reloading");
         WS = WeaponStatus.Reloading;
         AmmoText.gameObject.SetActive(false);
+        Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
         ReloadImage.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         AmmoText.gameObject.SetActive(true);
         ReloadImage.SetActive(false);
-        Ammo = 12;
+        Ammo = ammoReference;
+        extraAmmo -= ammoReference;
         WS = WeaponStatus.ReadytoFire;
+    }
+
+    private IEnumerator BreakOff() {
+        Dropped = true;
+        Player.shoulderWeaponNotice.text = "DETACHED";
+        yield return new WaitForSeconds(0.50f);
+        this.gameObject.transform.parent = null;
+        this.GetComponent<Rigidbody>().useGravity = true;
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        jetesinedParticles.SetActive(true);
+        this.GetComponent<Rigidbody>().AddForce(-this.transform.forward * 0.6f, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitForSeconds(10.0f);
+        this.gameObject.SetActive(false);
     }
 }

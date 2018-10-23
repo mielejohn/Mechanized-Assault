@@ -34,7 +34,8 @@ public class Rover_Enemy : MonoBehaviour {
     public float attackingSpeed = 1.5f;
 
     [Header("Distances")]
-    public float attackingDistance = 1.0f;
+    public float attackingDistance;
+    public float attackStoppingDistance;
     public float patrolDistance = 20.0f;
 
     [Header("Current State")]
@@ -71,20 +72,11 @@ public class Rover_Enemy : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //CanvasRotate();
+
 		if (enemyClass.Health <= 0 && Cs != EnemyAILifeStates.Dead) {
             enemyClass.isAlive = false;
             StartCoroutine(Dead());
 		}
-
-        /*if (enemyClass.Targeted == true && Scanned == true)
-        {
-            UICanvas.SetActive(true);
-        }
-        else
-        {
-            UICanvas.SetActive(false);
-        }*/
 
         if(Cs == EnemyAILifeStates.Alive) { 
             switch (state) {
@@ -104,12 +96,6 @@ public class Rover_Enemy : MonoBehaviour {
         Anim.SetFloat("X-Movement", navMeshAgent.velocity.normalized.x);
     }
 
-    /*public void Hit(float Damage){
-		Debug.Log ("Enemy damage = " + Damage);
-		Health  = Health - Damage;
-        HealthBar.value = Health;
-    }*/
-
 	void OnTriggerEnter(Collider other){
 
 	}
@@ -120,9 +106,15 @@ public class Rover_Enemy : MonoBehaviour {
     }
 
     protected virtual void OnAttackingUpdate() {
-        navMeshAgent.SetDestination(playerOfInterest.transform.position);
-
         float distance = Vector3.Distance(transform.position, playerOfInterest.transform.position);
+
+        if (distance > attackStoppingDistance){
+            Debug.Log("Distance < attackStoppingDistance");
+            navMeshAgent.SetDestination(playerOfInterest.transform.position);
+        } else {
+            navMeshAgent.SetDestination(this.transform.position);
+        }
+
 
         //Debug.Log ("Distance Attacking: " + distance);
         if (distance > attackingDistance) {
@@ -159,9 +151,9 @@ public class Rover_Enemy : MonoBehaviour {
             ChangePatrolPoint();
         }
 
-        /*if (distanceToPlayer < patrolDistance) {
+        if (distanceToPlayer < patrolDistance && playerOfInterest.GetComponent<PlayerController>().canMove == true) {
             SwitchToChasing(playerOfInterest);
-        }*/
+        }
     }
 
 

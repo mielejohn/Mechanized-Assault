@@ -41,8 +41,8 @@ MonoBehaviour:
     flatBrightness: 0.75
     flatColorPow: 2.05
   fogStartDistance: 0
-  fogDistance: 0
-  fogDensity: 0.0001
+  fogDistance: 42000
+  fogDensity: 0.000006
   weatherSkyMod:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
     m_NumColorKeys: 4
     m_NumAlphaKeys: 4
   volumeLightIntensity: 1
-  heightFogDensity: 1
+  heightFogDensity: 0.27
   SkyFogHeight: 2
   SkyFogIntensity: 1.46
   FogScatteringIntensity: 1.07

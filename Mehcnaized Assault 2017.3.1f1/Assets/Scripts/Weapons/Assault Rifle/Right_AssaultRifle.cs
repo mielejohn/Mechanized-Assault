@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Right_AssaultRifle : MonoBehaviour {
 
-	public GameObject topObject;
+    public GameManager GM;
+    public GameObject topObject;
 	public PlayerController Player;
 	public GameObject ShotSpawn;
 	private float fireDelta = 0.25f;
@@ -13,7 +14,8 @@ public class Right_AssaultRifle : MonoBehaviour {
 	private float myTime = 0.0f;
 	public GameObject assaultRifleBullet;
 	public int Ammo = 50;
-	public Text AmmoCount;
+    private int ammoReference;
+    public Text AmmoCount;
 	public bool Reloading;
 	public bool dropped = false;
 
@@ -31,7 +33,9 @@ public class Right_AssaultRifle : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
         bulletPoolParent = GameObject.FindGameObjectWithTag("RightBulletParent");
-
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        ammoReference = Ammo;
         for (int i = 0; i < bulletPool.Count; i++) {
             GameObject LAR_Bullet = Instantiate(assaultRifleBullet);
             bulletPool[i] = LAR_Bullet;
@@ -44,45 +48,72 @@ public class Right_AssaultRifle : MonoBehaviour {
 	void Update () {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash.Play ();
-            Shoot();
-            Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
-		}
 
-		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
-			StartCoroutine (Player.Right_Reload ());
-			StartCoroutine(Reload ());
-		}
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash.Play ();
+                audioSource.PlayOneShot(audioSource.clip);
+                Shoot();
+                Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+		    }
+        }
 
-		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Right > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash.Play();
+                audioSource.PlayOneShot(audioSource.clip);
+                Shoot();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
+
+        if (Ammo <= ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && Reloading == false) {
+            StartCoroutine(Player.Right_Reload());
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-        RaycastHit shotHit;
-        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 40)) {
+        /*RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right, out shotHit, 400f)) {
 
             Debug.Log("Hit object: " + shotHit.transform.gameObject);
             if (shotHit.collider.tag == "Enemy") {
-                assaultRifleBullet.GetComponent<Bullet>().CloseHit(5, shotHit);
+                assaultRifleBullet.GetComponent<Bullet>().MediumHit(3, shotHit);
             }
-        }
+        }*/
+
         #region Object Pool
 
+        if (bulletPool[poolCount] == null) {
+            GameObject LAR_Bullet = Instantiate(assaultRifleBullet);
+            bulletPool[poolCount] = LAR_Bullet;
+            bulletPool[poolCount].transform.parent = bulletPoolParent.transform;
+            bulletPool[poolCount].SetActive(false);
+        }
 
         bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
         bulletPool[poolCount].SetActive(true);
-        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
         bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
         bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 1700f, ForceMode.VelocityChange);
-
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitDestroy(1.0f));
         if (poolCount >= bulletPool.Count - 1) {
             Debug.Log("pool count reset");
             poolCount = 0;

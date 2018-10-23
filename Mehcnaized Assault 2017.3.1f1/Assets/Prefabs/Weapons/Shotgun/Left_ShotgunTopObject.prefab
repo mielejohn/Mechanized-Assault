@@ -508,14 +508,31 @@ MonoBehaviour:
   topObject: {fileID: 1264218168638578}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1679948196923934}
-  Bullet: {fileID: 1705203971808370, guid: d1fd15335e67ccf4c89c0b627e237ecf, type: 2}
-  Ammo: 12
+  shotgunBullet: {fileID: 1705203971808370, guid: d1fd15335e67ccf4c89c0b627e237ecf,
+    type: 2}
+  shotCount: 8
+  Ammo: 24
   AmmoCount: {fileID: 0}
   Reloading: 0
   dropped: 0
+  shotSpreadAngle: 2
   MuzzleFlash: {fileID: 198341685931048282}
-  shotParticles: {fileID: 198244524820967834}
   audioSource: {fileID: 0}
+  bulletPoolParent: {fileID: 0}
+  bulletPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  poolCount: 0
 --- !u!198 &198244524820967834
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -10,6 +10,7 @@ public enum ShieldStatus { Up, Down };
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager GM;
 
     [Header("Object References")]
     public GameObject middleReference;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float groundSpeed = 8;
     public float jumpSpeed = 20;
-    public float boostForce = 10;
+    private float boostForce;
     [SerializeField]
     private float magnitudeReference;
     [SerializeField]
@@ -52,14 +53,23 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animations")]
     public Animator Anim;
-    //public BlendTree BT;
-    public GameManager GM;
     public float animX;
     public float animZ;
 
-    [Header("Arms")]
+    [Header("Shoulders")]
+    public GameObject RightShoulder;
+    public GameObject LeftShoulder;
+    public Vector3 shoulderMeleeWeaponRotation;
+
+    [Header("Upper Arms")]
     public GameObject RightArm;
     public GameObject LeftArm;
+    public Vector3 upperArmMeleeWeaponRotation;
+
+    [Header("Lower Arms")]
+    public GameObject RightLowerArm;
+    public GameObject LeftLowerArm;
+    public Vector3 lowerArmMeleeWeaponRotation;
 
     [Header("Hands")]
     public GameObject RightHand;
@@ -75,7 +85,7 @@ public class PlayerController : MonoBehaviour
     public GameObject targetedLeftEnemy;
     public GameObject possibleTargetReticle;
     public GameObject targetedReticle;
-    public GameObject aimgingCollider;
+    public GameObject aimingCollider;
 
     [Header("Boolean Conditions")]
     public bool onGround;
@@ -83,6 +93,7 @@ public class PlayerController : MonoBehaviour
     public bool isScanning;
     public bool Boosting;
     public bool speedDoubled;
+    public bool regeningThrusters;
 
     [Header("Shield and Health")]
     public ShieldStatus ShieldStatus = ShieldStatus.Up;
@@ -98,10 +109,12 @@ public class PlayerController : MonoBehaviour
     public Text healthText;
     public Text shieldText;
 
-    [Header("Flying Variables")]
-    public Slider flightTestUiBar;
-    public float thrustAmount;
-    public float thrustRecharge;
+    [Header("Flying and Boosting Variables")]
+    //public Slider flightTestUiBar;
+    public Image thrusterBarImage;
+    public float thrusterAmountReference;
+    public float thrusterAmount;
+    public float thrusterRecharge;
     private float fallingWeight;
 
     [Header("Scanning Items")]
@@ -129,7 +142,13 @@ public class PlayerController : MonoBehaviour
     [Header("Materials")]
     public Material talkingMaterial;
 
+    [TabGroup("Shoulder Weapon Variables")]
+    public GameObject shoulderWeaponLowAmmoNotice;
+    public Text shoulderWeaponNotice;
+
     #region Left Weapon Variables
+    [TabGroup("Left Weapons")]
+    public int leftWeaponAmmoCount;
     [TabGroup("Left Weapons")]
     public GameObject leftShotgun;
     [TabGroup("Left Weapons")]
@@ -142,9 +161,17 @@ public class PlayerController : MonoBehaviour
     public GameObject leftMinigun;
     [TabGroup("Left Weapons")]
     public GameObject leftMarksmanRifle;
+    [TabGroup("Left Weapons")]
+    public bool leftMeleeWeapon = false;
+    [TabGroup("Left Weapons")]
+    public GameObject leftShortSword;
+    [TabGroup("Left Weapons")]
+    public GameObject leftWeaponLowAmmoNotice;
     #endregion
 
     #region Right Weapon Variables
+    [TabGroup("Right Weapons")]
+    public int rightWeaponAmmoCount;
     [TabGroup("Right Weapons")]
     public GameObject rightShotgun;
     [TabGroup("Right Weapons")]
@@ -157,31 +184,45 @@ public class PlayerController : MonoBehaviour
     public GameObject rightMinigun;
     [TabGroup("Right Weapons")]
     public GameObject rightMarksmanRifle;
+    [TabGroup("Right Weapons")]
+    public bool rightMeleeWeapon = false;
+    [TabGroup("Right Weapons")]
+    public GameObject rightShortSword;
+    [TabGroup("Right Weapons")]
+    public GameObject rightWeaponLowAmmoNotice;
     #endregion
 
-    // Use this for initialization
+    public Canvas playerCanvas;
+
+
+    void Awake() {
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+    }
+
     void Start()
     {
+        shoulderWeaponNotice  = shoulderWeaponLowAmmoNotice.transform.transform.GetChild(0).GetComponent<Text>();
+        Camera = GameObject.FindGameObjectWithTag("Player Camera");
+        aimingCollider = GameObject.FindGameObjectWithTag("Aiming Collider");
+        playerCanvas = GameObject.FindGameObjectWithTag("Player Canvas").GetComponent<Canvas>();
         #region Frame stats selection
-        switch(PlayerPrefs.GetInt("FrameChoice")) {
+        switch (PlayerPrefs.GetInt("FrameChoice")) {
             case 1:
-                //65 Magnitude Reference
-                //73 Ground Force
-                Health = 1500;
+                Health = 1750;
                 healthReference = Health;
                 magnitudeReference = 65;
-                groundForce = 75;
+                groundForce = 67;
+                boostForce = 20f;
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 4f;
-                thrustAmount = 150;
-                jumpForce = 5;
-                jumpSpeed = 6;
+                thrusterAmount = 100f;
+                thrusterAmountReference = thrusterAmount;
+                jumpForce = 3;
+                jumpSpeed = 4;
                 break;
 
             case 2:
-                //50 Magnitude Reference
-                //50-60 Ground Force
                 Health = 2000;
                 healthReference = Health;
                 magnitudeReference = 68;
@@ -189,22 +230,22 @@ public class PlayerController : MonoBehaviour
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 5f;
-                thrustAmount = 125;
+                thrusterAmount = 75f;
+                thrusterAmountReference = thrusterAmount;
                 jumpForce = 4;
                 jumpSpeed = 5;
                 break;
 
             case 3:
-                //50 Magnitude Reference
-                //40 Ground Force
-                Health = 2750;
+                Health = 2500;
                 healthReference = Health;
-                magnitudeReference = 45;
-                groundForce = 50;
+                magnitudeReference = 70;
+                groundForce = 56;
                 Shields = 50;
                 shieldsReference = Shields;
                 fallingWeight = 6f;
-                thrustAmount = 100;
+                thrusterAmount = 50f;
+                thrusterAmountReference = thrusterAmount;
                 jumpForce = 3;
                 jumpSpeed = 5;
                 break;
@@ -252,6 +293,13 @@ public class PlayerController : MonoBehaviour
                 RightMinigun_I.transform.position = rightWeaponSpawn.transform.position;
                 RightMinigun_I.transform.parent = RightHand.transform;
                 break;
+
+            case 6:
+                GameObject rightShortSword_I = Instantiate(rightShortSword);
+                rightShortSword_I.transform.position = rightWeaponSpawn.transform.position;
+                rightShortSword_I.transform.parent = RightHand.transform;
+                rightMeleeWeapon = true;
+                break;
         }
 
         switch (PlayerPrefs.GetInt("LeftWeaponChoice"))
@@ -291,6 +339,13 @@ public class PlayerController : MonoBehaviour
                 LeftMinigun_I.transform.position = leftWeaponSpawn.transform.position;
                 LeftMinigun_I.transform.parent = LeftHand.transform;
                 break;
+
+            case 6:
+                GameObject leftShortSword_I = Instantiate(leftShortSword);
+                leftShortSword_I.transform.position = leftWeaponSpawn.transform.position;
+                leftShortSword_I.transform.parent = LeftHand.transform;
+                leftMeleeWeapon = true;
+                break;
         }
         #endregion
 
@@ -300,135 +355,178 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         #region Keyboard Movement
-        moveX = Input.GetAxis("Horizontal") * Time.deltaTime * groundSpeed;
-        moveZ = Input.GetAxis("Vertical") * Time.deltaTime * groundSpeed;
-        moveY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
-        animX = Input.GetAxis("Horizontal");
-        animZ = Input.GetAxis("Vertical");
-
-        if (Input.GetButton("Horizontal") && canMove == true || Input.GetButton("Vertical") && canMove == true || Input.GetButton("Jump") && canMove == true)
-        {
-            MoveForwards(moveZ, moveX);
-        }
-        RaycastHit hit;
-        //Debug.Log("Rigidbody Velocity reference is: " + RB.velocity.magnitude);
-        if (canMove == true && Input.GetButton("Jump") && thrustAmount > 0f) {
-            MoveFlying(moveY);
-            thrustAmount -= 0.1f;
-        } else if (thrustAmount <= 0f && onGround == false || Input.GetButton("Jump") == false && onGround == false ) {
-
-            if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
-                if (hit.distance > 15f) {
-                    //moveY = hit.distance;
-                    MoveFlying(-0.0000000000000000000000003f);
-
-                } else if(hit.distance <15) {
-                    moveY = -0.3f;
-                    MoveFlying(moveY);
+        if (canMove == true) {
+            if (!GM.prevState.IsConnected && Boosting == false) {
+                moveX = Input.GetAxis("Horizontal") * Time.deltaTime;
+                moveZ = Input.GetAxis("Vertical") * Time.deltaTime;
+                if (Input.GetButton("Jump") == false && Flying == false) {
+                    moveY = -0.009f;
+                } else {
+                    moveY = Input.GetAxis("Jump") * Time.deltaTime;
                 }
+
+                animX = Input.GetAxis("Horizontal");
+                animZ = Input.GetAxis("Vertical");
+                Anim.SetFloat("X_Axis", animX);
+                Anim.SetFloat("Z_Axis", animZ);
+
+                if (Flying == false){
+
+                    Movement(moveZ, moveY *0.50f, moveX);
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                } else if (thrusterAmount > 0 && Flying == true && Input.GetButton("Jump") != false) {
+                    Movement(moveZ * 1.65f, moveY, moveX * 1.65f);
+                    thrusterAmount = thrusterAmount - 0.50f;
+                    regeningThrusters = false;
+                } else if(thrusterAmount > 0 && Flying == true && Input.GetButton("Jump") == false) {
+                    if(RB.velocity.y > 10f && RB.velocity.y < 30f) {
+                        RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y - 0.75f ,RB.velocity.z);
+                    } else if (RB.velocity.y > 29f) {
+                        RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y - 2f, RB.velocity.z);
+                    }
+                    Movement(moveZ * 4, moveY, moveX * 4);
+                    thrusterAmount = thrusterAmount - 0.20f;
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                } else if (Flying == true && thrusterAmount <= 0 || Input.GetButton("Jump") == false || Input.GetButton("Jump") == true) {
+                    moveY = -0.027f;
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                    Movement(moveZ, moveY, moveX);
+                }
+
+                if (Input.GetButtonDown("Boost") && Boosting == false) {
+                    Boosting = true;
+                    StartCoroutine(Dash(moveX, moveY, moveZ));
+                }
+
+                this.transform.Rotate(new Vector3(0f, Input.GetAxis("Mouse X") * 5, 0f));
+                cameraRotationLimitX -= Input.GetAxis("Mouse Y") * 2.5f;
+                cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
+                Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0.0f, 0.0f);
+               
             }
         }
+        #endregion
 
-       if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
-            if (hit.distance > 15f && speedDoubled != true) {
-                speedDoubled = true;
-                jumpSpeed = jumpSpeed * 2;
-            } else if (hit.distance < 15f && speedDoubled == true){
-                jumpSpeed = 5;
+        #region Controller Movement
+        if (canMove == true) {
+            if (GM.prevState.IsConnected) {
+
+                moveX = GM.state.ThumbSticks.Left.X * Time.deltaTime;
+                moveZ = GM.state.ThumbSticks.Left.Y * Time.deltaTime;
+
+                if (Input.GetButton("Jump") == false && Flying == false) {
+                    moveY = -0.009f;
+                } else {
+                    if (Input.GetButton("Jump") == true){
+                        moveY = 1f * Time.deltaTime;
+                    } else if (Input.GetButton("Jump") == false) {
+                        moveY = 0;
+                    }
+                }
+
+                animX = GM.state.ThumbSticks.Left.X;
+                animZ = GM.state.ThumbSticks.Left.Y;
+                Anim.SetFloat("X_Axis", animX);
+                Anim.SetFloat("Z_Axis", animZ);
+
+                if (Flying == false) {
+
+                    Movement(moveZ, moveY * 0.50f, moveX);
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                } else if (thrusterAmount > 0 && Flying == true && Input.GetButton("Jump") == true) {
+                    Movement(moveZ * 1.65f, moveY, moveX * 1.65f);
+                    thrusterAmount = thrusterAmount - 0.50f;
+                    regeningThrusters = false;
+                } else if (thrusterAmount > 0 && Flying == true && Input.GetButton("Jump") == false) {
+                    if (RB.velocity.y > 10f && RB.velocity.y < 30f) {
+                        RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y - 1.75f, RB.velocity.z);
+                    } else if (RB.velocity.y > 29f) {
+                        RB.velocity = new Vector3(RB.velocity.x, RB.velocity.y - 4f, RB.velocity.z);
+                    }
+                    Movement(moveZ * 4, moveY, moveX * 4);
+                    thrusterAmount = thrusterAmount - 0.20f;
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                } else if (Flying == true && thrusterAmount <= 0 || Input.GetButton("Jump") == false || Input.GetButton("Jump") == true) {
+                    moveY = -0.027f;
+                    if (thrusterAmount < thrusterAmountReference) {
+                        regeningThrusters = true;
+                    } else {
+                        regeningThrusters = false;
+                    }
+                    Movement(moveZ, moveY, moveX);
+                }
+
+                if (Input.GetButtonDown("Boost") && Boosting == false) {
+                    Boosting = true;
+                    StartCoroutine(Dash(moveX, moveY, moveZ));
+                }
+
+                this.transform.Rotate(new Vector3(0f, GM.state.ThumbSticks.Right.X * 5, 0f));
+                cameraRotationLimitX -= GM.state.ThumbSticks.Right.Y * 2.5f;
+                cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
+                Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0.0f, 0.0f);
             }
-       }
-
-       if (thrustAmount > 0 && onGround == false && Input.GetButton("Jump") == false) {
-            moveY = -0.3f;
-            MoveFlying(moveY);
-       }
-
-
-        Anim.SetFloat("X_Axis", animX);
-        Anim.SetFloat("Z_Axis", animZ);
+        }
         #endregion
 
         #region CameraMovement
-        if (canMove == true) { 
-            if (Input.GetAxis ("Horizontal") > 0) {
+        if (canMove == true) {
+            if (Input.GetAxis("Horizontal") > 0) {
                 Camera.transform.position = Vector3.Lerp(Camera.transform.position, rightCameraPosition.transform.position, Time.deltaTime * 5f);
-		    } else if (Input.GetAxis ("Horizontal") < 0) {
+            } else if (Input.GetAxis("Horizontal") < 0) {
                 Camera.transform.position = Vector3.Lerp(Camera.transform.position, leftCameraPosition.transform.position, Time.deltaTime * 5f);
-		    } else if (Input.GetAxis ("Jump") > 0) {
+            } else if (Input.GetAxis("Jump") > 0) {
                 Camera.transform.position = Vector3.Lerp(Camera.transform.position, bottomCameraPosition.transform.position, Time.deltaTime * 5f);
-		    } else if (Input.GetAxis("Jump") == 0 && onGround == false) {
-                //PlayerCamera.transform.Translate (Vector3.up * Time.deltaTime * 7);
+            } else if (Input.GetAxis("Jump") == 0 && onGround == false) {
                 Camera.transform.position = Vector3.Lerp(Camera.transform.position, topCameraPosition.transform.position, Time.deltaTime * 5f);
-		    } else {
+            } else {
                 Camera.transform.position = Vector3.Lerp(Camera.transform.position, centerCameraPosition.transform.position, Time.deltaTime * 5f);
             }
         }
+        #endregion
+        RaycastHit hit;
 
-        if (canMove == true) {
-            this.transform.Rotate(new Vector3(0f, Input.GetAxis("Mouse X") * 5, 0f));
-            cameraRotationLimitX -= Input.GetAxis("Mouse Y") * 2.5f;
-            cameraRotationLimitX = Mathf.Clamp(cameraRotationLimitX, -35, 30);
-            //Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0f, 0f);
-            Camera.transform.localEulerAngles = new Vector3(cameraRotationLimitX, 0.0f, 0.0f);
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
+            if (hit.distance > 15f) {
+                Flying = true;
+            } else {
+                Flying = false;
+            }
         }
 
-        #endregion
-
-        #region Dead Code
-        /*if (Input.GetButtonDown ("Jump") == false) {
-			RaycastHit hit;
-			if (Physics.Raycast (transform.position, -Vector3.up, out hit)) {
-				if (hit.distance < 15.0f && hit.collider.tag == "Ground") {
-					RB.velocity.y = -5f;
-				}
-			}
-		}*/
-
-        /*if(Input.GetButtonUp ("Horizontal")){
-			RB.velocity = new Vector3 (Mathf.Lerp (RB.velocity.x, 0, 0.3f),Mathf.Lerp (RB.velocity.y, 0, 0.3f),Mathf.Lerp (RB.velocity.z, 0, 0.3f));
-		}
-
-		if(Input.GetButtonUp ("Vertical")){
-			RB.velocity = new Vector3 (0,0,Mathf.Lerp (RB.velocity.z, 0, 1.0f));
-		}
-
-		if(Input.GetButtonUp ("Jump")){
-			RB.velocity = new Vector3 (0,Mathf.Lerp (RB.velocity.y, 0, 1.0f),0);
-		}*/
-
-        /*if (Input.GetKeyDown(KeyCode.R)) {
-			StartCoroutine (Right_Reload ());
-		}
-
-		if (Input.GetKeyDown(KeyCode.E)) {
-			StartCoroutine (Left_Reload ());
-		}*/
-
-        #region Controller Movement
-        /*if (GM.state.ThumbSticks.Left.X > 0 || GM.state.ThumbSticks.Left.Y > 0 || GM.state.ThumbSticks.Left.X < 0 || GM.state.ThumbSticks.Left.Y < 0)    
-        {
-            //float moveX = GM.state.ThumbSticks.Left.X * Time.deltaTime * groundSpeed;
-            //float moveZ = GM.state.ThumbSticks.Left.Y * Time.deltaTime * groundSpeed;
-            animX = GM.state.ThumbSticks.Left.X;
-            animZ = GM.state.ThumbSticks.Left.Y;
-            //MoveForwards (moveZ, animZ);
-            //MoveSideways(moveX, animX);
-        }*/
-        #endregion
-
-
-        //LeftArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,LeftArm.transform.rotation.z);
-        //RightArm.transform.localEulerAngles =  new Vector3 (cameraRotationLimitX, 90,RightArm.transform.rotation.z);
-
-        //Spine.transform.localEulerAngles = new Vector3 (Spine.transform.rotation.x, Spine.transform.rotation.y, -cameraRotationLimitX);
-        #endregion
+        if (regeningThrusters == true) {
+            thrusterAmount += 0.25f;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //HealthBar();
-        flightTestUiBar.value = thrustAmount;
+        ThrusterBar();
+        if(Input.GetKeyDown(KeyCode.P)) {
+            PlayerPrefs.SetInt("Auto Aim",1);
+        }
+
+        shieldBar();
         if (Health < 0)
         {
             healthText.text = "" + 0;
@@ -438,24 +536,7 @@ public class PlayerController : MonoBehaviour
             healthText.text = Health.ToString();
         }
 
-        shieldBar();
-
-        if (Shields <= 0)
-        {
-            if (ShieldStatus != ShieldStatus.Down)
-            {
-                StartCoroutine(ShieldDown());
-            }
-        }
-        else
-        {
-            //Shield.SetActive (true);
-            if (ShieldStatus != ShieldStatus.Up)
-            {
-                StartCoroutine(ShieldUp());
-            }
-        }
-
+        #region Keyboard Actions
         if (Input.GetKeyDown(KeyCode.L) && rightPistolSwapped == false && canMove == true)
         {
             StartCoroutine(RightPistolSwap());
@@ -465,26 +546,21 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(LeftPistolSwap());
         }
 
-        if (Input.GetButtonDown("Boost") && Boosting == false)
-        {
-            //Debug.Log("Pressed dash forward");
-            StartCoroutine(Dash());
-        }
-
         if (Input.GetMouseButtonDown(2) && Targeting == true) {
             UnTargeted();
         }
 
-        if (Input.GetMouseButtonDown(2) && PossibleEnemy != null && Targeting == false && isScanning == false)
+        if (Input.GetMouseButtonDown(2) && PossibleEnemy != null && Targeting == false && isScanning == false && PlayerPrefs.GetInt("Auto Aim") == 0)
         {
-            PossibleEnemy.GetComponent<Enemy>().Targeted = true;
-            targetedLeftEnemy = PossibleEnemy;
-            targetedRightEnemy = PossibleEnemy;
-            Targeting = true;
-            PossibleEnemy = null;
+            TargetEnemy();
         }
 
-        if(Input.GetKeyUp(KeyCode.Alpha1) && isScanning == false) {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && isScanning == true) {
+            StartCoroutine(ScannerDown());
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha1) && isScanning == false) {
             if(Targeting == true) {
                 UnTargeted();
             }
@@ -495,33 +571,56 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && isScanning == true) {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            Time.timeScale = 1.0f;
+        }
+        #endregion
+
+        #region Controller Actions
+
+        if (GM.prevState.Buttons.RightStick == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.RightStick == XInputDotNetPure.ButtonState.Pressed && Targeting == true) {
+            UnTargeted();
+        }
+
+        if (GM.prevState.Buttons.RightStick == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.RightStick == XInputDotNetPure.ButtonState.Pressed && PossibleEnemy != null && Targeting == false && isScanning == false && PlayerPrefs.GetInt("Auto Aim") == 0) {
+            TargetEnemy();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && isScanning == true) {
             StartCoroutine(ScannerDown());
         }
 
-        #region Dead Code
-        //RightArm.transform.LookAt (Enemy.transform, new Vector3(0,0,1));
-        /*
-		Vector3 targetDir = Enemy.transform.position - RightArm.transform.position;
-		float step = 10 * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards (RightArm.transform.forward, targetDir, step, 0.0f);
-		Debug.DrawRay (RightArm.transform.position, newDir, Color.red);
-		Debug.Log ("New direction is " + newDir);
-		RightArm.transform.rotation = Quaternion.LookRotation (newDir);
-		*/
-        //RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
-        /*if (Enemy != null) {
-			Vector3 relativePos = Enemy.transform.position - RightArm.transform.position;
-			Quaternion rotation = Quaternion.LookRotation (relativePos);
-			RightArm.transform.localEulerAngles = new Vector3 (rotation.x * 40, 90f, rotation.z);
-		}*/
+        if (Input.GetKeyUp(KeyCode.Alpha1) && isScanning == false) {
+            if (Targeting == true) {
+                UnTargeted();
+            }
+            isScanning = true;
+            scanOverlay.SetActive(true);
+            scannerText.SetActive(true);
+            talkingMaterial.color = new Color(0f, 255f, 255f);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            Time.timeScale = 1.0f;
+        }
         #endregion
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit))
         {
             if (hit.distance < 11.0f && hit.collider.tag == "Ground")
             {
-                //Debug.Log("on the ground");
                 onGround = true;
                 Flying = false;
                 Anim.SetBool("Flying", Flying);
@@ -529,7 +628,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Off the ground");
                 onGround = false;
                 Flying = true;
                 Anim.SetBool("Flying", Flying);
@@ -537,26 +635,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (PossibleEnemy != null)
-        {
-            //possibleTargetReticle.SetActive(true);
-        }
-        else if (targetedLeftEnemy != null || targetedRightEnemy != null)
+        if (targetedLeftEnemy != null || targetedRightEnemy != null)
         {
             targetedReticle.SetActive(true);
         }
         else
         {
             targetedReticle.SetActive(false);
-            //possibleTargetReticle.SetActive(false);
-        }
-
-        if(Input.GetKeyDown(KeyCode.LeftShift)) {
-            Time.timeScale = 0.5f;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            Time.timeScale = 1.0f;
         }
     }
 
@@ -564,28 +649,12 @@ public class PlayerController : MonoBehaviour
     {
         if (targetedLeftEnemy != null && targetedRightEnemy != null)
         {
-            #region Dead Code
-            //Debug.Log("Tracking enemy");
-            //Vector3 forward = RightArm.transform.TransformDirection(Vector3.forward) * 10;
-            //Debug.DrawRay(LeftArm.transform.position, -LeftArm.transform.forward, Color.green);
-            //LeftArm.transform.LookAt(targetedEnemy.transform);
-            //RightArm.transform.LookAt(targetedEnemy.transform);
-            //RightArm.transform.rotation = Quaternion.Slerp(RightArm.transform.rotation, Quaternion.LookRotation(Enemy.transform.position), 10*Time.deltaTime);
-            /*Vector3 targetDir = Enemy.transform.position - RightArm.transform.position;
-			float step = 5 * Time.deltaTime;
-			//Vector3 relativePos = RightArm.transform.position - Enemy.transform.position;
-			Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-			RightArm.transform.rotation = Quaternion.LookRotation(new Vector3( newDir.x + 70, newDir.y -100f, newDir.z-160f));
-			//Quaternion rotation = Quaternion.LookRotation (relativePos,Vector3.forward);
-			//RightArm.transform.rotation = rotation;
-			//RightArm.transform.LookAt (Enemy.transform.position * 2f - RightArm.transform.position, transform.right);*/
-            #endregion
+
         }
         else
         {
             upperBody.transform.localEulerAngles = new Vector3(cameraRotationLimitX, upperBody.transform.rotation.y, upperBody.transform.rotation.z);
         }
-        //Debug.Log(rotation);
 
         if (targetedLeftEnemy != null)
         {
@@ -600,100 +669,54 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Move Methods
-    void MoveForwards(float moveZ, float moveX)
+    void Movement(float moveZ, float moveY ,float moveX)
     {
-        //if(Boosting != true) {
-            Vector3 movement = new Vector3(moveX, 0.00f, moveZ);
-            RB.AddRelativeForce (movement * groundForce,ForceMode.Impulse);
-            //Debug.Log("Current velocity mag is: " + RB.velocity.magnitude);
-            if(RB.velocity.magnitude > magnitudeReference) { 
+            Vector3 movement = new Vector3(moveX, moveY, moveZ);
+            RB.AddRelativeForce (movement * groundForce * groundSpeed,ForceMode.Impulse);
+            if(RB.velocity.magnitude > magnitudeReference && Boosting == false) { 
                RB.velocity = groundForce * (RB.velocity.normalized);
             }
-        //}
-        //RB.velocity = new Vector3 (1 * groundForce * moveX,0,1 * groundForce * moveZ) ;
-        //Vector3 direction = RB.GetRelativePointVelocity(Vector3.right * moveX * groundForce);
-        //direction += RB.velocity;
-        //RB.velocity = movement;
-        //RB.AddRelativeForce(movement * 30.0f - RB.velocity);
-        //transform.position += transform.forward * Time.deltaTime * moveZ * groundForce;
-        //transform.position += transform.right * Time.deltaTime * moveX * groundForce;
     }
 
-    void MoveFlying(float moveY)
-    {
-        //Vector3 movement = new Vector3 (moveY,0.0f,0.0f);
-        RB.AddForce(transform.up * jumpForce * jumpSpeed * moveY, ForceMode.Impulse);
-        if (RB.velocity.magnitude > magnitudeReference) {
-            RB.velocity = jumpForce * (RB.velocity.normalized);
+    private IEnumerator ThrusterRegen(float waitTime) {
+        while(thrusterAmount < thrusterAmountReference){
+            thrusterAmount += 0.35f;
+            yield return new WaitForSeconds(waitTime);
         }
     }
     #endregion
 
     #region Dash Method
-    IEnumerator Dash()
-    {
+    IEnumerator Dash(float moveX, float moveY, float moveZ) {
         Boosting = true;
-        groundForce *= 2;
-        yield return new WaitForSeconds(0.5f);
-        groundForce /= 2;
-        Boosting = false;
-        if (RB.velocity.magnitude > magnitudeReference) {
-            RB.velocity = groundForce * (RB.velocity.normalized);
+        //StartCoroutine(boostingBooleanChange(1.5f));
+        Vector3 boostDir = RB.velocity;
+        float boostReferenceNumber = 0;
+        while(boostReferenceNumber < 0.1) { 
+            RB.AddRelativeForce(boostDir * 0.8f, ForceMode.Impulse);
+            boostReferenceNumber += 0.1f;
         }
-        /*groundSpeed += groundSpeed/2;
-		yield return new WaitForSeconds (1.0f);
-		groundSpeed = 10;*/
-        /*switch (DashDirection)
-        {
-
-            case "Forward":
-                Debug.Log("Dash: " + DashDirection);
-
-                //RB.AddForce(transform.forward * groundSpeed * 10, ForceMode.Impulse);
-                //RB.AddRelativeForce(transform.forward * 150.0f * boostForce);
-                //groundForce *= 3;
-                yield return new WaitForSeconds(0.5f);
-                //groundForce /= 3;
-                //RB.AddRelativeForce(-transform.forward * 70.0f * boostForce);
-
-                //RB.AddForce(-transform.forward * groundSpeed * 20, ForceMode.Impulse);
-                break;
-
-            case "Right":
-                Debug.Log("Dash: " + DashDirection);
-                //RB.AddForce(transform.right * groundSpeed * 10, ForceMode.Impulse);
-                break;
-
-            case "Left":
-                Debug.Log("Dash: " + DashDirection);
-                //RB.AddForce(-transform.right * groundSpeed * 10, ForceMode.Impulse);
-                break;
-
-            case "Backwards":
-                Debug.Log("Dash: " + DashDirection);
-                //RB.AddForce(-transform.forward * groundSpeed * 10, ForceMode.Impulse);
-                break;
-        }*/
+        yield return new WaitForSeconds(1.0f);
+        Boosting = false;
     }
     #endregion
 
     #region Right Reload
     public IEnumerator Right_Reload()
     {
-        GameObject enemyHold = null;
+        GameObject rightEnemyHold = null;
         if (targetedRightEnemy != null)
         {
-            //Debug.Log("Removing Right Enemy");
-            enemyHold = targetedRightEnemy;
+            rightEnemyHold = targetedRightEnemy;
             targetedRightEnemy = null;
         }
         Anim.SetBool("RightArm_Reload", true);
         yield return new WaitForSeconds(0.98f);
         Anim.SetBool("RightArm_Reload", false);
-        if (enemyHold != null)
+        if (rightEnemyHold != null)
         {
-            targetedRightEnemy = enemyHold;
-            enemyHold = null;
+            targetedRightEnemy = rightEnemyHold;
+            rightEnemyHold = null;
         }
     }
     #endregion
@@ -704,7 +727,6 @@ public class PlayerController : MonoBehaviour
         GameObject enemyHold = null;
         if (targetedLeftEnemy != null)
         {
-            //Debug.Log("Removing Left Enemy");
             enemyHold = targetedLeftEnemy;
             targetedLeftEnemy = null;
         }
@@ -719,9 +741,18 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    void OnTriggerEnter(Collider other)
-    {
+    #region Enemy Targeting
+    public void TargetEnemy() {
+        PossibleEnemy.GetComponent<Enemy>().Targeted = true;
+        if (leftMeleeWeapon == false) { 
+            targetedLeftEnemy = PossibleEnemy;
+        }
 
+        if (rightMeleeWeapon == false) {
+            targetedRightEnemy = PossibleEnemy;
+        }
+        Targeting = true;
+        PossibleEnemy = null;
     }
 
     public void UnTargeted() {
@@ -734,6 +765,7 @@ public class PlayerController : MonoBehaviour
         targetedRightEnemy = null;
         Targeting = false;
     }
+    #endregion
 
     private IEnumerator ShieldDown()
     {
@@ -848,6 +880,14 @@ public class PlayerController : MonoBehaviour
     {
         return (Value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
+
+    public void ThrusterBar() {
+        thrusterBarImage.fillAmount = ThrusterBarMap(thrusterAmount , 0, thrusterAmountReference, 0, 1);
+    }
+
+    private float ThrusterBarMap(float Value, float inMin, float inMax, float outMin, float outMax) {
+        return (Value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
     #endregion
 
     private IEnumerator ScannerDown() {
@@ -858,44 +898,14 @@ public class PlayerController : MonoBehaviour
         scannerText.SetActive(false);
         talkingMaterial.color = new Color(0f, 0f, 255f);
     }
-    #region Tester Methods
-    public void FrameChange() {
-        switch (frameType.value) {
-            case 0:
-                //65 Magnitude Reference
-                //73 Ground Force
-                Health = 1500;
-                healthReference = Health;
-                magnitudeReference = 65;
-                groundForce = 63;
-                Shields = 50;
-                shieldsReference = Shields;
-                break;
 
-            case 1:
-                //50 Magnitude Reference
-                //50-60 Ground Force
-                Health = 2000;
-                healthReference = Health;
-                magnitudeReference = 68;
-                groundForce = 50;
-                Shields = 50;
-                shieldsReference = Shields;
-                break;
-
-            case 2:
-                //50 Magnitude Reference
-                //40 Ground Force
-                Health = 2750;
-                healthReference = Health;
-                magnitudeReference = 45;
-                groundForce = 30;
-                Shields = 50;
-                shieldsReference = Shields;
-                break;
-
+    public void ActivateObject(GameObject selectedObject, int activationState) {
+        //0 is inactive, 1 is active
+        if(activationState == 0) {
+            selectedObject.SetActive(false);
+            return;
+        } else if (activationState == 1) {
+            selectedObject.SetActive(true);
         }
     }
-    #endregion
-
 }

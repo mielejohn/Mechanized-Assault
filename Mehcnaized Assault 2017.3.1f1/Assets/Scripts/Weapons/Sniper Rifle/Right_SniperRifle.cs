@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class Right_SniperRifle : MonoBehaviour {
 
-	public PlayerController Player;
+    public GameManager GM;
+    public PlayerController Player;
 	public GameObject ShotSpawn;
 	private float fireDelta = 1.5f;
 	private float nextFire = 1.5f;
 	private float myTime = 0.0f;
 	public GameObject sniperRifleBullet;
 	public int Ammo = 10;
-	public Text AmmoCount;
+    private int ammoReference;
+    public Text AmmoCount;
 	public bool Reloading;
 	public bool dropped = false;
 
@@ -29,7 +31,9 @@ public class Right_SniperRifle : MonoBehaviour {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
         bulletPoolParent = GameObject.FindGameObjectWithTag("RightBulletParent");
-
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        ammoReference = Ammo;
         for (int i = 0; i < bulletPool.Count; i++) {
             GameObject RSR_Bullet = Instantiate(sniperRifleBullet);
             bulletPool[i] = RSR_Bullet;
@@ -41,29 +45,47 @@ public class Right_SniperRifle : MonoBehaviour {
 	void Update () {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn.transform.position, -ShotSpawn.transform.right, Color.red);
-		if (Input.GetMouseButtonDown (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash.Play();
-			Shoot ();
-			Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
-		}
 
-		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
-			StartCoroutine (Player.Right_Reload ());
-			StartCoroutine(Reload ());
-		}
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButtonDown (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash.Play();
+			    Shoot ();
+			    Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+		    }
+        }
 
-		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Right > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash.Play();
+                Shoot();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
+
+        if (Ammo <= ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && Reloading == false) {
+            StartCoroutine(Player.Right_Reload());
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
 			StartCoroutine( PistolSwap());
 		}
 	}
 
 	private void Shoot(){
 		Debug.Log ("Shooting");
-
 		RaycastHit shotHit;
 		if(Physics.Raycast(ShotSpawn.transform.position, -ShotSpawn.transform.right,out shotHit,100)){
 			//Debug.Log ("Hit soemthing at: " + shotHit.distance);
@@ -78,9 +100,9 @@ public class Right_SniperRifle : MonoBehaviour {
 
         bulletPool[poolCount].transform.position = ShotSpawn.transform.position;
         bulletPool[poolCount].SetActive(true);
-        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
         bulletPool[poolCount].transform.rotation = ShotSpawn.transform.rotation;
         bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 1700f, ForceMode.VelocityChange);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitDestroy(1.5f));
 
         if (poolCount >= bulletPool.Count - 1) {
             Debug.Log("pool count reset");

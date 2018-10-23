@@ -128,6 +128,18 @@ ModelImporter:
     100240: polySurface83
     100242: Human_Size
     100244: Root4_Waist_RightUpperLeg
+    100246: Elevator1
+    100248: locator5
+    100250: locator6
+    100252: locator7
+    100254: locator8
+    100256: locator9
+    100258: pCube165
+    100260: pCube174
+    100262: Duplicate_Cube
+    100264: locator10
+    100266: pCube173
+    100268: pCube180
     400000: Barracks
     400002: Barracks16
     400004: Barracks17
@@ -251,6 +263,18 @@ ModelImporter:
     400240: polySurface83
     400242: Human_Size
     400244: Root4_Waist_RightUpperLeg
+    400246: Elevator1
+    400248: locator5
+    400250: locator6
+    400252: locator7
+    400254: locator8
+    400256: locator9
+    400258: pCube165
+    400260: pCube174
+    400262: Duplicate_Cube
+    400264: locator10
+    400266: pCube173
+    400268: pCube180
     2100000: lambert1
     2100002: Ship_Silver
     2100004: lambert30
@@ -319,6 +343,9 @@ ModelImporter:
     2100130: AssaultRifle_MainGray
     2100132: Base_gray
     2100134: AssaultRifle_DarkGray
+    2100136: lambert23
+    2100138: lambert63
+    2100140: lambert64
     2300000: Barracks
     2300002: Barracks16
     2300004: Barracks17
@@ -441,6 +468,12 @@ ModelImporter:
     2300238: polySurface83
     2300240: Human_Size
     2300242: Root4_Waist_RightUpperLeg
+    2300244: Elevator1
+    2300246: pCube165
+    2300248: pCube174
+    2300250: Duplicate_Cube
+    2300252: pCube173
+    2300254: pCube180
     3300000: Barracks
     3300002: Barracks16
     3300004: Barracks17
@@ -563,6 +596,12 @@ ModelImporter:
     3300238: polySurface83
     3300240: Human_Size
     3300242: Root4_Waist_RightUpperLeg
+    3300244: Elevator1
+    3300246: pCube165
+    3300248: pCube174
+    3300250: Duplicate_Cube
+    3300252: pCube173
+    3300254: pCube180
     4300000: pCube182
     4300002: pCube183
     4300004: pCube261_pCube117_pCube116_pCube115
@@ -685,6 +724,13 @@ ModelImporter:
     4300238: polySurface83
     4300240: Root4_Waist_RightUpperLeg
     4300242: Human_Size
+    4300244: pCube174
+    4300246: pCube165
+    4300248: Elevator1
+    4300250: pCube173
+    4300252: pCube180
+    4300254: Duplicate_Cube
+    7400000: Elevator Down
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -712,7 +758,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Elevator Down
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

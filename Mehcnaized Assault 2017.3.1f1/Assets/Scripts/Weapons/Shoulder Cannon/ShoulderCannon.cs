@@ -8,8 +8,11 @@ public enum CannonStatus{Deployed, Retracted};
 
 public class ShoulderCannon : MonoBehaviour {
 
+    [Header("Game Manager")]
+    public GameManager GM;
+
 	[Header("Player")]
-	public PlayerController PC;
+	public PlayerController Player;
 
 	[Header("Bullet Items")]
 	public GameObject shotSpawn;
@@ -17,6 +20,8 @@ public class ShoulderCannon : MonoBehaviour {
 
 	[Header("Ammo and Reloading")]
 	public int Ammo = 5;
+    private int ammoReference;
+    private int extraAmmo = 20;
 	public GameObject ammoTextObject;
 	public Text AmmoText;
 	public GameObject ReloadImage;
@@ -41,13 +46,17 @@ public class ShoulderCannon : MonoBehaviour {
     [SerializeField]
     private int cannonCount;
 
+    public bool Dropped = false;
+    public GameObject jetesinedParticles;
+
     // Use this for initialization
     void Awake () {
 		AmmoText = GameObject.FindGameObjectWithTag("LeftShoulderText").GetComponent<Text>();
-		PC = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
-		ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
+		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        ReloadImage = GameObject.FindGameObjectWithTag("LeftShoulderReloadImage");
 		ReloadImage.SetActive(false);
-
+        ammoReference = Ammo;
         cannonPoolParent = GameObject.FindGameObjectWithTag("ShoulderBulletParent");
 
         for (int i = 0; i < cannonPool.Count; i++) {
@@ -63,39 +72,58 @@ public class ShoulderCannon : MonoBehaviour {
 	{
 		Debug.DrawRay (shotSpawn.transform.position, shotSpawn.transform.up, Color.red);
 		if (AmmoText.gameObject.activeSelf == true) {
-			AmmoText.text = Ammo.ToString ();
-		}
+            AmmoText.text = "0" + Ammo.ToString() + " / " + extraAmmo;
+        }
 
-		if (Input.GetKeyDown (KeyCode.F) && Ammo > 0 && canFire == true && PC.canMove == true) {
-			//Debug.Log ("Hitting F");
+        if (Input.GetKeyDown(KeyCode.E) && currentStatus == CannonStatus.Retracted && Player.canMove == true) {
+            StartCoroutine(WeaponUp());
+        } else if (Input.GetKeyDown(KeyCode.E) && currentStatus == CannonStatus.Deployed && Player.canMove == true) {
+            currentStatus = CannonStatus.Retracted;
+            Anim.SetBool("Bring Up", false);
+            Anim.SetBool("Put Away", true);
+
+        }
+
+        if (Input.GetKeyDown (KeyCode.F) && Ammo > 0 && canFire == true && Player.canMove == true) {
 			MuzzleFlash.Play ();
 			Shoot ();
 		}
 
-		/*if (Input.GetKeyDown (KeyCode.F)) {
-			MuzzleFlash.Play ();
-		}*/
+        if (GM.prevState.Buttons.Y == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.Y == XInputDotNetPure.ButtonState.Pressed && currentStatus == CannonStatus.Retracted && Player.canMove == true) {
+            StartCoroutine(WeaponUp());
+        } else if (GM.prevState.Buttons.Y == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.Y == XInputDotNetPure.ButtonState.Pressed && currentStatus == CannonStatus.Deployed && Player.canMove == true) {
+            currentStatus = CannonStatus.Retracted;
+            Anim.SetBool("Bring Up", false);
+            Anim.SetBool("Put Away", true);
 
-		if (Ammo <= 0) {
+        }
+
+        if (GM.prevState.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Pressed && Ammo > 0 && canFire == true && Player.canMove == true) {
+            MuzzleFlash.Play();
+            Shoot();
+        }
+        //GM.prevState.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Released && GM.state.Buttons.LeftShoulder == XInputDotNetPure.ButtonState.Pressed
+
+        if (Ammo <= ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.shoulderWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
+        }
+
+        if (Ammo <= 0 && extraAmmo != 0) {
 			StartCoroutine (Reload ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.M) && currentStatus == CannonStatus.Retracted && PC.canMove == true) {
-			StartCoroutine(WeaponUp());
-		} else if (Input.GetKeyDown (KeyCode.M) && currentStatus == CannonStatus.Deployed && PC.canMove == true) {
-			currentStatus = CannonStatus.Retracted;
-			Anim.SetBool("Bring Up",false);
-			Anim.SetBool("Put Away",true);
-
-		}
-	}
+        if (Ammo <= 0 && extraAmmo == 0) {
+            StartCoroutine(BreakOff());
+        }   
+    }
 
 	private void Shoot(){
 		audioSource.Play();
 		Debug.Log ("Shooting");
 		StartCoroutine(FireAnimation());
-		//GameObject cannonShot_I = (GameObject)Instantiate (cannonShot,shotSpawn.transform.position, Quaternion.identity);
-		//cannonShot_I.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.up * 4000f, ForceMode.VelocityChange);
+        
 		Ammo--;
 
         #region Object Pool
@@ -106,7 +134,7 @@ public class ShoulderCannon : MonoBehaviour {
         cannonPool[cannonCount].SetActive(true);
         StartCoroutine(cannonPool[cannonCount].GetComponent<CannonShot>().WaitTillInActive(1.0f));
         cannonPool[cannonCount].transform.rotation = shotSpawn.transform.rotation;
-        cannonPool[cannonCount].GetComponent<Rigidbody>().AddForce(shotSpawn.transform.up * 4000f, ForceMode.VelocityChange);
+        cannonPool[cannonCount].GetComponent<Rigidbody>().AddForce(shotSpawn.transform.up * 2000f, ForceMode.VelocityChange);
 
         Debug.Log("Just fired Left");
 
@@ -124,12 +152,14 @@ public class ShoulderCannon : MonoBehaviour {
     private IEnumerator Reload(){
 		Debug.Log("Reloading");
 		AmmoText.gameObject.SetActive(false);
-		ReloadImage.SetActive(true);
+        Player.ActivateObject(Player.shoulderWeaponLowAmmoNotice, 0);
+        ReloadImage.SetActive(true);
 		yield return new WaitForSeconds(2.0f);
 		AmmoText.gameObject.SetActive(true);
 		ReloadImage.SetActive(false);
-		Ammo = 5;
-	}
+        Ammo = ammoReference;
+        extraAmmo -= ammoReference;
+    }
 
 	private IEnumerator WeaponUp(){
 		Anim.SetBool("Put Away",false);
@@ -147,4 +177,19 @@ public class ShoulderCannon : MonoBehaviour {
 		Anim.SetBool("Fired",false);
 		canFire = true;
 	}
+
+    private IEnumerator BreakOff() {
+        Dropped = true;
+        Player.shoulderWeaponNotice.text = "DETACHED";
+        yield return new WaitForSeconds(0.50f);
+        this.gameObject.transform.parent = null;
+        this.GetComponent<Rigidbody>().useGravity = true;
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        jetesinedParticles.SetActive(true);
+        this.GetComponent<Rigidbody>().AddForce(-this.transform.forward * 0.6f, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitForSeconds(10.0f);
+        this.gameObject.SetActive(false);
+    }
 }

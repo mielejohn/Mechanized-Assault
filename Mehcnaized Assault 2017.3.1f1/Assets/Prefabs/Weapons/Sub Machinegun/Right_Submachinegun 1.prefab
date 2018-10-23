@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 114988320212119012}
   - component: {fileID: 54246040688745062}
   - component: {fileID: 64804033070368200}
+  - component: {fileID: 82624728350752984}
   m_Layer: 0
   m_Name: Right_Submachinegun 1
   m_TagString: Untagged
@@ -367,6 +368,87 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 94128e6b3ad59514f82982dc1b6758e1, type: 3}
+--- !u!82 &82624728350752984
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620969930603238}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243422556255127302, guid: 677a300b777e38f47a0cf1996f3bb824,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: b8083390cba89c4489f8a856e6610630, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.472
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95474527573437824
 Animator:
   serializedVersion: 3
@@ -443,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a4fcf78457c6240afa0a3fcc582976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GM: {fileID: 0}
   topObject: {fileID: 0}
   Player: {fileID: 0}
   ShotSpawn: {fileID: 1382018965700472}
@@ -454,8 +537,20 @@ MonoBehaviour:
   dropped: 0
   MuzzleFlash: {fileID: 198762968583419674}
   audioSource: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: b8083390cba89c4489f8a856e6610630, type: 3}
+  reloadSound: {fileID: 8300000, guid: c08776925704c0d4da0df948d0d79253, type: 3}
   bulletPoolParent: {fileID: 0}
   bulletPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

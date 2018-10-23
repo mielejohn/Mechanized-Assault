@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75571cf5474309c44988fe89000fbb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GM: {fileID: 0}
   PC: {fileID: 0}
   shotSpawn: {fileID: 0}
   Grenade: {fileID: 0}
@@ -456,3 +457,11 @@ MonoBehaviour:
   CannonBody: {fileID: 0}
   MuzzleFlash: {fileID: 0}
   audioSource: {fileID: 0}
+  grenadePoolParent: {fileID: 0}
+  grenadePool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  grenadeCount: 0

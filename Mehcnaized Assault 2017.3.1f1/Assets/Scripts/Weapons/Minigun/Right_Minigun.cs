@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class Right_Minigun : MonoBehaviour {
 
-	public PlayerController Player;
+    public GameManager GM;
+    public PlayerController Player;
 	public GameObject ShotSpawn_1;
 	public GameObject ShotSpawn_2;
 	private float fireDelta = 0.12f;
 	private float nextFire = 0.12f;
 	private float myTime = 0.0f;
 	public GameObject minigunBullet;
-	public int Ammo = 150;
-	public Text AmmoCount;
+	public int Ammo = 250;
+    private int ammoReference;
+    public Text AmmoCount;
 	public bool Reloading;
 	public Animator Anim;
 	public bool dropped = false;
+    
 
 	[Header("Muzzle Effects")]
 	public ParticleSystem MuzzleFlash_1;
@@ -35,8 +38,10 @@ public class Right_Minigun : MonoBehaviour {
     void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		AmmoCount = GameObject.FindGameObjectWithTag("RightWeaponAmmo").GetComponent<Text>();
-		Anim = GetComponent<Animator>();
-
+        GM = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        Anim = GetComponent<Animator>();
+        ammoReference = Ammo;
         bulletPoolParent = GameObject.FindGameObjectWithTag("RightBulletParent");
 
         for (int i = 0; i < bulletPool.Count; i++) {
@@ -57,32 +62,49 @@ public class Right_Minigun : MonoBehaviour {
 	void Update () {
 		myTime = myTime + Time.deltaTime;
 		AmmoCount.text = Ammo.ToString ();
-		Debug.DrawRay (ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right, Color.red);
 
-		if (Input.GetMouseButtonDown (1) && Player.canMove == true) {
-			Anim.SetBool("Spin Down", false);
-			Anim.SetBool ("Firing", true);
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButtonDown (1) && Player.canMove == true) {
+			    Anim.SetBool("Spin Down", false);
+			    Anim.SetBool ("Firing", true);
+		    }
+        }
+
+        if (!GM.prevState.IsConnected) {
+            if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+			    nextFire = myTime + fireDelta;
+			    MuzzleFlash_1.Play ();
+			    Shoot_1 ();
+			    MuzzleFlash_2.Play ();
+			    Shoot_2 ();
+			    Ammo--;
+			    nextFire = nextFire - myTime;
+			    myTime = 0.0f;
+            }
 		}
 
-		if (Input.GetMouseButton (1) && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
-			nextFire = myTime + fireDelta;
-			MuzzleFlash_1.Play ();
-			Shoot_1 ();
-			MuzzleFlash_2.Play ();
-			Shoot_2 ();
-			Ammo--;
-			nextFire = nextFire - myTime;
-			myTime = 0.0f;
-		}
+        if (GM.prevState.IsConnected) {
+            if (GM.prevState.Triggers.Right > 0.45f && myTime > nextFire && Ammo > 0 && Reloading != true && dropped != true && Player.canMove == true) {
+                nextFire = myTime + fireDelta;
+                MuzzleFlash_1.Play();
+                Shoot_1();
+                MuzzleFlash_2.Play();
+                Shoot_2();
+                Ammo--;
+                nextFire = nextFire - myTime;
+                myTime = 0.0f;
+            }
+        }
 
-		if (Input.GetMouseButtonUp (1) && Player.canMove == true) {
+        if (Ammo <= ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == false) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 1);
+        } else if (Ammo > ammoReference / 4 && Player.rightWeaponLowAmmoNotice.activeSelf == true) {
+            Player.ActivateObject(Player.rightWeaponLowAmmoNotice, 0);
+        }
+
+        if (Input.GetMouseButtonUp (1) && Player.canMove == true) {
 			Anim.SetBool ("Firing", false);
 			Anim.SetBool("Spin Down", true);
-		}
-
-		if (Input.GetKeyDown (KeyCode.R) && Player.canMove == true) {
-			StartCoroutine (Player.Right_Reload ());
-			StartCoroutine(Reload ());
 		}
 
 		if (Input.GetKeyDown (KeyCode.L) && Player.canMove == true) {
@@ -90,16 +112,14 @@ public class Right_Minigun : MonoBehaviour {
 		}
 	}
 
-	private void Shoot_1(){ 
+	private void Shoot_1(){
         #region Object Pool
-
-
+        
         bulletPool[poolCount].transform.position = ShotSpawn_1.transform.position;
         bulletPool[poolCount].SetActive(true);
-        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
         bulletPool[poolCount].transform.rotation = ShotSpawn_1.transform.rotation;
         bulletPool[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 2500f, ForceMode.VelocityChange);
-
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitDestroy(0.8f));
         if (poolCount >= bulletPool.Count - 1) {
             Debug.Log("pool count reset");
             poolCount = 0;
@@ -108,16 +128,24 @@ public class Right_Minigun : MonoBehaviour {
             poolCount++;
         }
         #endregion
+        /*RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn_1.transform.position, -ShotSpawn_1.transform.right, out shotHit, 400f)) {
+
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                minigunBullet.GetComponent<Bullet>().MediumHit(2, shotHit);
+            }
+        }*/
     }
 
     private void Shoot_2(){
         #region Object Pool
-
+        
         bulletPool_2[poolCount].transform.position = ShotSpawn_2.transform.position;
         bulletPool_2[poolCount].SetActive(true);
-        StartCoroutine(bulletPool_2[poolCount].GetComponent<Bullet>().WaitTillInActive(0.7f));
         bulletPool_2[poolCount].transform.rotation = ShotSpawn_2.transform.rotation;
         bulletPool_2[poolCount].GetComponent<Rigidbody>().AddForce(-transform.right * 2500f, ForceMode.VelocityChange);
+        StartCoroutine(bulletPool[poolCount].GetComponent<Bullet>().WaitDestroy(0.8f));
 
         if (poolCount_2 >= bulletPool_2.Count - 1) {
             Debug.Log("pool count reset");
@@ -127,6 +155,15 @@ public class Right_Minigun : MonoBehaviour {
             poolCount_2++;
         }
         #endregion
+        /*
+        RaycastHit shotHit;
+        if (Physics.Raycast(ShotSpawn_2.transform.position, -ShotSpawn_2.transform.right, out shotHit, 400f)) {
+
+            Debug.Log("Hit object: " + shotHit.transform.gameObject);
+            if (shotHit.collider.tag == "Enemy") {
+                minigunBullet.GetComponent<Bullet>().MediumHit(2, shotHit);
+            }
+        }*/
     }
 
     private IEnumerator Reload(){

@@ -8,7 +8,7 @@ public class Missle : MonoBehaviour {
 	public GameObject SpawnPoint;
     public GameObject Explosion;
 
-    public float speed = 80f;
+    public float speed = 40f;
 
     public bool lockedOn;
 	//private Rigidbody rb;
@@ -19,7 +19,7 @@ public class Missle : MonoBehaviour {
         if (pc.targetedLeftEnemy != null || pc.targetedRightEnemy != null) {
 			target = pc.targetedRightEnemy.transform;
 		}
-		SpawnPoint = GameObject.FindGameObjectWithTag("Missle_Launcher").GetComponent<MissleLauncher>().missleSpawn;
+		//SpawnPoint = GameObject.FindGameObjectWithTag("Missle_Launcher").GetComponent<MissleLauncher>().missleSpawn;
 		//rb = GetComponent<Rigidbody>();
 	}
 
